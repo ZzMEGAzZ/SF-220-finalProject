@@ -1,5 +1,5 @@
 <script>
-  import { islogin, mode } from "./stores.js";
+  import { islogin, mode, addsub } from "./stores.js";
   import Login from "./Login.svelte";
   import Forgot from "./Forgot.svelte";
   import Profile from "./Profile.svelte";
@@ -32,3 +32,5 @@
     <Editprofile />
   {/if}
 {/if}
+
+{$addsub}
