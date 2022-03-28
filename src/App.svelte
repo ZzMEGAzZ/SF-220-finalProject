@@ -3,47 +3,32 @@
   import Login from "./Login.svelte";
   import Forgot from "./Forgot.svelte";
   import Profile from "./Profile.svelte";
+  import Headerbar from "./Headerbar.svelte";
+  import Allsubjects from "./All.svelte";
+  import Addsubjects from "./Add.svelte";
+  import Removesubjects from "./Remove.svelte";
+  import Alladd from "./Alladd.svelte";
+  import Editprofile from "./Editprofile.svelte";
 </script>
 
 {#if !$islogin}
   <Login />
 {:else}
-  <header>
-    <div class="nav">
-      <button>หน้าหลัก</button>
-      <p>
-        ลงทะเบียน
-        <button>รายชื่อวิชาทั้งหมด</button>
-        <button>รายชื่อวิชาที่เพิ่ม</button>
-        <button>รายชื่อวิชาที่ถอน</button>
-        <button>รายชื่อวิชาที่ลงทะเบียน</button>
-      </p>
-      <p>
-        ตั้งค่า
-        <button>เปลี่ยนรูปโปรไฟล์</button>
-        <button>เปลี่ยนรหัสผ่าน</button>
-        <button>Log out</button>
-      </p>
-    </div>
-  </header>
+  <Headerbar />
 
   {#if $mode == "profile"}
     <Profile />
   {:else if $mode == "forgot"}
     <Forgot />
+  {:else if $mode == "allsubjects"}
+    <Allsubjects />
+  {:else if $mode == "addsubjects"}
+    <Addsubjects />
+  {:else if $mode == "removesubjects"}
+    <Removesubjects />
+  {:else if $mode == "alladd"}
+    <Alladd />
+  {:else if $mode == "editprofile"}
+    <Editprofile />
   {/if}
 {/if}
-
-<style>
-  .nav p button {
-    position: absolute;
-    display: none;
-    width: inherit;
-  }
-  .nav p:hover button {
-    display: block;
-  }
-  .nav {
-    display: inline;
-  }
-</style>

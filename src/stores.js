@@ -13,6 +13,11 @@ let data = {
   },
 };
 
+let data2 = {
+  subject1: { total: 10, register: 0, remaining: 10 },
+  subject2: { total: 5, register: 1, remaining: 4 },
+};
+
 export const accounts = writable(data);
 export const islogin = writable(false);
 export const mode = writable("");
