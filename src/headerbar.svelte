@@ -9,21 +9,21 @@
 <header>
   <div class="nav">
     <ul>
-      <li>หน้าหลัก</li>
+      <li><a href="#">หน้าหลัก</a></li>
       <li>
-        ลงทะเบียน
+        <a href="#">ลงทะเบียน</a>
         <ul>
-          <li on:click={() => remode("allsubjects")}>รายวิชาทั้งหมด</li>
-          <li on:click={() => remode("addsubjects")}>เพิ่มรายวิชา</li>
-          <li on:click={() => remode("removesubjects")}>ถอนรายวิชา</li>
-          <li on:click={() => remode("alladd")}>วิชาทั้งหมดที่ลงทะเบียน</li>
+          <li on:click={() => remode("allsubjects")}><a href="#">รายวิชาทั้งหมด</a></li>
+          <li on:click={() => remode("addsubjects")}><a href="#">เพิ่มรายวิชา</a></li>
+          <li on:click={() => remode("removesubjects")}><a href="#">ถอนรายวิชา</a></li>
+          <li on:click={() => remode("alladd")}><a href="#">วิชาทั้งหมดที่ลงทะเบียน</a></li>
         </ul>
       </li>
       <li>
-        ตั้งค่า
+        <a href="#">ตั้งค่า</a>
         <ul>
-          <li on:click={() => remode("editprofile")}>แก้ไขโปรไฟล์</li>
-          <li>ออกจากระบบ</li>
+          <li on:click={() => remode("editprofile")}><a href="#">แก้ไขโปรไฟล์</a></li>
+          <li><a href="#">ออกจากระบบ</a></li>
         </ul>
       </li>
     </ul>
@@ -31,4 +31,84 @@
 </header>
 
 <style>
+  .nav {
+    overflow: hidden;
+    background-color: #3A3845;
+  }
+
+  .nav ul {
+    list-style: none;
+    background-color: #3A3845;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav li {
+    font-size: 14px;
+    line-height: 40px;
+    text-align: left;
+  }
+
+  .nav a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display: block;
+    border: 1px solid black;
+    transition: .1s;
+  }
+
+  .nav a:hover {
+    background-color: #4D96FF;
+  }
+
+  .nav a:active {
+    background-color: #cee2ff;
+    color: #FF6B6B;
+    cursor: pointer;
+  }
+
+  .nav li li{
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 650px){
+    .nav li {
+      width: 130px;
+      border: none;
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
+      display: inline-block;
+      margin-right: -4px;
+    }
+  }
+
+  .nav a {
+    border: none;
+  }
+
+  .nav ul li{
+    text-align: center;
+  }
+
+  .nav ul li a {
+    padding-left: 0;
+  }
+
+  .nav li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+  }
+
+  .nav li:hover ul {
+    display: block;
+  }
+
+  .nav li ul li {
+    display: block;
+  }
+
 </style>

@@ -33,8 +33,13 @@
 </div>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
   :global(body){
-    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    font-family: 'prompt',sans-serif;
+    background-color: white;
   }
   #login-container {
     height:100%;
