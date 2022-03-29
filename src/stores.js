@@ -20,7 +20,6 @@ let data2 = [
 ];
 let data3 = [];
 
-
 export const accounts = writable(data);
 export const islogin = writable(false);
 export const mode = writable("");

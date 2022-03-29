@@ -7,4 +7,3 @@
 <p>{$accounts[$account].id}</p>
 <p>{$accounts[$account].group}</p>
 <p>{$accounts[$account].year}</p>
-

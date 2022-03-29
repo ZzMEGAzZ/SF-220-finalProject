@@ -2,7 +2,7 @@
   import { subjects } from "./stores.js";
 </script>
 
-รายวิชาที่เปิดลงทะเบียน
+<h1>รายวิชาที่เปิดลงทะเบียน</h1>
 
 <table>
   <tr>
