@@ -41,6 +41,7 @@
     font-family: 'prompt',sans-serif;
     background-color: white;
   }
+  
   #login-container {
     height:100%;
     width: 100%;

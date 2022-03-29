@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 
 let data = {
   test: {
-    name: "test.name",
+    name: "นายภาณุวัฒน์ มั่งคั่ง",
     password: "test",
     id: 6410742057,
     role: "student",
