@@ -27,8 +27,9 @@
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id='login-btn-container'>
-    <button  on:click={checkLogin}>Log In</button>
-    <button  on:click={forgot}>forgot password</button>
+    <a  href="#" on:click={checkLogin}>Log In</a>
+    <p> | </p>
+    <a  href="#" on:click={forgot}>forgot password</a>
   </div>
 </div>
 
@@ -51,6 +52,10 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+  }
+
+  p{
+    display: inline;
   }
 
   #login-btn-container {

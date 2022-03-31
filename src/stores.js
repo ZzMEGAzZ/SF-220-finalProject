@@ -6,7 +6,7 @@ let data = {
     password: "test",
     id: 6410742057,
     role: "student",
-    group: "engineer",
+    group: "วิศวกรรมศาสตร์",
     year: "2564",
     subjects: [],
     image:
