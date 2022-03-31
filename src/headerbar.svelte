@@ -1,39 +1,40 @@
 <script>
   import { mode, account, accounts } from "./stores.js";
-
   function remode(x) {
     $mode = x;
   }
 </script>
 
 <header>
-  <div class="nav">
-    <div class="flex-nav">
-      <div id="profile-nav-container">
-        <img src={$accounts[$account].image} />
-        <p> <b>ชื่อ</b> {$accounts[$account].name} <br> <b>เลขประจำตัว</b> {$accounts[$account].id} </p>
+  <nav id="nav-head">
+    <div class="nav">
+      <div class="flex-nav">
+        <div id="profile-nav-container">
+          <img src={$accounts[$account].image} />
+          <p> <b>{$accounts[$account].role}</b> <br> <b>ชื่อ</b> {$accounts[$account].name} <br> <b>เลขประจำตัว</b> {$accounts[$account].id} </p>
+        </div>
+        <ul>
+          <li on:click={() => remode("profile")}><a href={"#"}>หน้าหลัก</a></li>
+          <li>
+            <a href={"#"}>ลงทะเบียน</a>
+            <ul>
+              <li on:click={() => remode("allsubjects")}><a href={"#"}>รายวิชาทั้งหมด</a></li>
+              <li on:click={() => remode("addsubjects")}><a href={"#"}>เพิ่มรายวิชา</a></li>
+              <li on:click={() => remode("removesubjects")}><a href={"#"}>ถอนรายวิชา</a></li>
+              <li on:click={() => remode("alladd")}><a href={"#"}>วิชาทั้งหมดที่ลงทะเบียน</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href={"#"}>ตั้งค่า</a>
+            <ul>
+              <li on:click={() => remode("editprofile")}><a href={"#"}>แก้ไขโปรไฟล์</a></li>
+              <li on:click={() => remode("logout")}><a href={"#"}>ออกจากระบบ</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li on:click={() => remode("profile")}><a href="#">หน้าหลัก</a></li>
-        <li>
-          <a href="#">ลงทะเบียน</a>
-          <ul>
-            <li on:click={() => remode("allsubjects")}><a href="#">รายวิชาทั้งหมด</a></li>
-            <li on:click={() => remode("addsubjects")}><a href="#">เพิ่มรายวิชา</a></li>
-            <li on:click={() => remode("removesubjects")}><a href="#">ถอนรายวิชา</a></li>
-            <li on:click={() => remode("alladd")}><a href="#">วิชาทั้งหมดที่ลงทะเบียน</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">ตั้งค่า</a>
-          <ul>
-            <li on:click={() => remode("editprofile")}><a href="#">แก้ไขโปรไฟล์</a></li>
-            <li><a href="#" >ออกจากระบบ</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
-  </div>
+  </nav>
 </header>
 
 <style>
