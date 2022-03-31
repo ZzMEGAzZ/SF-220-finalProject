@@ -8,29 +8,64 @@
 
 <header>
   <div class="nav">
-    <ul>
-      <li><a href="#">หน้าหลัก</a></li>
-      <li>
-        <a href="#">ลงทะเบียน</a>
-        <ul>
-          <li on:click={() => remode("allsubjects")}><a href="#">รายวิชาทั้งหมด</a></li>
-          <li on:click={() => remode("addsubjects")}><a href="#">เพิ่มรายวิชา</a></li>
-          <li on:click={() => remode("removesubjects")}><a href="#">ถอนรายวิชา</a></li>
-          <li on:click={() => remode("alladd")}><a href="#">วิชาทั้งหมดที่ลงทะเบียน</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">ตั้งค่า</a>
-        <ul>
-          <li on:click={() => remode("editprofile")}><a href="#">แก้ไขโปรไฟล์</a></li>
-          <li><a href="#">ออกจากระบบ</a></li>
-        </ul>
-      </li>
-    </ul>
+    <div class="flex-nav">
+      <div id="profile-nav-container">
+        <img src={$accounts[$account].image} />
+        <p> <b>ชื่อ</b> {$accounts[$account].name} <br> <b>เลขประจำตัว</b> {$accounts[$account].id} </p>
+      </div>
+      <ul>
+        <li><a href="#">หน้าหลัก</a></li>
+        <li>
+          <a href="#">ลงทะเบียน</a>
+          <ul>
+            <li on:click={() => remode("allsubjects")}><a href="#">รายวิชาทั้งหมด</a></li>
+            <li on:click={() => remode("addsubjects")}><a href="#">เพิ่มรายวิชา</a></li>
+            <li on:click={() => remode("removesubjects")}><a href="#">ถอนรายวิชา</a></li>
+            <li on:click={() => remode("alladd")}><a href="#">วิชาทั้งหมดที่ลงทะเบียน</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">ตั้งค่า</a>
+          <ul>
+            <li on:click={() => remode("editprofile")}><a href="#">แก้ไขโปรไฟล์</a></li>
+            <li><a href="#">ออกจากระบบ</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
 
 <style>
+
+  #profile-nav-container {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-right: 15px;
+  }
+
+  #profile-nav-container img {
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    margin-right: 15px ;
+    vertical-align: middle;
+  }
+
+  
+  #profile-nav-container p{
+    margin: 0;
+    font-size: 10px;
+  }
+
+  .flex-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
   .nav {
     overflow: hidden;
     background-color: #3A3845;

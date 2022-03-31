@@ -5,10 +5,10 @@
 <div id="profile">
   <img src={$accounts[$account].image} />
   <div id="detail-profile">
-    <p display="inline">ชื่อ {$accounts[$account].name}</p>
-    <p>เลขประจำตัว {$accounts[$account].id}</p>
-    <p>คณะ {$accounts[$account].group}</p>
-    <p>ปีการศึกษา {$accounts[$account].year}</p>
+    <p> <b>ชื่อ</b> {$accounts[$account].name}</p>
+    <p> <b>เลขประจำตัว</b> {$accounts[$account].id}</p>
+    <p> <b>คณะ</b> {$accounts[$account].group}</p>
+    <p> <b>ปีการศึกษา</b> {$accounts[$account].year}</p>
   </div>
 </div>
 
