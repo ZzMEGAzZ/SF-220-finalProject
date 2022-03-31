@@ -14,7 +14,7 @@
         <p> <b>ชื่อ</b> {$accounts[$account].name} <br> <b>เลขประจำตัว</b> {$accounts[$account].id} </p>
       </div>
       <ul>
-        <li><a href="#">หน้าหลัก</a></li>
+        <li on:click={() => remode("profile")}><a href="#">หน้าหลัก</a></li>
         <li>
           <a href="#">ลงทะเบียน</a>
           <ul>
@@ -28,7 +28,7 @@
           <a href="#">ตั้งค่า</a>
           <ul>
             <li on:click={() => remode("editprofile")}><a href="#">แก้ไขโปรไฟล์</a></li>
-            <li><a href="#">ออกจากระบบ</a></li>
+            <li><a href="#" >ออกจากระบบ</a></li>
           </ul>
         </li>
       </ul>
@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
     color: white;
+    margin-left: 30px;
     margin-right: 15px;
   }
 
@@ -61,9 +62,10 @@
 
   .flex-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
+    flex-direction: row;
+    margin-right: 30px;
   }
 
   .nav {
