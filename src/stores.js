@@ -12,6 +12,17 @@ let data = {
     image:
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
+  admin: {
+    name: "นายอภิสิทธิ์ แสงกระจ่าง",
+    password: "admin",
+    id: 6410742016,
+    role: "admin",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    subjects: [],
+    image:
+      "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  },
 };
 
 let data2 = [

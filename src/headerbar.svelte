@@ -42,7 +42,6 @@
     display: flex;
     align-items: center;
     color: white;
-    margin-left: 30px;
     margin-right: 15px;
   }
 
@@ -55,7 +54,7 @@
   }
 
   
-  #profile-nav-container p{
+  #profile-nav-container p {
     margin: 0;
     font-size: 10px;
   }
@@ -65,6 +64,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    margin-left: 30px;
     margin-right: 30px;
   }
 
