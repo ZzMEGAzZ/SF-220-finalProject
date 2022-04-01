@@ -21,30 +21,32 @@
   }
 </script>
 
-<div id='login-container'>
+<div id="login-container">
   <h1>Login</h1>
 
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
-  <div id='login-btn-container'>
-    <a  href="#" on:click={checkLogin}>Log In</a>
-    <p> | </p>
-    <a  href="#" on:click={forgot}>forgot password</a>
+  <div id="login-btn-container">
+    <a href={"#"} on:click={checkLogin}>Log In</a>
+    <p>|</p>
+    <a href={"#"} on:click={forgot}>forgot password</a>
   </div>
 </div>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 
-  :global(body){
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+  :global(body) {
     margin: 0;
     padding: 0;
-    font-family: 'prompt',sans-serif;
+    font-family: "prompt", sans-serif;
     background-color: white;
   }
-  
+
   #login-container {
-    height:100%;
+    height: 100%;
     width: 100%;
 
     display: flex;
@@ -54,7 +56,7 @@
     align-items: center;
   }
 
-  p{
+  p {
     display: inline;
   }
 

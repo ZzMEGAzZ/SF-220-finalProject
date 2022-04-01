@@ -1,5 +1,5 @@
 <script>
-  import { islogin, mode, addsub } from "./stores.js";
+  import { islogin, mode, accounts, account } from "./stores.js";
   import Login from "./Login.svelte";
   import Forgot from "./Forgot.svelte";
   import Profile from "./Profile.svelte";
@@ -9,6 +9,7 @@
   import Removesubjects from "./Remove.svelte";
   import Alladd from "./Alladd.svelte";
   import Editprofile from "./Editprofile.svelte";
+
 </script>
 
 {#if !$islogin}
@@ -33,4 +34,5 @@
   {/if}
 {/if}
 
-{$addsub}
+
+
