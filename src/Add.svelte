@@ -1,14 +1,21 @@
 <script>
   let x = [];
+  let y = [];
   import { subjects, accounts, account, mode } from "./stores.js";
 
-  function addsubjects(subject) {
-    let confirm = prompt(
-      "กรุณายืนยันการลงทะเบียน(กรอก 'ยืนยัน' เพื่อยืนยันการลงทะเบียน)"
-    );
-    if (confirm == "ยืนยัน") {
-      x.push(subject);
-      x = x;
+  function addsubjects(name, index) {
+    if (!(name in $accounts[$account].sub)) {
+      let confirm = prompt(
+        "กรุณายืนยันการลงทะเบียน(กรอก 'ยืนยัน' เพื่อยืนยันการลงทะเบียน)"
+      );
+      if (confirm == "ยืนยัน") {
+        x.push(name);
+        x = x;
+        y.push(index);
+        y = y;
+      }
+    } else {
+      alert("วิชานี้ถูกเพิ่มไปแล้ว");
     }
   }
 
@@ -18,8 +25,13 @@
     for (; i < len; i++) {
       $accounts[$account].sub.push(x[i]);
     }
-    
-    
+    let j = 0;
+    len = y.length;
+    for (; j < len; j++) {
+      $subjects[y[j]].register++;
+      $subjects[y[j]].remaining--;
+    }
+
     $mode = "alladd";
   }
 </script>
@@ -43,13 +55,13 @@
       <td>{total}</td>
       <td>{register}</td>
       <td>{remaining}</td>
+      <td id="test" />
       <td>
-        <button on:click={() => addsubjects(name)}>เพิ่ม</button>
+        <button on:click={() => addsubjects(name, index)}>เพิ่ม</button>
       </td>
     </tr>
   {/each}
 </table>
-
 
 <p>วิชาที่ต้องการลงทะเบียน</p>
 <p>{x}</p>
