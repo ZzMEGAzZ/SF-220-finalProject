@@ -8,7 +8,7 @@ let data = {
     role: "student",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
-    sub: ["subject2"],
+    sub: [ "subject2"],
     image:
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },

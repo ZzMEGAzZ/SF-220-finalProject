@@ -34,9 +34,21 @@
 
     $mode = "alladd";
   }
+
+  var listsub = $accounts[$account].sub;
+
+  function check(name) {
+    for (let i = 0; i < listsub.length; i++) {
+      if (listsub[i] == name) {
+        return true;
+      }
+    }
+  }
 </script>
 
 ลงทะเบียนรายวิชา
+
+{listsub}
 
 <table>
   <tr>
@@ -55,9 +67,12 @@
       <td>{total}</td>
       <td>{register}</td>
       <td>{remaining}</td>
-      <td id="test" />
       <td>
-        <button on:click={() => addsubjects(name, index)}>เพิ่ม</button>
+        {#if check(name)}
+          ลงทะเบียนแล้ว
+        {:else}
+          <button on:click={addsubjects(name, index)}> เพิ่ม </button>
+        {/if}
       </td>
     </tr>
   {/each}
