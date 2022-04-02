@@ -70,6 +70,8 @@
       <td>
         {#if check(name)}
           ลงทะเบียนแล้ว
+        {:else if remaining == 0}
+          วิชานี้เต็มแล้ว
         {:else}
           <button on:click={addsubjects(name, index)}> เพิ่ม </button>
         {/if}
