@@ -16,8 +16,8 @@
     }
   }
   function forgot() {
+    $islogin = false;
     $mode = "forgot";
-    $islogin = true;
   }
 </script>
 
@@ -27,13 +27,11 @@
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id="login-btn-container">
-    <a href={"#"} on:click={checkLogin}>Log In</a>
+    <a href={"#"} on:click={() => checkLogin()}>Log In</a>
     <p>|</p>
-    <a href={"#"} on:click={forgot}>forgot password</a>
+    <a href={"#"} on:click={() => forgot()}>forgot password</a>
   </div>
 </div>
-
-
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
