@@ -40,7 +40,7 @@ let data = {
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image: "https://pin.it/4WyJKQv",
+    image: "https://i.pinimg.com/564x/10/db/43/10db43f94fd4d2ef167db304c4eee343.jpg",
   }
 };
 
