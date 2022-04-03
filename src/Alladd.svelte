@@ -2,14 +2,44 @@
   import { accounts, account } from "./stores.js";
 </script>
 
-<h1>allsubjects ที่ add</h1>
+<div><h1>ผลการจดทะเบียน</h1></div>
 
 
-<table>
-  <tr>รายวิชา</tr>
+<div><table>
+  <thead><tr>รายวิชา</tr></thead>
   {#each $accounts[$account].sub as i}
-    <tr>
+    <tbody><tr>
       {i}
-    </tr>
+    </tr></tbody>
   {/each}
-</table>
+</table></div>
+
+<style>
+  *{
+      padding:0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+  div{
+      display: flex;
+      justify-content: center;
+    }
+  div h1{
+    margin-top: 50px;
+  }
+  div table{
+    margin-top:40px;
+    border-collapse: collapse;
+    background-color:#C7D0D8;
+
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
+    width:100px;
+  }
+  thead tr{
+    background-color: white;
+    height: 50px;
+  }
+
+</style>
