@@ -22,6 +22,15 @@ let data = {
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
   },
+  test: {
+    name: "นายภัทรดา มิโคทะ",
+    password: "test",
+    id: 6410742099,
+    role: "student",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    sub: [],
+    image: "https://fbi.dek-d.com/27/0585/6939/128381235",
 };
 
 let data2 = [
