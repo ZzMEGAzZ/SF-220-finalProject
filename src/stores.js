@@ -22,20 +22,24 @@ let data = {
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
   },
-  test: {
-    name: "นายภัทรดา มิโคทะ",
-    password: "test",
-    id: 6410742099,
-    role: "student",
+  $:{
+    name: "นางสาวศศิภา บุญอุ้มชู",
+    password: "$",
+    id: 6410742511,
+    role: "admin",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image: "https://fbi.dek-d.com/27/0585/6939/128381235",
+    image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  }
 };
 
 let data2 = [
-  { name: "subject1", total: 10, register: 0, remaining: 10 },
-  { name: "subject2", total: 5, register: 1, remaining: 4 },
+  { name: "SF210", total: 10, register: 10, remaining: 0 },
+  { name: "SF220", total: 10, register: 0, remaining: 10 },
+  { name: "SF230", total: 10, register: 0, remaining: 10 },
+  { name: "TU107", total: 10, register: 0, remaining: 10 },
+  { name: "TU109", total: 10, register: 0, remaining: 10 },
 ];
 
 export const accounts = writable(data);

@@ -53,12 +53,10 @@
     box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
   }
   thead tr{
-    border-bottom: 1px dashed grey;
     background-color: white;
-    height: 50px;
+    border-bottom: 1px dashed grey;
+    height: 50px; 
   }
-  tbody td{
-    border-top: 1px dashed grey;
-  }
+
 </style>
 
