@@ -35,10 +35,11 @@
     padding: 10px;
     text-align: center;
     box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
-    width:100px;
+    width:120px;
   }
   thead tr{
     background-color: white;
+    border-bottom: 1px dashed grey;
     height: 50px;
   }
 
