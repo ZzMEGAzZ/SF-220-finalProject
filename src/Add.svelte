@@ -46,10 +46,11 @@
   }
 </script>
 
-ลงทะเบียนรายวิชา
+<div>
+<h1>ลงทะเบียนรายวิชา</h1>
+</div>
 
-
-
+<div>
 <table>
   <tr>
     <th />
@@ -79,8 +80,49 @@
     </tr>
   {/each}
 </table>
+</div>
 
+<div>
 <p>วิชาที่ต้องการลงทะเบียน</p>
 <p>{x}</p>
+</div>
 
+<div>
 <button on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
+</div>
+
+<style>
+  *{
+      padding:0px;
+      margin: 0px;
+      box-sizing: border-box;
+        }
+  div{
+    display: flex;
+    justify-content: center;
+  }
+  div h1{
+    margin-top: 50px;
+  }
+  div table{
+    margin-top:40px;
+    border-collapse: collapse;
+    background-color:#C7D0D8;
+            
+    padding: 10px;
+    text-align: center;
+            
+    width:540px;
+    height: 200px;
+    box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
+  }
+  tr{
+    border-bottom: 1px dashed grey;
+    background-color: white;
+    height: 50px;
+  }
+  td{
+    border-top: 1px dashed grey;
+  }
+
+</style>

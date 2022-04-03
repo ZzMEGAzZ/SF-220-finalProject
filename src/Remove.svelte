@@ -37,10 +37,14 @@
   {/each}
 </table></div>
 
+<div>
 <p>วิชาที่ต้องการถอน</p>
 <p>{x}</p>
+</div>
 
+<div>
 <button on:click={() => confirm(x)}>ยืนยันวิชาที่ต้องการถอน</button>
+</div>
 
 <style>
   *{
@@ -57,6 +61,23 @@
   }
   div table{
     margin-top:40px;
+    border-collapse: collapse;
+    background-color:#C7D0D8;
+            
+    padding: 10px;
+    text-align: center;
+            
+    width:540px;
+    height: 200px;
+    box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
+  }
+  tr{
+    border-bottom: 1px dashed grey;
+    background-color: white;
+    height: 50px;
+  }
+  td{
+    border-top: 1px dashed grey;
   }
 
 </style>
