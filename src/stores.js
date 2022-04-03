@@ -41,6 +41,16 @@ let data = {
     year: "2564",
     sub: [],
     image: "https://i.pinimg.com/564x/10/db/43/10db43f94fd4d2ef167db304c4eee343.jpg",
+  },
+  spy:{
+    name: "นางสาวภัทรดา มิโคทะ",
+    password: "12345",
+    id: 6410742099,
+    role: "student",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    sub: [],
+    image: "https://fbi.dek-d.com/27/0585/6939/128381235",
   }
 };
 
