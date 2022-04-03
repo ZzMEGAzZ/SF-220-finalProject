@@ -31,6 +31,16 @@ let data = {
     year: "2564",
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  },
+  e:{
+    name: "นางสาวณพัชสินี พวงบุบผา",
+    password: "e",
+    id: 6410742354,
+    role: "admin",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    sub: [],
+    image: "https://pin.it/4WyJKQv",
   }
 };
 
