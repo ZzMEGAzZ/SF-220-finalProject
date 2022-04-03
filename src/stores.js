@@ -25,8 +25,11 @@ let data = {
 };
 
 let data2 = [
-  { name: "subject1", total: 10, register: 0, remaining: 10 },
-  { name: "subject2", total: 5, register: 1, remaining: 4 },
+  { name: "SF210", total: 10, register: 10, remaining: 0 },
+  { name: "SF220", total: 10, register: 0, remaining: 10 },
+  { name: "SF230", total: 10, register: 0, remaining: 10 },
+  { name: "TU107", total: 10, register: 0, remaining: 10 },
+  { name: "TU109", total: 10, register: 0, remaining: 10 },
 ];
 
 export const accounts = writable(data);
