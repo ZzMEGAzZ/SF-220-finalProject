@@ -22,6 +22,16 @@ let data = {
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
   },
+  $:{
+    name: "นางสาวศศิภา บุญอุ้มชู",
+    password: "$",
+    id: 6410742511,
+    role: "admin",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    sub: [],
+    image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  },
 };
 
 let data2 = [

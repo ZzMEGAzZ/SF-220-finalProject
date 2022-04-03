@@ -22,9 +22,9 @@
   }
 </script>
 
-<h1>removesubjects</h1>
+<div><h1>ถอดถอนรายวิชา</h1></div>
 
-<table>
+<div><table>
   <tr>
     <th>รายวิชา</th>
     <th>เพิ่มเติม</th>
@@ -35,9 +35,28 @@
       <td><button on:click={() => removesubjects(i)}>ลบ</button> </td>
     </tr>
   {/each}
-</table>
+</table></div>
 
 <p>วิชาที่ต้องการถอน</p>
 <p>{x}</p>
 
 <button on:click={() => confirm(x)}>ยืนยันวิชาที่ต้องการถอน</button>
+
+<style>
+  *{
+      padding:0px;
+      margin: 0px;
+      box-sizing: border-box;
+        }
+  div{
+    display: flex;
+    justify-content: center;
+  }
+  div h1{
+    margin-top: 50px;
+  }
+  div table{
+    margin-top:40px;
+  }
+
+</style>
