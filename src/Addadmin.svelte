@@ -1,94 +1,105 @@
 <script>
-  let x = [];
-  let y = [];
+  let showmode = true;
   let newname = "";
-  let total = "";
+  let newsubject = "";
+  let newtotal = "";
+  let newcredit = "";
+  let newTeacher = "";
+  let newshort_description = "";
+  let newdescription = "";
   import { subjects, accounts, account, mode } from "./stores.js";
-  function editsubject() {
-    let confirm = prompt(
-      "กรุณายืนยันการแก้ไขข้อมูล(กรอก 'ยืนยัน' เพื่อยืนยันการแก้ไขข้อมูล)"
-    );
-    if (confirm == "ยืนยัน") {
-        newname = document.getElementById("name").value;
-        total = document.getElementById("total").value;
 
+  function show_results() {
+    if (newname == "" || newtotal == "" || newcredit == "") {
+      alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
+    } else {
+      showmode = false;
     }
+  }
+
+  function confirm() {
+    $subjects.push({
+      name: newname,
+      subject: newsubject,
+      total: newtotal,
+      register: 0,
+      remaining: newtotal,
+      credit: newcredit,
+      teacher: newTeacher,
+      short_description: newshort_description,
+      description: newdescription,
+    });
+
+    alert("เพิ่มรายวิชาสำเร็จ");
+    newname = "";
+    newsubject = "";
+    newtotal = "";
+    newcredit = "";
+    newTeacher = "";
+    newshort_description = "";
+    newdescription = "";
+    mode.set("allsubjects");
   }
 </script>
 
 <h1>Addandedit</h1>
 
-<div>
-  <h1>ลงทะเบียนรายวิชา</h1>
-</div>
+<h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
+{#if showmode == true}
+  รหัสวิชา:<input type="text" on:input={(e) => (newname = e.target.value)} />
+  ชื่อวิชา:
+  <input type="text" on:input={(e) => (newsubject = e.target.value)} />
+  จำนวนโควต้า:<input
+    type="number"
+    min="0"
+    on:input={(e) => (newtotal = e.target.value)}
+  />
+  หน่วยกิต:
+  <input
+    type="number"
+    min="0"
+    max="3"
+    on:input={(e) => (newcredit = e.target.value)}
+  />
+  ชื่ออาจารย์ผู้สอน:<input
+    type="text"
+    on:input={(e) => (newTeacher = e.target.value)}
+  />
+  เพิ่มเติม:
+  <input
+    type="text"
+    on:input={(e) => (newshort_description = e.target.value)}
+  />
+  รายละเอียดวิชา:
+  <input type="text" on:input={(e) => (newdescription = e.target.value)} />
 
-<div>
+  <button on:click={() => show_results()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+{/if}
+
+{#if showmode == false}
   <table>
-    <tr>
-      <th />
-      <th>รายวิชา</th>
-      <th>โควตา</th>
-      <th>ลงทะเบียนแล้ว</th>
-      <th>คงเหลือ</th>
-      <th>เพิ่มเติม</th>
-    </tr>
-
-    {#each $subjects as { name, total, register, remaining }, index}
+    <thead>
       <tr>
-        <td>{index + 1}</td>
-        <td><input id="newname" type="text" name="newname" bind:value={name} /></td>
-        <td
-          ><input id="total" type="text=" name="total" bind:value={total} /></td
-        >
-        <td>{register}</td>
-        <td>{remaining}</td>
+        <th>รหัสวิชา</th>
+        <th>ชื่อวิชา</th>
+        <th>จำนวนโควต้า</th>
+        <th>หน่วยกิต</th>
+        <th>ชื่ออาจารย์ผู้สอน</th>
+        <th>เพิ่มเติม</th>
+        <th>รายละเอียดวิชา</th>
       </tr>
-    {/each}
+    </thead>
+    <tbody>
+      <tr>
+        <td>{newname}</td>
+        <td>{newsubject}</td>
+        <td>{newtotal}</td>
+        <td>{newcredit}</td>
+        <td>{newTeacher}</td>
+        <td>{newshort_description}</td>
+        <td>{newdescription}</td>
+      </tr>
+    </tbody>
   </table>
-</div>
-
-<button on:click={() => editsubject()}> ยืนยันการแก้ไข </button>
-
-<div>
-  <p>วิชาที่ต้องการเพิ่มในระบบ</p>
-  <p>{x}</p>
-</div>
-
-<div>
-  <button on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
-</div>
-
-<style>
-  * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-  }
-  div {
-    display: flex;
-    justify-content: center;
-  }
-  div h1 {
-    margin-top: 50px;
-  }
-  div table {
-    margin-top: 40px;
-    border-collapse: collapse;
-    background-color: #c7d0d8;
-
-    padding: 10px;
-    text-align: center;
-
-    width: auto;
-    height: 200px;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
-  }
-  tr {
-    border-bottom: 1px dashed grey;
-    background-color: white;
-    height: 50px;
-  }
-  tr:nth-last-child(-n + 1) {
-    border-bottom: none;
-  }
-</style>
+  <button on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+{/if}

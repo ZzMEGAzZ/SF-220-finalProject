@@ -19,6 +19,8 @@
     $islogin = false;
     $mode = "forgot";
   }
+
+  
 </script>
 
 <div id="login-container">
@@ -28,7 +30,7 @@
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id="login-btn-container">
     <button on:click={() => checkLogin()}>Log In</button>
-    <p> | </p>
+    <p>|</p>
     <button on:click={() => forgot()}>forgot password</button>
   </div>
 </div>
@@ -68,7 +70,7 @@
     border: none;
     border-radius: 20px;
     background-color: transparent;
-    color:  #3a3845;
+    color: #3a3845;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -76,9 +78,8 @@
 
   #login-btn-container button:hover {
     color: #ff2361;
-    transition: .1s;
+    transition: 0.1s;
   }
-
 
   :global(input) {
     display: flex;
