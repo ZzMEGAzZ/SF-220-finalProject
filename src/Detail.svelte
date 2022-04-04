@@ -16,7 +16,13 @@
     let new_short_description =
       document.getElementById("short_description").value;
 
-    if (newcredit >= 0 && newtotal >= 0 && newcredit <= 3 && newtotal <= 100) {
+    if (
+      newcredit >= 0 &&
+      newtotal >= 0 &&
+      newcredit <= 3 &&
+      newtotal <= 100 &&
+      newtotal < $subjects.find((x) => x.name == name).register
+    ) {
       $subjects.find((x) => x.name == name).credit = newcredit;
       $subjects.find((x) => x.name == name).total = newtotal;
       $subjects.find((x) => x.name == name).description = newdescription;
