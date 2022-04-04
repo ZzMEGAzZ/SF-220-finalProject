@@ -10,6 +10,7 @@
     if (confirm == "ยืนยัน") {
       x.push(subject);
       x = x;
+      x = Array.from(new Set(x));
     }
   }
 
