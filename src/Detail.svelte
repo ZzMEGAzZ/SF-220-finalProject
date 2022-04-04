@@ -10,7 +10,6 @@
     }
   }
   function change_subject() {
-    alert("บันทึก");
     let newcredit = document.getElementById("credit").value;
     let newtotal = document.getElementById("total").value;
     let newdescription = document.getElementById("description").value;
@@ -31,6 +30,7 @@
         newtotal - $subjects.find((x) => x.name == name).register;
 
       $mode = "allsubjects";
+      alert("บันทึก");
     }
   }
 </script>
