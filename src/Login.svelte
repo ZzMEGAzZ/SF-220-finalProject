@@ -92,6 +92,4 @@
     display: flex;
     margin: 6px;
   }
-  main {
-  }
 </style>
