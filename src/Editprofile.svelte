@@ -37,7 +37,7 @@
 
 editprofile
 <div id="profile">
-  <img src={$accounts[$account].image} />
+  <img src={$accounts[$account].image} alt="profile IMG"/>
   <button on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
   {#if show}
     <input id="file" type="file" on:change={() => change_image()} />

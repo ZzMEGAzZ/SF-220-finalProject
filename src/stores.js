@@ -70,10 +70,11 @@ let data2 = [
   },
   {
     name: "SF220",
-    subject: " ",
+    subject: "Introduction to software engineering",
     total: 10,
     register: 0,
     remaining: 10,
+    credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
     description: "สำหรับนักศึกษา Software Engineer",
@@ -84,21 +85,33 @@ let data2 = [
     total: 10,
     register: 0,
     remaining: 10,
+    credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
     description: "สำหรับนักศึกษา Software Engineer",
   },
   {
     name: "TU107",
-    subject: " ",
+    subject: "Digital skill and Problem Solving",
     total: 10,
     register: 0,
     remaining: 10,
+    credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
     description: "สำหรับนักศึกษา Software Engineer",
   },
-  { name: "TU109", subject: " ", total: 10, register: 0, remaining: 10 },
+  {
+    name: "TU109",
+    subject: "Innovation and entrepreneurial mindset",
+    total: 10,
+    register: 0,
+    remaining: 10,
+    credit: 3,
+    Teacher: "Thanapath Cheeranawanith",
+    short_description: "All Section",
+    description: "สำหรับนักศึกษา All Section",
+  }
 ];
 
 export const accounts = writable(data);
