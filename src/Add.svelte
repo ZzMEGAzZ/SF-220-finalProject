@@ -83,12 +83,12 @@
 </div>
 
 <div>
-  <p>วิชาที่ต้องการลงทะเบียน</p>
+  <p id="space">วิชาที่ต้องการลงทะเบียน</p>
   <p>{x}</p>
 </div>
 
 <div>
-  <button on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
+  <button class="button" on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
 </div>
 
 <style>
@@ -123,5 +123,28 @@
   }
   tr:nth-last-child(-n + 1) {
     border-bottom: none;
+  }
+  .button {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {background-color: #b5b5b5}
+
+  .button:active {
+  background-color: #b5b5b5;
+  box-shadow: 0 5px rgb(228, 228, 228);
+  transform: translateY(4px);
+  }
+  #space {
+    margin: 10px;
   }
 </style>

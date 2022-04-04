@@ -38,12 +38,12 @@
 </table></div>
 
 <div>
-<p>วิชาที่ต้องการถอน</p>
+<p id="space">วิชาที่ต้องการถอน</p>
 <p>{x}</p>
 </div>
 
 <div>
-<button on:click={() => confirm(x)}>ยืนยันวิชาที่ต้องการถอน</button>
+<button class="button" on:click={() => confirm(x)}>ยืนยันวิชาที่ต้องการถอน</button>
 </div>
 
 <style>
@@ -78,6 +78,31 @@
   }
   td{
     border-top: 1px dashed grey;
+  }
+
+  .button {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {background-color: #b5b5b5}
+
+  .button:active {
+  background-color: #b5b5b5;
+  box-shadow: 0 5px rgb(228, 228, 228);
+  transform: translateY(4px);
+  }
+
+  #space {
+    margin: 10px;
   }
 
 </style>
