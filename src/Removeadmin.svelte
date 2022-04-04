@@ -32,9 +32,11 @@
   }
 </script>
 
-<h1>removeadmin</h1>
+<div>
+  <h1>ลบรายวิชา</h1>
+</div>
 
-<table>
+<div><table>
   <tr>
     <th />
     <th>รายวิชา</th>
@@ -56,4 +58,40 @@
       </td></tr
     >
   {/each}
-</table>
+</table></div>
+
+<style>
+    * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+  }
+  div h1 {
+    margin-top: 50px;
+  }
+  div table {
+    margin-top: 40px;
+    border-collapse: collapse;
+    background-color: #c7d0d8;
+
+    padding: 10px;
+    text-align: center;
+
+    width: 540px;
+    height: 200px;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+  }
+  tr {
+    border-bottom: 1px dashed grey;
+    background-color: white;
+    height: 50px;
+  }
+  tr:nth-last-child(-n + 1) {
+    border-bottom: none;
+  }
+
+</style>
