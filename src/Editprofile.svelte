@@ -35,7 +35,10 @@
   }
 </script>
 
-editprofile
+<div>
+<h1>Editprofile</h1>
+</div>
+
 <div id="profile">
   <img src={$accounts[$account].image} alt="profile IMG"/>
   <button on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
@@ -51,7 +54,15 @@ editprofile
   </div>
 </div>
 
-<button on:click={() => show_input2()}>เปลี่ยนรหัสผ่าน</button>
+<div>
+  <button class="button" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
+  {#if show}
+    <input id="file" type="file" on:change={() => change_image()} />
+  {/if}
+  </div>
+<div>
+<button class="button" on:click={() => show_input2()}>เปลี่ยนรหัสผ่าน</button>
+</div>
 
 {#if show2}
   <input id="old_password" type="text" placeholder="รหัสผ่านเดิม" />
@@ -82,5 +93,36 @@ editprofile
     margin: 10%;
     display: flex;
     flex-direction: column;
+    font-weight: bold;
   }
+  div{
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    margin-top: 50px;
+  }
+
+  .button {
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(228, 228, 228);
+}
+
+.button:hover {background-color: #b5b5b5}
+
+.button:active {
+  background-color: #b5b5b5;
+  box-shadow: 0 5px rgb(228, 228, 228);
+  transform: translateY(4px);
+}
+
+
+ 
 </style>
