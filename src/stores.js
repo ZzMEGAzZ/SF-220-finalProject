@@ -8,7 +8,7 @@ let data = {
     role: "student",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
-    sub: [ "subject2"],
+    sub: ["SF210"],
     image:
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
@@ -22,7 +22,7 @@ let data = {
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
   },
-  $:{
+  $: {
     name: "นางสาวศศิภา บุญอุ้มชู",
     password: "$",
     id: 6410742511,
@@ -32,7 +32,7 @@ let data = {
     sub: [],
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
   },
-  e:{
+  e: {
     name: "นางสาวณพัชสินี พวงบุบผา",
     password: "e",
     id: 6410742354,
@@ -40,9 +40,10 @@ let data = {
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image: "https://i.pinimg.com/564x/10/db/43/10db43f94fd4d2ef167db304c4eee343.jpg",
+    image:
+      "https://i.pinimg.com/564x/10/db/43/10db43f94fd4d2ef167db304c4eee343.jpg",
   },
-  spy:{
+  spy: {
     name: "นางสาวภัทรดา มิโคทะ",
     password: "12345",
     id: 6410742099,
@@ -51,7 +52,7 @@ let data = {
     year: "2564",
     sub: [],
     image: "https://fbi.dek-d.com/27/0585/6939/128381235",
-  }
+  },
 };
 
 let data2 = [

@@ -9,6 +9,9 @@
   import Removesubjects from "./Remove.svelte";
   import Alladd from "./Alladd.svelte";
   import Editprofile from "./Editprofile.svelte";
+  import Statistics from "./Statistics.svelte";
+  import Addandedit from "./Addandedit.svelte";
+  import Removeadmin from "./Removeadmin.svelte";
 </script>
 
 {#if !$islogin && !($mode == "forgot")}
@@ -30,5 +33,11 @@
     <Alladd />
   {:else if $mode == "editprofile"}
     <Editprofile />
+  {:else if $mode == "statistics"}
+    <Statistics />
+  {:else if $mode == "addandedit"}
+    <Addandedit />
+  {:else if $mode == "removeadmin"}
+    <Removeadmin />
   {/if}
 {/if}

@@ -7,6 +7,14 @@
     $islogin = false;
     $account = {};
   }
+
+  function checkrole_admin() {
+    if ($accounts[$account].role == "admin") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 </script>
 
 <header>
@@ -14,7 +22,7 @@
     <div class="nav">
       <div class="flex-nav">
         <div id="profile-nav-container">
-          <img src={$accounts[$account].image} alt="profile"/>
+          <img src={$accounts[$account].image} alt="profile" />
           <p>
             <b>{$accounts[$account].role}</b> <br /> <b>ชื่อ</b>
             {$accounts[$account].name} <br /> <b>เลขประจำตัว</b>
@@ -29,15 +37,27 @@
               <li on:click={() => remode("allsubjects")}>
                 <button>รายวิชาทั้งหมด</button>
               </li>
-              <li on:click={() => remode("addsubjects")}>
-                <button>เพิ่มรายวิชา</button>
-              </li>
-              <li on:click={() => remode("removesubjects")}>
-                <button>ถอนรายวิชา</button>
-              </li>
-              <li on:click={() => remode("alladd")}>
-                <button>วิชาทั้งหมดที่ลงทะเบียน</button>
-              </li>
+              {#if !checkrole_admin()}
+                <li on:click={() => remode("addsubjects")}>
+                  <button>เพิ่มรายวิชา</button>
+                </li>
+                <li on:click={() => remode("removesubjects")}>
+                  <button>ถอนรายวิชา</button>
+                </li>
+                <li on:click={() => remode("alladd")}>
+                  <button>วิชาทั้งหมดที่ลงทะเบียน</button>
+                </li>
+              {:else}
+                <li on:click={() => remode("addandedit")}>
+                  <button>เพิ่มและแก้ไขรายวิชา</button>
+                </li>
+                <li on:click={() => remode("removeadmin")}>
+                  <button>ลบรายวิชา</button>
+                </li>
+                <li on:click={() => remode("statistics")}>
+                  <button>สถิตการลงทะเบียน</button>
+                </li>
+              {/if}
             </ul>
           </li>
           <li>
@@ -109,7 +129,6 @@
     font-weight: bold;
     border: none;
     outline: none;
-
   }
 
   .nav button:hover {
