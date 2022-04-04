@@ -18,80 +18,64 @@
   }
 
   function confirm() {
-    if (newcredit >= 0 && newtotal >= 0 && newcredit <= 3 && newtotal <= 100) {
-      $subjects.push({
-        name: newname,
-        subject: newsubject,
-        total: newtotal,
-        register: 0,
-        remaining: newtotal,
-        credit: newcredit,
-        teacher: newTeacher,
-        short_description: newshort_description,
-        description: newdescription,
-      });
+    $subjects.push({
+      name: newname,
+      subject: newsubject,
+      total: newtotal,
+      register: 0,
+      remaining: newtotal,
+      credit: newcredit,
+      teacher: newTeacher,
+      short_description: newshort_description,
+      description: newdescription,
+    });
 
-      alert("เพิ่มรายวิชาสำเร็จ");
-      newname = "";
-      newsubject = "";
-      newtotal = "";
-      newcredit = "";
-      newTeacher = "";
-      newshort_description = "";
-      newdescription = "";
-      mode.set("allsubjects");
-    } else {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-    }
+    alert("เพิ่มรายวิชาสำเร็จ");
+    newname = "";
+    newsubject = "";
+    newtotal = "";
+    newcredit = "";
+    newTeacher = "";
+    newshort_description = "";
+    newdescription = "";
+    mode.set("allsubjects");
   }
 </script>
 
-<h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
-{#if showmode == true}
-  <form>
-    รหัสวิชา:<input
-      type="text"
-      maxlength="5"
-      on:input={(e) => (newname = e.target.value)}
-    />
-    ชื่อวิชา:<input
-      type="text"
-      maxlength="30"
-      on:input={(e) => (newsubject = e.target.value)}
-    />
+  <h1>Addandedit</h1>
+<div class="container">
+  <div class="modal">
+    <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
+    <div class="terms">
+    {#if showmode == true}
+    รหัสวิชา:<input type="text" on:input={(e) => (newname = e.target.value)} />
+    ชื่อวิชา:
+    <input type="text" on:input={(e) => (newsubject = e.target.value)} />
     จำนวนโควต้า:<input
       type="number"
       min="0"
-      max="100"
-      on:input={(e) => (newtotal = e.target.value)}
-    />
+      on:input={(e) => (newtotal = e.target.value)}/>
     หน่วยกิต:
     <input
       type="number"
       min="0"
       max="3"
-      on:input={(e) => (newcredit = e.target.value)}
-    />
+      on:input={(e) => (newcredit = e.target.value)}/>
     ชื่ออาจารย์ผู้สอน:<input
       type="text"
-      maxlength="30"
-      on:input={(e) => (newTeacher = e.target.value)}
-    />
+      on:input={(e) => (newTeacher = e.target.value)}/>
     เพิ่มเติม:
     <input
       type="text"
-      maxlength="5"
-      on:input={(e) => (newshort_description = e.target.value)}
-    />
-    รายละเอียดวิชา:<input
-      type="text"
-      maxlenght="100"
-      on:input={(e) => (newdescription = e.target.value)}
-    />
+      on:input={(e) => (newshort_description = e.target.value)}/>
+    รายละเอียดวิชา:
+    <input type="text" on:input={(e) => (newdescription = e.target.value)} />
 
-    <button on:click={() => show_results()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
-  </form>
+  <button class="button" on:click={() => show_results()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
+    </div>
+  </div>
+</div>
 
 {#if showmode == false}
   <table>
@@ -120,3 +104,50 @@
   </table>
   <button on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
+
+<style>
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #9DD9f3;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .modal {
+    max-width: 50%;
+    padding: 1rem 2rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.25rem;
+  }
+
+  .button {
+    margin-top: auto;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {
+    background-color: #b5b5b5;
+  }
+
+  .button:active {
+    background-color: #b5b5b5;
+    box-shadow: 0 5px rgb(228, 228, 228);
+    transform: translateY(4px);
+  }
+</style>
