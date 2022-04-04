@@ -21,7 +21,7 @@
       newtotal >= 0 &&
       newcredit <= 3 &&
       newtotal <= 100 &&
-      newtotal < $subjects.find((x) => x.name == name).register
+      newtotal > $subjects.find((x) => x.name == name).register
     ) {
       $subjects.find((x) => x.name == name).credit = newcredit;
       $subjects.find((x) => x.name == name).total = newtotal;
