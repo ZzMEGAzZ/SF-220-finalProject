@@ -42,16 +42,21 @@
   }
 </script>
 
-  <h1>Addandedit</h1>
-
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
 {#if showmode == true}
-  รหัสวิชา:<input type="text" on:input={(e) => (newname = e.target.value)} />
-  ชื่อวิชา:
-  <input type="text" on:input={(e) => (newsubject = e.target.value)} />
+<form>
+  รหัสวิชา:<input 
+  type="text" 
+  maxlength="5"
+  on:input={(e) => (newname = e.target.value)} />
+  ชื่อวิชา:<input 
+  type="text"
+  maxlength="30"
+   on:input={(e) => (newsubject = e.target.value)} />
   จำนวนโควต้า:<input
     type="number"
     min="0"
+    max="100"
     on:input={(e) => (newtotal = e.target.value)}
   />
   หน่วยกิต:
@@ -63,17 +68,22 @@
   />
   ชื่ออาจารย์ผู้สอน:<input
     type="text"
+    maxlength="30"
     on:input={(e) => (newTeacher = e.target.value)}
   />
   เพิ่มเติม:
   <input
     type="text"
+    maxlength="5"
     on:input={(e) => (newshort_description = e.target.value)}
   />
-  รายละเอียดวิชา:
-  <input type="text" on:input={(e) => (newdescription = e.target.value)} />
+  รายละเอียดวิชา:<input 
+  type="text" 
+  maxlenght="100"
+  on:input={(e) => (newdescription = e.target.value)} />
 
   <button on:click={() => show_results()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+</form>
 {/if}
 
 {#if showmode == false}
