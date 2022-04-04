@@ -12,6 +12,7 @@
   import Statistics from "./Statistics.svelte";
   import Addandedit from "./Addandedit.svelte";
   import Removeadmin from "./Removeadmin.svelte";
+  import Detail from "./Detail.svelte";
 </script>
 
 {#if !$islogin && !($mode == "forgot")}
@@ -39,5 +40,7 @@
     <Addandedit />
   {:else if $mode == "removeadmin"}
     <Removeadmin />
+  {:else if $mode == "detail"}
+    <Detail />
   {/if}
 {/if}

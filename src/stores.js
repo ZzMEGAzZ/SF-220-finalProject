@@ -56,10 +56,38 @@ let data = {
 };
 
 let data2 = [
-  { name: "SF210", total: 10, register: 10, remaining: 0 ,Teacher:"Weerachai anotaipaiboon", description:"สำหรับนักศึกษา Software Engineer"},
-  { name: "SF220", total: 10, register: 0, remaining: 10 ,Teacher:"Weerachai anotaipaiboon", description:"สำหรับนักศึกษา Software Engineer"},
-  { name: "SF230", total: 10, register: 0, remaining: 10 ,Teacher:"Weerachai anotaipaiboon", description:"สำหรับนักศึกษา Software Engineer"},
-  { name: "TU107", total: 10, register: 0, remaining: 10 ,Teacher:"Weerachai anotaipaiboon", description:"สำหรับนักศึกษา Software Engineer"},
+  {
+    name: "SF210",
+    total: 10,
+    register: 10,
+    remaining: 0,
+    Teacher: "Weerachai anotaipaiboon",
+    description: "สำหรับนักศึกษา Software Engineer",
+  },
+  {
+    name: "SF220",
+    total: 10,
+    register: 0,
+    remaining: 10,
+    Teacher: "Weerachai anotaipaiboon",
+    description: "สำหรับนักศึกษา Software Engineer",
+  },
+  {
+    name: "SF230",
+    total: 10,
+    register: 0,
+    remaining: 10,
+    Teacher: "Weerachai anotaipaiboon",
+    description: "สำหรับนักศึกษา Software Engineer",
+  },
+  {
+    name: "TU107",
+    total: 10,
+    register: 0,
+    remaining: 10,
+    Teacher: "Weerachai anotaipaiboon",
+    description: "สำหรับนักศึกษา Software Engineer",
+  },
   { name: "TU109", total: 10, register: 0, remaining: 10 },
 ];
 
@@ -68,3 +96,4 @@ export const islogin = writable(false);
 export const mode = writable("");
 export const account = writable("");
 export const subjects = writable(data2);
+export const sub = writable("");
