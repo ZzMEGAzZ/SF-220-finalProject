@@ -111,7 +111,7 @@ let data2 = [
     Teacher: "Thanapath Cheeranawanith",
     short_description: "All Section",
     description: "สำหรับนักศึกษา All Section",
-  }
+  },
 ];
 
 export const accounts = writable(data);
