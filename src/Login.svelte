@@ -20,7 +20,7 @@
     $mode = "forgot";
   }
 </script>
-
+<body>
 <div id="login-container">
   <h1>Login</h1>
 
@@ -28,19 +28,26 @@
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id="login-btn-container">
     <button on:click={() => checkLogin()}>Log In</button>
-    <p> | </p>
+    <p>|</p>
     <button on:click={() => forgot()}>forgot password</button>
   </div>
 </div>
+</body>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+  body{
+    background-image: url("https://cdn.discordapp.com/attachments/906493305519489037/960554315888623658/layered-peaks-haikei.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
 
   :global(body) {
     margin: 0;
     padding: 0;
     font-family: "prompt", sans-serif;
-    background-color: white;
   }
 
   #login-container {
@@ -68,7 +75,7 @@
     border: none;
     border-radius: 20px;
     background-color: transparent;
-    color:  #3a3845;
+    color: #3a3845;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -76,12 +83,13 @@
 
   #login-btn-container button:hover {
     color: #ff2361;
-    transition: .1s;
+    transition: 0.1s;
   }
-
 
   :global(input) {
     display: flex;
     margin: 6px;
+  }
+  main {
   }
 </style>
