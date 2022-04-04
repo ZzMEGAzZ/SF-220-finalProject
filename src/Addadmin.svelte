@@ -12,8 +12,15 @@
   function show_results() {
     if (newname == "" || newtotal == "" || newcredit == "") {
       alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
-    } else {
+    } else if (
+      newcredit >= 0 &&
+      newtotal >= 0 &&
+      newcredit <= 3 &&
+      newtotal <= 100
+    ) {
       showmode = false;
+    } else {
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
   }
 
@@ -40,8 +47,6 @@
       newshort_description = "";
       newdescription = "";
       mode.set("allsubjects");
-    } else {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
   }
 </script>
