@@ -10,7 +10,7 @@
   import { subjects, accounts, account, mode } from "./stores.js";
 
   function show_results() {
-    if ((newname == "" || newtotal == "" || newcredit == "" ) && (newcredit >= 0 && newtotal >= 0 && newcredit <= 3 && newtotal <= 100)) {
+    if (newname == "" || newtotal == "" || newcredit == "") {
       alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
     } else if (
       newcredit >= 0 &&
@@ -129,5 +129,4 @@
 {/if}
 
 <style>
-
 </style>
