@@ -13,8 +13,8 @@
         x = x;
         x = Array.from(new Set(x));
         y.push(index);
-        y = y = y;
-        Array.from(new Set(y));
+        y = y;
+        y = Array.from(new Set(y));
       }
     } else {
       alert("วิชานี้ถูกเพิ่มไปแล้ว");
