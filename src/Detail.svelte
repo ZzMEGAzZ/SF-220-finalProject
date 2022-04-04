@@ -17,7 +17,7 @@
       document.getElementById("short_description").value;
 
     if (newcredit <= 0 || newtotal <= 0 || newcredit >= 3 || newtotal >= 100) {
-      alert("กรอกดีๆอีสัส");
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     } else if (newtotal < $subjects.find((x) => x.name == name).register) {
       alert("จำนวนผู้ลงทะเบียนเกินกว่าค่าที่แก้");
     } else {
