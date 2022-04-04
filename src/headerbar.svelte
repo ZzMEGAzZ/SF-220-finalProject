@@ -48,8 +48,8 @@
                   <button>วิชาทั้งหมดที่ลงทะเบียน</button>
                 </li>
               {:else}
-                <li on:click={() => remode("addandedit")}>
-                  <button>เพิ่มและแก้ไขรายวิชา</button>
+                <li on:click={() => remode("addadmin")}>
+                  <button>เพิ่มรายวิชา</button>
                 </li>
                 <li on:click={() => remode("removeadmin")}>
                   <button>ลบรายวิชา</button>

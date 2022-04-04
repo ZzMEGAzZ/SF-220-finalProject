@@ -10,7 +10,7 @@
   import Alladd from "./Alladd.svelte";
   import Editprofile from "./Editprofile.svelte";
   import Statistics from "./Statistics.svelte";
-  import Addandedit from "./Addandedit.svelte";
+  import Addadmin from "./Addadmin.svelte";
   import Removeadmin from "./Removeadmin.svelte";
   import Detail from "./Detail.svelte";
 </script>
@@ -36,8 +36,8 @@
     <Editprofile />
   {:else if $mode == "statistics"}
     <Statistics />
-  {:else if $mode == "addandedit"}
-    <Addandedit />
+  {:else if $mode == "addadmin"}
+    <Addadmin />
   {:else if $mode == "removeadmin"}
     <Removeadmin />
   {:else if $mode == "detail"}

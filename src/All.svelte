@@ -1,8 +1,15 @@
 <script>
-  import { mode, subjects, sub } from "./stores.js";
+  import { mode, subjects, sub, accounts, account } from "./stores.js";
   function description(subject) {
     $mode = "detail";
     $sub = subject;
+  }
+  function isadmin() {
+    if ($accounts[$account].role == "admin") {
+      return true;
+    } else {
+      return false;
+    }
   }
 </script>
 
@@ -18,14 +25,21 @@
       <th>คงเหลือ</th>
       <th>เพิ่มเติม</th>
     </tr>
-    {#each $subjects as { name, total, register, remaining }, index}
+    {#each $subjects as { name, total, register, remaining, short_description }, index}
       <tr>
         <td>{index + 1}</td>
-        <td><button on:click={() => description(name)}>{name}</button></td>
+        {#if !isadmin()}
+          <td><button on:click={() => description(name)}>{name}</button></td>
+        {:else}
+          <td>{name}</td>
+        {/if}
         <td>{total}</td>
         <td>{register}</td>
         <td>{remaining}</td>
-        <td />
+        <td>{short_description}</td>
+        {#if isadmin()}
+          <td><button on:click={() => description(name)}>แก้ไข</button></td>
+        {/if}
       </tr>
     {/each}
   </table>
