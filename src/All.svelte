@@ -57,9 +57,10 @@
     border-bottom: 1px dashed grey;
     height: 50px; 
   }
-  td{
-    border-bottom: 1px dashed grey;
+  tr:nth-last-child(-n+1){
+    border-bottom: none;
   }
+
 
 </style>
 

@@ -121,8 +121,7 @@
     background-color: white;
     height: 50px;
   }
-  td{
-    border-top: 1px dashed grey;
+  tr:nth-last-child(-n+1){
+    border-bottom: none;
   }
-
 </style>
