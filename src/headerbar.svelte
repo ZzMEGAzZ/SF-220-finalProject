@@ -29,49 +29,31 @@
             {$accounts[$account].id}
           </p>
         </div>
-        <ul>
-          <li on:click={() => remode("profile")}><button>หน้าหลัก</button></li>
-          <li>
-            <button>ลงทะเบียน</button>
-            <ul>
-              <li on:click={() => remode("allsubjects")}>
-                <button>รายวิชาทั้งหมด</button>
-              </li>
+        <div class="btn">
+          <button class="btn-head" on:click={() => remode("profile")}>หน้าหลัก</button>
+          <div class="dropdown">
+            <button class="btn-head">ลงทะเบียน</button>
+            <div class="dropdown-content">
+              <button on:click={() => remode("allsubjects")}>รายวิชาทั้งหมด</button>
               {#if !checkrole_admin()}
-                <li on:click={() => remode("addsubjects")}>
-                  <button>เพิ่มรายวิชา</button>
-                </li>
-                <li on:click={() => remode("removesubjects")}>
-                  <button>ถอนรายวิชา</button>
-                </li>
-                <li on:click={() => remode("alladd")}>
-                  <button>วิชาทั้งหมดที่ลงทะเบียน</button>
-                </li>
+                <button on:click={() => remode("addsubjects")}>เพิ่มรายวิชา</button>
+                <button on:click={() => remode("removesubjects")}>ถอนรายวิชา</button>
+                <button on:click={() => remode("alladd")}>วิชาทั้งหมดที่ลงทะเบียน</button>
               {:else}
-                <li on:click={() => remode("addadmin")}>
-                  <button>เพิ่มรายวิชา</button>
-                </li>
-                <li on:click={() => remode("removeadmin")}>
-                  <button>ลบรายวิชา</button>
-                </li>
-                <li on:click={() => remode("statistics")}>
-                  <button>สถิตการลงทะเบียน</button>
-                </li>
+                <button on:click={() => remode("addadmin")}>เพิ่มรายวิชา</button>
+                <button on:click={() => remode("removeadmin")}>ลบรายวิชา</button>
+                <button on:click={() => remode("statistics")}>สถิตการลงทะเบียน</button>
               {/if}
-            </ul>
-          </li>
-          <li>
-            <button>ตั้งค่า</button>
-            <ul>
-              <li on:click={() => remode("editprofile")}>
-                <button>แก้ไขโปรไฟล์</button>
-              </li>
-              <li on:click={() => logout()}>
-                <button>ออกจากระบบ</button>
-              </li>
-            </ul>
-          </li>
-        </ul>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="btn-head">ตั้งค่า</button>
+            <div class="dropdown-content">
+              <button on:click={() => remode("editprofile")}>แก้ไขโปรไฟล์</button>
+              <button on:click={() => logout()}>ออกจากระบบ</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -104,82 +86,80 @@
     align-items: center;
     flex-direction: row;
     margin-left: 30px;
-    margin-right: 30px;
+    margin-right: 100px;
   }
 
   .nav {
-    overflow: hidden;
     background-color: #3a3845;
   }
 
-  .nav ul {
-    list-style: none;
-    background-color: #3a3845;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nav button {
+  .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
     background-color: transparent;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    border: none;
-    outline: none;
   }
 
-  .nav button:hover {
+  .btn .btn-head {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 5px;
+  }
+
+  .btn button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 12px;
+  }
+
+  .dropdown {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3a3845;
+    min-width: 160px;
+  }
+
+  .dropdown-content button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    display: block;
+    cursor: pointer;
+  }
+
+  .dropdown-content button:hover {
+    color: #ff6b6b;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .btn-head {
+    color: #4d96ff;
+  }
+
+  .btn-head:hover {
     color: #4d96ff;
   }
 
   .nav button:active {
-    color: #ff6b6b;
-    cursor: pointer;
-  }
-
-  .nav li li {
-    font-size: 10px;
-  }
-
-  @media screen and (min-width: 650px) {
-    .nav li {
-      width: 130px;
-      border: none;
-      height: 50px;
-      line-height: 50px;
-      font-size: 14px;
-      display: inline-block;
-      margin-right: -4px;
-    }
-  }
-
-  .nav button {
-    border: none;
-  }
-
-  .nav ul li {
-    text-align: center;
-  }
-
-  .nav ul li button {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .nav li ul {
-    position: absolute;
-    display: none;
-    width: inherit;
-  }
-
-  .nav li:hover ul {
-    display: block;
-  }
-
-  .nav li ul li {
-    display: block;
+    color: rgb(255, 150, 171);
   }
 </style>
