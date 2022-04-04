@@ -19,6 +19,8 @@
     $islogin = false;
     $mode = "forgot";
   }
+
+  
 </script>
 <body>
 <div id="login-container">
