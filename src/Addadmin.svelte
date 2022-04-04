@@ -10,7 +10,7 @@
   import { subjects, accounts, account, mode } from "./stores.js";
 
   function show_results() {
-    if (newname == "" || newtotal == "" || newcredit == "") {
+    if ((newname == "" || newtotal == "" || newcredit == "" ) && (newcredit >= 0 && newtotal >= 0 && newcredit <= 3 && newtotal <= 100)) {
       alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
     } else {
       showmode = false;
@@ -51,6 +51,7 @@
   <form>
     รหัสวิชา:<input
       type="text"
+      minlength="5"
       maxlength="5"
       on:input={(e) => (newname = e.target.value)}
     />
@@ -84,6 +85,7 @@
       on:input={(e) => (newshort_description = e.target.value)}
     />
     รายละเอียดวิชา:<input
+      class="resize-box"
       type="text"
       maxlenght="100"
       on:input={(e) => (newdescription = e.target.value)}
@@ -120,3 +122,7 @@
   </table>
   <button on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
+
+<style>
+
+</style>
