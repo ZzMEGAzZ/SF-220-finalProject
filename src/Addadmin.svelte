@@ -40,6 +40,8 @@
       newshort_description = "";
       newdescription = "";
       mode.set("allsubjects");
+    } else {
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
   }
 </script>
