@@ -27,9 +27,9 @@
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id="login-btn-container">
-    <a href={"#"} on:click={() => checkLogin()}>Log In</a>
-    <p>|</p>
-    <a href={"#"} on:click={() => forgot()}>forgot password</a>
+    <button on:click={() => checkLogin()}>Log In</button>
+    <p> | </p>
+    <button on:click={() => forgot()}>forgot password</button>
   </div>
 </div>
 
@@ -61,6 +61,24 @@
   #login-btn-container {
     display: inline;
   }
+
+  #login-btn-container button {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    color:  #3a3845;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #login-btn-container button:hover {
+    color: #ff2361;
+    transition: .1s;
+  }
+
 
   :global(input) {
     display: flex;

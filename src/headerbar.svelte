@@ -14,7 +14,7 @@
     <div class="nav">
       <div class="flex-nav">
         <div id="profile-nav-container">
-          <img src={$accounts[$account].image} />
+          <img src={$accounts[$account].image} alt="profile"/>
           <p>
             <b>{$accounts[$account].role}</b> <br /> <b>ชื่อ</b>
             {$accounts[$account].name} <br /> <b>เลขประจำตัว</b>
@@ -22,32 +22,32 @@
           </p>
         </div>
         <ul>
-          <li on:click={() => remode("profile")}><a href={"#"}>หน้าหลัก</a></li>
+          <li on:click={() => remode("profile")}><button>หน้าหลัก</button></li>
           <li>
-            <a href={"#"}>ลงทะเบียน</a>
+            <button>ลงทะเบียน</button>
             <ul>
               <li on:click={() => remode("allsubjects")}>
-                <a href={"#"}>รายวิชาทั้งหมด</a>
+                <button>รายวิชาทั้งหมด</button>
               </li>
               <li on:click={() => remode("addsubjects")}>
-                <a href={"#"}>เพิ่มรายวิชา</a>
+                <button>เพิ่มรายวิชา</button>
               </li>
               <li on:click={() => remode("removesubjects")}>
-                <a href={"#"}>ถอนรายวิชา</a>
+                <button>ถอนรายวิชา</button>
               </li>
               <li on:click={() => remode("alladd")}>
-                <a href={"#"}>วิชาทั้งหมดที่ลงทะเบียน</a>
+                <button>วิชาทั้งหมดที่ลงทะเบียน</button>
               </li>
             </ul>
           </li>
           <li>
-            <a href={"#"}>ตั้งค่า</a>
+            <button>ตั้งค่า</button>
             <ul>
               <li on:click={() => remode("editprofile")}>
-                <a href={"#"}>แก้ไขโปรไฟล์</a>
+                <button>แก้ไขโปรไฟล์</button>
               </li>
               <li on:click={() => logout()}>
-                <a href={"#"}>ออกจากระบบ</a>
+                <button>ออกจากระบบ</button>
               </li>
             </ul>
           </li>
@@ -100,27 +100,23 @@
     margin: 0;
   }
 
-  .nav li {
-    font-size: 14px;
-    line-height: 40px;
-    text-align: left;
-  }
-
-  .nav a {
+  .nav button {
+    background-color: transparent;
     text-decoration: none;
     text-align: center;
     color: white;
-    display: block;
-    border: 1px solid black;
-    transition: 0.1s;
+    font-size: 11px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+
   }
 
-  .nav a:hover {
-    background-color: #4d96ff;
+  .nav button:hover {
+    color: #4d96ff;
   }
 
-  .nav a:active {
-    background-color: #cee2ff;
+  .nav button:active {
     color: #ff6b6b;
     cursor: pointer;
   }
@@ -141,7 +137,7 @@
     }
   }
 
-  .nav a {
+  .nav button {
     border: none;
   }
 
@@ -149,8 +145,9 @@
     text-align: center;
   }
 
-  .nav ul li a {
+  .nav ul li button {
     padding-left: 0;
+    text-align: center;
   }
 
   .nav li ul {
