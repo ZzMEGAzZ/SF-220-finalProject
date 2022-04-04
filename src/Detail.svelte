@@ -55,6 +55,7 @@
   <br />
   description<br />{$subjects.find((x) => x.name == name).description}
 {:else}
+  <form>
   วิชา<br />
   {subject}
   <br />
@@ -91,10 +92,11 @@
   <input
     type="text"
     id="short_description"
-    maxrange="30"
+    maxlength="30"
     value={$subjects.find((x) => x.name == name).short_description}
   />
 
   
   <button on:click={() => change_subject()}>บันทึก</button>
+  </form>
 {/if}
