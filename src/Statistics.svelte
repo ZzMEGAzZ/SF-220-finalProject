@@ -1,16 +1,24 @@
 <script>
   import { onMount } from "svelte";
+  import { accounts, account, subjects } from "./stores.js";
+  let data = [];
+  let labels = [];
+
+  for (let i = 0; i < $subjects.length; i++) {
+    data.push(($subjects[i].register / $subjects[i].total) * 100);
+    labels.push($subjects[i].name);
+  }
 
   function createChart() {
     const ctx = document.getElementById("myChart");
     const myChart = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels,
         datasets: [
           {
-            label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "สถิติการลงทะเบียน",
+            data,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -46,6 +54,7 @@
   });
 </script>
 
+
 <h1>statistics</h1>
 
-<canvas id="myChart" width="auto" height="auto" />
+<canvas id="myChart" width="3" height="1" />
