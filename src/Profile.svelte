@@ -3,7 +3,7 @@
 </script>
 
 <div id="profile">
-  <img src={$accounts[$account].image} />
+  <img src={$accounts[$account].image} alt="img profile" />
   <div id="detail-profile">
     <p > <b>ชื่อ</b> {$accounts[$account].name}</p>
     <p> <b>เลขประจำตัว</b> {$accounts[$account].id}</p>
