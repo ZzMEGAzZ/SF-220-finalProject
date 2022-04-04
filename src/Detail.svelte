@@ -17,7 +17,9 @@
     let new_short_description =
       document.getElementById("short_description").value;
 
-    if (newtotal < $subjects.find((x) => x.name == name).register) {
+    if (newcredit <= 0 || newtotal <= 0 || newcredit >= 3 || newtotal >= 100) {
+      alert("กรอกดีๆอีสัส");
+    } else if (newtotal < $subjects.find((x) => x.name == name).register) {
       alert("จำนวนผู้ลงทะเบียนเกินกว่าค่าที่แก้");
     } else {
       $subjects.find((x) => x.name == name).credit = newcredit;
@@ -57,7 +59,7 @@
     min="0"
     max="3"
     value={$subjects.find((x) => x.name == name).credit}
-  />
+  />(0-3)
   <br />
   จำนวนโควต้า<br />
   <input
@@ -67,6 +69,7 @@
     max="100"
     value={$subjects.find((x) => x.name == name).total}
   />
+  (0-100)
   <br />
   จำนวนที่ลงทะเบียน<br />
   {$subjects.find((x) => x.name == name).register}
