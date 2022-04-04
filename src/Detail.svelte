@@ -52,15 +52,19 @@
   <br />
   หน่วยกิต<br />
   <input
-    type="text"
+    type="number"
     id="credit"
+    min="0"
+    max="3"
     value={$subjects.find((x) => x.name == name).credit}
   />
   <br />
   จำนวนโควต้า<br />
   <input
-    type="text"
+    type="number"
     id="total"
+    min="0"
+    max="100"
     value={$subjects.find((x) => x.name == name).total}
   />
   <br />

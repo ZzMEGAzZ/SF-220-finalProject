@@ -30,26 +30,42 @@
           </p>
         </div>
         <div class="btn">
-          <button class="btn-head" on:click={() => remode("profile")}>หน้าหลัก</button>
+          <button class="btn-head" on:click={() => remode("profile")}
+            >หน้าหลัก</button
+          >
           <div class="dropdown">
             <button class="btn-head">ลงทะเบียน</button>
             <div class="dropdown-content">
-              <button on:click={() => remode("allsubjects")}>รายวิชาทั้งหมด</button>
+              <button on:click={() => remode("allsubjects")}
+                >รายวิชาทั้งหมด</button
+              >
               {#if !checkrole_admin()}
-                <button on:click={() => remode("addsubjects")}>เพิ่มรายวิชา</button>
-                <button on:click={() => remode("removesubjects")}>ถอนรายวิชา</button>
-                <button on:click={() => remode("alladd")}>วิชาทั้งหมดที่ลงทะเบียน</button>
+                <button on:click={() => remode("addsubjects")}
+                  >เพิ่มรายวิชา</button
+                >
+                <button on:click={() => remode("removesubjects")}
+                  >ถอนรายวิชา</button
+                >
+                <button on:click={() => remode("alladd")}
+                  >วิชาทั้งหมดที่ลงทะเบียน</button
+                >
               {:else}
-                <button on:click={() => remode("addadmin")}>เพิ่มรายวิชา</button>
-                <button on:click={() => remode("removeadmin")}>ลบรายวิชา</button>
-                <button on:click={() => remode("statistics")}>สถิตการลงทะเบียน</button>
+                <button on:click={() => remode("addadmin")}>เพิ่มรายวิชา</button
+                >
+                <button on:click={() => remode("removeadmin")}>ลบรายวิชา</button
+                >
+                <button on:click={() => remode("statistics")}
+                  >สถิติการลงทะเบียน</button
+                >
               {/if}
             </div>
           </div>
           <div class="dropdown">
             <button class="btn-head">ตั้งค่า</button>
             <div class="dropdown-content">
-              <button on:click={() => remode("editprofile")}>แก้ไขโปรไฟล์</button>
+              <button on:click={() => remode("editprofile")}
+                >แก้ไขโปรไฟล์</button
+              >
               <button on:click={() => logout()}>ออกจากระบบ</button>
             </div>
           </div>
