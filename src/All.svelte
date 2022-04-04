@@ -61,12 +61,12 @@
   div table {
     margin-top: 40px;
     border-collapse: collapse;
-    background-color: #c7d0d8;
+    background-color: #ffffff;
 
     padding: 10px;
     text-align: center;
 
-    width: 540px;
+    width: 700px;
     height: 200px;
 
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);

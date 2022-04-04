@@ -42,8 +42,9 @@
   }
 </script>
 
-<h1>Addandedit</h1>
+  <h1>Addandedit</h1>
 
+<<<<<<< HEAD
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
 {#if showmode == true}
   รหัสวิชา:<input type="text" on:input={(e) => (newname = e.target.value)} />
@@ -72,6 +73,11 @@
   />
   รายละเอียดวิชา:
   <input type="text" on:input={(e) => (newdescription = e.target.value)} />
+=======
+<div>
+  <h1>เพิ่มรายวิชา</h1>
+</div>
+>>>>>>> f4230880eabbbd8c9427c0e28cb0dd6968021fea
 
   <button on:click={() => show_results()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
@@ -101,5 +107,77 @@
       </tr>
     </tbody>
   </table>
+<<<<<<< HEAD
   <button on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
+=======
+</div>
+
+<div>
+  <p id="space">วิชาที่ต้องการเพิ่มในระบบ</p>
+  <p>{x}</p>
+</div>
+
+<div>
+  <button class="button" on:click={() => editsubject()}> ยืนยันการแก้ไข </button>
+</div>
+
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+  }
+  div h1 {
+    margin-top: 50px;
+  }
+  div table {
+    margin-top: 40px;
+    border-collapse: collapse;
+    background-color: #c7d0d8;
+
+    padding: 10px;
+    text-align: center;
+
+    width: 540px;
+    height: 200px;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+  }
+  tr {
+    border-bottom: 1px dashed grey;
+    background-color: white;
+    height: 50px;
+  }
+  tr:nth-last-child(-n + 1) {
+    border-bottom: none;
+  }
+  .button {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {background-color: #b5b5b5}
+
+  .button:active {
+  background-color: #b5b5b5;
+  box-shadow: 0 5px rgb(228, 228, 228);
+  transform: translateY(4px);
+  }
+
+  #space {
+    margin: 10px;
+  }
+</style>
+>>>>>>> f4230880eabbbd8c9427c0e28cb0dd6968021fea
