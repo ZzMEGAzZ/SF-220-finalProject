@@ -13,6 +13,7 @@
   import Addadmin from "./Addadmin.svelte";
   import Removeadmin from "./Removeadmin.svelte";
   import Detail from "./Detail.svelte";
+
 </script>
 
 {#if !$islogin && !($mode == "forgot")}
