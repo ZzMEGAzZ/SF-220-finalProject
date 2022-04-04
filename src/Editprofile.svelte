@@ -41,11 +41,6 @@
 
 <div id="profile">
   <img src={$accounts[$account].image} alt="profile IMG"/>
-  <button on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
-  {#if show}
-    <input id="file" type="file" on:change={() => change_image()} />
-  {/if}
-
   <div id="detail-profile">
     <p><b>ชื่อ</b> {$accounts[$account].name}</p>
     <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
@@ -54,22 +49,22 @@
   </div>
 </div>
 
-<div>
-  <button class="button" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
+<div id="btn-edit">
+  <button id="button-img" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
   {#if show}
     <input id="file" type="file" on:change={() => change_image()} />
   {/if}
-  </div>
-<div>
-<button class="button" on:click={() => show_input2()}>เปลี่ยนรหัสผ่าน</button>
+  <button id="button-password" on:click={() => show_input2()}>เปลี่ยนรหัสผ่าน</button>
 </div>
 
+<div id="change-password">
 {#if show2}
   <input id="old_password" type="text" placeholder="รหัสผ่านเดิม" />
   <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
   <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
   <button on:click={() => change_password()}>ยืนยัน</button>
 {/if}
+</div>
 
 <style>
   img {
@@ -79,7 +74,7 @@
   }
 
   #profile {
-    height: 60%;
+    height: 50%;
     width: auto !important;
 
     display: flex;
@@ -99,11 +94,14 @@
     display: flex;
     justify-content: center;
   }
+  #btn-edit button{
+    margin: 10px;
+  }
   h1 {
     margin-top: 50px;
   }
 
-  .button {
+  button {
   padding: 10px 20px;
   font-size: 15px;
   text-align: center;
@@ -115,14 +113,20 @@
   box-shadow: 0 9px rgb(228, 228, 228);
 }
 
-.button:hover {background-color: #b5b5b5}
+button:hover {background-color: #b5b5b5}
 
-.button:active {
+button:active {
   background-color: #b5b5b5;
   box-shadow: 0 5px rgb(228, 228, 228);
   transform: translateY(4px);
 }
 
+#change-password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
  
 </style>
