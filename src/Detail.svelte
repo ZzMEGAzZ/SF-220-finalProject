@@ -94,5 +94,7 @@
     maxrange="30"
     value={$subjects.find((x) => x.name == name).short_description}
   />
+
+  
   <button on:click={() => change_subject()}>บันทึก</button>
 {/if}
