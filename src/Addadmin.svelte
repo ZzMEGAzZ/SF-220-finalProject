@@ -16,10 +16,10 @@
   }
 </script>
 
-<h1>Addandedit</h1>
+  <h1>Addandedit</h1>
 
 <div>
-  <h1>ลงทะเบียนรายวิชา</h1>
+  <h1>เพิ่มรายวิชา</h1>
 </div>
 
 <div>
@@ -47,15 +47,13 @@
   </table>
 </div>
 
-<button on:click={() => editsubject()}> ยืนยันการแก้ไข </button>
-
 <div>
-  <p>วิชาที่ต้องการเพิ่มในระบบ</p>
+  <p id="space">วิชาที่ต้องการเพิ่มในระบบ</p>
   <p>{x}</p>
 </div>
 
 <div>
-  <button on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
+  <button class="button" on:click={() => editsubject()}> ยืนยันการแก้ไข </button>
 </div>
 
 <style>
@@ -79,7 +77,7 @@
     padding: 10px;
     text-align: center;
 
-    width: auto;
+    width: 540px;
     height: 200px;
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
   }
@@ -90,5 +88,29 @@
   }
   tr:nth-last-child(-n + 1) {
     border-bottom: none;
+  }
+  .button {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {background-color: #b5b5b5}
+
+  .button:active {
+  background-color: #b5b5b5;
+  box-shadow: 0 5px rgb(228, 228, 228);
+  transform: translateY(4px);
+  }
+
+  #space {
+    margin: 10px;
   }
 </style>
