@@ -5,24 +5,24 @@
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 
 <div><table>
-  <thead><tr>
+  <tr>
     <th>ลำดับที่</th>
     <th>รายวิชา</th>
     <th>โควตา</th>
     <th>ลงทะเบียนแล้ว</th>
     <th>คงเหลือ</th>
     <th>เพิ่มเติม</th>
-  </tr></thead>
+  </tr>
   {#each $subjects as { name, total, register, remaining }, index}
 
-  <tbody><tr>
+  <tr>
       <td>{index + 1}</td>
       <td>{name}</td>
       <td>{total}</td>
       <td>{register}</td>
       <td>{remaining}</td>
       <td></td>
-    </tr></tbody>
+  </tr>
   {/each}
 </table></div>
 
@@ -52,10 +52,13 @@
 
     box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
   }
-  thead tr{
+  tr{
     background-color: white;
     border-bottom: 1px dashed grey;
     height: 50px; 
+  }
+  td{
+    border-bottom: 1px dashed grey;
   }
 
 </style>
