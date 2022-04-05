@@ -12,9 +12,8 @@
     }
   }
 </script>
-
+<body>
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
-
 <div>
   <table>
     <tr>
@@ -44,12 +43,19 @@
     {/each}
   </table>
 </div>
-
+</body>
 <style>
   * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+  }
+  body{
+    background-image: url("https://cdn.discordapp.com/attachments/959342189224271872/960768895021637712/BG_center_wave5.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
   }
   div {
     display: flex;
@@ -69,7 +75,7 @@
     width: 700px;
     height: 200px;
 
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
   }
   tr {
     background-color: white;

@@ -41,7 +41,7 @@
   }
 </script>
 
-<div><h1>Detail</h1></div>
+<div><h1>รายละเอียดรายวิชา</h1></div>
 
 <div>{name}</div>
 <br />
