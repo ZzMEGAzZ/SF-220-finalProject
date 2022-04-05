@@ -10,21 +10,17 @@
     }
   }
   function change_subject() {
-    alert("บันทึก");
     let newcredit = document.getElementById("credit").value;
     let newtotal = document.getElementById("total").value;
     let newdescription = document.getElementById("description").value;
     let new_short_description =
       document.getElementById("short_description").value;
-
-    if (newtotal < $subjects.find((x) => x.name == name).register) {
-      alert("จำนวนผู้ลงทะเบียนเกินกว่าค่าที่แก้");
-    } else if (
-      newtotal > $subjects.find((x) => x.name == name).register &&
-      newtotal >= 0 &&
-      newtotal <= 100 &&
+    if (
       newcredit >= 0 &&
-      newcredit <= 3
+      newtotal >= 0 &&
+      newcredit <= 3 &&
+      newtotal <= 100 &&
+      newtotal >= $subjects.find((x) => x.name == name).register
     ) {
       $subjects.find((x) => x.name == name).credit = newcredit;
       $subjects.find((x) => x.name == name).total = newtotal;
@@ -33,18 +29,17 @@
         new_short_description;
       $subjects.find((x) => x.name == name).remaining =
         newtotal - $subjects.find((x) => x.name == name).register;
-
-      $subjects = [...new Set($subjects)];  
       $mode = "allsubjects";
+      alert("บันทึก");
+    } else if (newtotal < $subjects.find((x) => x.name == name).register) {
+      alert("จำนวนผู้ลงทะเบียนเกินกว่าค่าที่แก้");
     } else {
-      alert("กรุณากรอกข้อมูลให้ถูกต้อง");
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
   }
 </script>
-
-<div><h1>รายละเอียดรายวิชา</h1></div>
-
-<div>{name}</div>
+<h1>Detail</h1>
+{name}
 <br />
 {#if !isadmin()}
   วิชา<br />{subject}
@@ -57,56 +52,46 @@
   <br />
   description<br />{$subjects.find((x) => x.name == name).description}
 {:else}
-  <div>
-    วิชา<br />
-    {subject}
-    <br />
-    หน่วยกิต<br />
-    <input
-      type="text"
-      id="credit"
-      value={$subjects.find((x) => x.name == name).credit}
-    />
-  </div>
-
-  <div>
-    <br />
-    จำนวนโควต้า<br />
-    <input
-      type="text"
-      id="total"
-      value={$subjects.find((x) => x.name == name).total}
-    />
-  </div>
-
-  <div>
-    <br />
-    จำนวนที่ลงทะเบียน<br />
-    {$subjects.find((x) => x.name == name).register}
-    <br />
-    description<br />
-    <input
-      type="text"
-      id="description"
-      value={$subjects.find((x) => x.name == name).description}
-    />
-  </div>
-
-  <div>
-    <br />
-    short description<br />
-    <input
-      type="text"
-      id="short_description"
-      value={$subjects.find((x) => x.name == name).short_description}
-    />
-    <button on:click={() => change_subject()}>บันทึก</button>
-  </div>
+  <form>
+  วิชา<br />
+  {subject}
+  <br />
+  หน่วยกิต<br />
+  <input
+    type="number"
+    id="credit"
+    min="0"
+    max="3"
+    value={$subjects.find((x) => x.name == name).credit}
+  />(0-3)
+  <br />
+  จำนวนโควต้า<br />
+  <input
+    type="number"
+    id="total"
+    min="0"
+    max="100"
+    value={$subjects.find((x) => x.name == name).total}
+  />
+  (0-100)
+  <br />
+  จำนวนที่ลงทะเบียน<br />
+  {$subjects.find((x) => x.name == name).register}
+  <br />
+  description<br />
+  <input
+    type="text"
+    id="description"
+    value={$subjects.find((x) => x.name == name).description}
+  />
+  <br />
+  short description<br />
+  <input
+    type="text"
+    id="short_description"
+    maxlength="30"
+    value={$subjects.find((x) => x.name == name).short_description}
+  />
+  <button on:click={() => change_subject()}>บันทึก</button>
+  </form>
 {/if}
-
-<style>
-  div {
-    display: flex;
-    justify-content: center;
-  }
-</style>
