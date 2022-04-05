@@ -11,6 +11,7 @@
     reader.readAsDataURL(file);
     reader.onload = function () {
       $accounts[$account].image = reader.result;
+      $accounts = [...new Set($accounts)];
       show = !show;
     };
   }
@@ -25,6 +26,7 @@
     if (new_password == confirm_password) {
       if (old_password == $accounts[$account].password) {
         $accounts[$account].password = new_password;
+        $accounts = [...new Set($accounts)];
         show2 = !show2;
       } else {
         alert("รหัสผ่านเก่าไม่ถูกต้อง");
@@ -36,11 +38,11 @@
 </script>
 
 <div>
-<h1>แก้ไขรูปโปรไฟล์</h1>
+  <h1>แก้ไขรูปโปรไฟล์</h1>
 </div>
 
 <div id="profile">
-  <img src={$accounts[$account].image} alt="profile IMG"/>
+  <img src={$accounts[$account].image} alt="profile IMG" />
   <div id="detail-profile">
     <p><b>ชื่อ</b> {$accounts[$account].name}</p>
     <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
@@ -54,16 +56,18 @@
   {#if show}
     <input id="file" type="file" on:change={() => change_image()} />
   {/if}
-  <button id="button-password" on:click={() => show_input2()}>เปลี่ยนรหัสผ่าน</button>
+  <button id="button-password" on:click={() => show_input2()}
+    >เปลี่ยนรหัสผ่าน</button
+  >
 </div>
 
 <div id="change-password">
-{#if show2}
-  <input id="old_password" type="text" placeholder="รหัสผ่านเดิม" />
-  <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
-  <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
-  <button on:click={() => change_password()}>ยืนยัน</button>
-{/if}
+  {#if show2}
+    <input id="old_password" type="text" placeholder="รหัสผ่านเดิม" />
+    <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
+    <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
+    <button on:click={() => change_password()}>ยืนยัน</button>
+  {/if}
 </div>
 
 <style>
@@ -90,11 +94,11 @@
     flex-direction: column;
     font-weight: bold;
   }
-  div{
+  div {
     display: flex;
     justify-content: center;
   }
-  #btn-edit button{
+  #btn-edit button {
     margin: 10px;
   }
   h1 {
@@ -102,31 +106,31 @@
   }
 
   button {
-  padding: 10px 20px;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  background-color: #d3d3d3;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px rgb(228, 228, 228);
-}
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(228, 228, 228);
+  }
 
-button:hover {background-color: #b5b5b5}
+  button:hover {
+    background-color: #b5b5b5;
+  }
 
-button:active {
-  background-color: #b5b5b5;
-  box-shadow: 0 5px rgb(228, 228, 228);
-  transform: translateY(4px);
-}
+  button:active {
+    background-color: #b5b5b5;
+    box-shadow: 0 5px rgb(228, 228, 228);
+    transform: translateY(4px);
+  }
 
-#change-password {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
- 
+  #change-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
