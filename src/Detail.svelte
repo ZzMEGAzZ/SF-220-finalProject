@@ -69,11 +69,11 @@
   <input
     type="number"
     id="total"
-    min="0"
+    min={$subjects.find((x) => x.name == name).register}
     max="100"
     value={$subjects.find((x) => x.name == name).total}
   />
-  (0-100)
+  ({$subjects.find((x) => x.name == name).register}-100)
   <br />
   จำนวนที่ลงทะเบียน<br />
   {$subjects.find((x) => x.name == name).register}
