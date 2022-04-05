@@ -34,6 +34,7 @@
       $subjects.find((x) => x.name == name).remaining =
         newtotal - $subjects.find((x) => x.name == name).register;
 
+      $subjects = [...new Set($subjects)];  
       $mode = "allsubjects";
     } else {
       alert("กรุณากรอกข้อมูลให้ถูกต้อง");
