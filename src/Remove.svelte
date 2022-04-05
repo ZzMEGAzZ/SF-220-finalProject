@@ -1,9 +1,10 @@
 <script>
   let x = [];
+  let y = [];
   let name = "";
   import { accounts, account, mode, subjects } from "./stores.js";
 
-  function removesubjects(subject) {
+  function removesubjects(subject, index) {
     let confirm = prompt(
       "กรุณายืนยันวิชาที่ต้องการถอน(กรอก 'ยืนยัน' เพื่อยืนยันวิชาที่ต้องการถอน)"
     );
@@ -11,21 +12,26 @@
       x.push(subject);
       x = x;
       x = Array.from(new Set(x));
+      y.push(index);
+      y = y;
+      y = Array.from(new Set(y));
     }
   }
 
-  function confirm(x) {
+  function confirm(x, y) {
     let i = 0;
     let len = x.length;
     for (; i < len; i++) {
       $accounts[$account].sub.splice($accounts[$account].sub.indexOf(x[i]), 1);
     }
+    $accounts[$account].sub = [...new Set($accounts[$account].sub)];
     let j = 0;
+    len = y.length;
     for (; j < len; j++) {
-      name = x[j];
-      $subjects.find((y) => y.name == name).register--;
-      $subjects.find((y) => y.name == name).remaining++;
+      $subjects[y[j]].register--;
+      $subjects[y[j]].remaining++;
     }
+
     $mode = "alladd";
   }
 </script>
@@ -38,11 +44,20 @@
       <th>รายวิชา</th>
       <th>เพิ่มเติม</th>
     </tr>
-    {#each $accounts[$account].sub as i}
-      <tr>
-        <td>{i}</td>
-        <td><button on:click={() => removesubjects(i)}>ลบ</button> </td>
-      </tr>
+
+    {#each $subjects as { name, total, register, remaining }, index}
+      {#each $accounts[$account].sub as sub}
+        {#if sub == name}
+          <tr>
+            <td>{name}</td>
+            <td>
+              <button on:click={() => removesubjects(name, index)}
+                >ถอนรายวิชา</button
+              >
+            </td>
+          </tr>
+        {/if}
+      {/each}
     {/each}
   </table>
 </div>
@@ -53,7 +68,7 @@
 </div>
 
 <div>
-  <button class="button" on:click={() => confirm(x)}
+  <button class="button" on:click={() => confirm(x, y)}
     >ยืนยันวิชาที่ต้องการถอน</button
   >
 </div>

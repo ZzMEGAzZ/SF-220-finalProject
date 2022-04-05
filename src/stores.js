@@ -56,7 +56,7 @@ const default_data = {
   },
 };
 
-let data = [
+const data = [
   {
     name: "SF210",
     subject: "Programming Skill Development 1",

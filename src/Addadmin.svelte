@@ -37,6 +37,7 @@
         short_description: newshort_description,
         description: newdescription,
       });
+      $subjects = [...new Set($subjects)];
 
       alert("เพิ่มรายวิชาสำเร็จ");
       newname = "";
