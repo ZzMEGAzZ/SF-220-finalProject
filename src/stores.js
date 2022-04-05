@@ -124,8 +124,8 @@ const data = [
 
 export const accounts = persistStore("accounts", default_data);
 export const subjects = persistStore("subjects", data);
-export const islogin = persistStore("islogin", false);
+export const islogin = writable(false);
 export const mode = persistStore("mode", "");
-export const account = persistStore("account", "");
+export const account = writable("");
 export const sub = persistStore("sub", "");
 
