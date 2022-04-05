@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "chart.js": "^3.7.1",
+    "firebase": "^9.6.10",
     "sirv-cli": "^2.0.0",
     "svelte-local-storage-store": "^0.2.6"
   }
