@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
+import { persistStore } from "./persistStore";
 
-let data = {
+const default_data = {
   test: {
     name: "นายภาณุวัฒน์ มั่งคั่ง",
     password: "test",
@@ -55,7 +56,7 @@ let data = {
   },
 };
 
-let data2 = [
+const data = [
   {
     name: "SF210",
     subject: "Programming Skill Development 1",
@@ -111,12 +112,20 @@ let data2 = [
     Teacher: "Thanapath Cheeranawanith",
     short_description: "All Section",
     description: "สำหรับนักศึกษา All Section",
-  }
+  },
 ];
 
-export const accounts = writable(data);
+//export const accounts = writable(data);
+//export const islogin = writable(false);
+//export const mode = writable("");
+//export const account = writable("");
+//export const subjects = writable(data2);
+//export const sub = writable("");
+
+export const accounts = persistStore("accounts", default_data);
+export const subjects = persistStore("subjects", data);
 export const islogin = writable(false);
-export const mode = writable("");
+export const mode = persistStore("mode", "");
 export const account = writable("");
-export const subjects = writable(data2);
-export const sub = writable("");
+export const sub = persistStore("sub", "");
+

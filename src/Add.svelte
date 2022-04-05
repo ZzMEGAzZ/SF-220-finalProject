@@ -11,8 +11,10 @@
       if (confirm == "ยืนยัน") {
         x.push(name);
         x = x;
+        x = Array.from(new Set(x));
         y.push(index);
         y = y;
+        y = Array.from(new Set(y));
       }
     } else {
       alert("วิชานี้ถูกเพิ่มไปแล้ว");
@@ -24,6 +26,7 @@
     let len = x.length;
     for (; i < len; i++) {
       $accounts[$account].sub.push(x[i]);
+      $accounts[$account].sub =  [...new Set($accounts[$account].sub)];
     }
     let j = 0;
     len = y.length;
@@ -44,6 +47,7 @@
       }
     }
   }
+  
 </script>
 
 <div>
@@ -125,24 +129,26 @@
     border-bottom: none;
   }
   .button {
-  margin-top: auto;
-  padding: 10px 20px;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  background-color: #d3d3d3;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px rgb(228, 228, 228);
+    margin-top: auto;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(228, 228, 228);
   }
 
-  .button:hover {background-color: #b5b5b5}
+  .button:hover {
+    background-color: #b5b5b5;
+  }
 
   .button:active {
-  background-color: #b5b5b5;
-  box-shadow: 0 5px rgb(228, 228, 228);
-  transform: translateY(4px);
+    background-color: #b5b5b5;
+    box-shadow: 0 5px rgb(228, 228, 228);
+    transform: translateY(4px);
   }
   #space {
     margin: 10px;
