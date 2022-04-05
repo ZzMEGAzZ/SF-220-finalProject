@@ -20,6 +20,7 @@
     let confirm_password = document.getElementById("confirm_password").value;
     if (new_password == confirm_password) {
       $accounts[$account].password = new_password;
+      $accounts = [...new Set($accounts)];
       alert("เปลี่ยนรหัสผ่านเรียบร้อย");
       show = !show;
       $mode = "";
