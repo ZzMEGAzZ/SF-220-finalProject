@@ -39,7 +39,7 @@
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
   body{
-    background-image: url("https://cdn.discordapp.com/attachments/906493305519489037/960554315888623658/layered-peaks-haikei.png");
+    background-image: url("https://cdn.discordapp.com/attachments/906493305519489037/960737033914056725/BG_login.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

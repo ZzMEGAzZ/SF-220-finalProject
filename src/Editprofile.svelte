@@ -36,7 +36,7 @@
 </script>
 
 <div>
-<h1>Editprofile</h1>
+<h1>แก้ไขรูปโปรไฟล์</h1>
 </div>
 
 <div id="profile">

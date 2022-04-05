@@ -33,8 +33,10 @@
   }
 </script>
 
-<h1>Detail</h1>
-{name}
+<div><h1>Detail</h1></div>
+
+
+<div>{name}</div>
 <br />
 {#if !isadmin()}
   วิชา<br />{subject}
@@ -47,6 +49,7 @@
   <br />
   description<br />{$subjects.find((x) => x.name == name).description}
 {:else}
+<div>
   วิชา<br />
   {subject}
   <br />
@@ -56,6 +59,9 @@
     id="credit"
     value={$subjects.find((x) => x.name == name).credit}
   />
+</div>
+
+<div>
   <br />
   จำนวนโควต้า<br />
   <input
@@ -63,6 +69,9 @@
     id="total"
     value={$subjects.find((x) => x.name == name).total}
   />
+</div>
+
+<div>
   <br />
   จำนวนที่ลงทะเบียน<br />
   {$subjects.find((x) => x.name == name).register}
@@ -73,6 +82,9 @@
     id="description"
     value={$subjects.find((x) => x.name == name).description}
   />
+</div>
+
+<div>
   <br />
   short description<br />
   <input
@@ -81,4 +93,15 @@
     value={$subjects.find((x) => x.name == name).short_description}
   />
   <button on:click={() => change_subject()}>บันทึก</button>
+</div>
+
 {/if}
+
+
+<style>
+  div{
+    display: flex;
+    justify-content: center;
+  }
+
+</style>
