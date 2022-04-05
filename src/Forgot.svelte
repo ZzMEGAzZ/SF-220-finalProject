@@ -30,7 +30,7 @@
     }
   }
 </script>
-
+<body>
 forgot
 <br>
 {#if show2}
@@ -46,3 +46,14 @@ forgot
   <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
   <button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button>
 {/if}
+</body>
+
+<style>
+  body{
+    background-image: url("https://cdn.discordapp.com/attachments/906493305519489037/960737033914056725/BG_login.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+</style>
