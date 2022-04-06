@@ -22,7 +22,6 @@
 
   
 </script>
-<body>
 <div id="login-container">
   <h1>Login</h1>
 
@@ -34,7 +33,6 @@
     <button on:click={() => forgot()}>forgot password</button>
   </div>
 </div>
-</body>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
