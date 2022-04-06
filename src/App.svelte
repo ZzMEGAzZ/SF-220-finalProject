@@ -23,18 +23,19 @@
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyCb0yKSZNCYMUmtONpHi_8f5KQTUVv8Nhk",
-    authDomain: "sf220-last-project.firebaseapp.com",
-    projectId: "sf220-last-project",
-    storageBucket: "sf220-last-project.appspot.com",
-    messagingSenderId: "519567761335",
-    appId: "1:519567761335:web:21996f7a3300e84f715232",
-    measurementId: "G-R68XQY6Z69"
+    apiKey: "AIzaSyA5wOssAOnziELHyIsImd-wliieN2l9eeY",
+    authDomain: "sf-220-final.firebaseapp.com",
+    projectId: "sf-220-final",
+    storageBucket: "sf-220-final.appspot.com",
+    messagingSenderId: "759002209096",
+    appId: "1:759002209096:web:bb3137ba26b0db5359b17d",
+    measurementId: "G-XL6ZHD3ND7"
   };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
 </script>
 
 {#if !$islogin && !($mode == "forgot")}
