@@ -38,8 +38,9 @@
     }
   }
 </script>
-<h1>Detail</h1>
-{name}
+
+<div class="title"><h1>Detail</h1>
+<div id="title1">{name}</div></div>
 <br />
 {#if !isadmin()}
   วิชา<br />{subject}
@@ -52,46 +53,93 @@
   <br />
   description<br />{$subjects.find((x) => x.name == name).description}
 {:else}
+<div class="container">
   <form>
-  วิชา<br />
-  {subject}
-  <br />
-  หน่วยกิต<br />
-  <input
+  <div class="sub1-container">
+  วิชา {subject} จำนวนหน่วยกิต
+  <div><input
     type="number"
     id="credit"
     min="0"
     max="3"
     value={$subjects.find((x) => x.name == name).credit}
-  />(0-3)
-  <br />
-  จำนวนโควต้า<br />
-  <input
+  /></div>(0-3)
+  </div>
+
+  <div class="sub2-container">
+  จำนวนโควต้า : 
+  <div><input
     type="number"
     id="total"
     min={$subjects.find((x) => x.name == name).register}
     max="100"
     value={$subjects.find((x) => x.name == name).total}
-  />
+  /></div>
   ({$subjects.find((x) => x.name == name).register}-100)
   <br />
-  จำนวนที่ลงทะเบียน<br />
+  </div>
+
+  <div class="sub3-container">
+  จำนวนที่ลงทะเบียน 
   {$subjects.find((x) => x.name == name).register}
-  <br />
-  description<br />
+  description : <br />
   <input
     type="text"
     id="description"
     value={$subjects.find((x) => x.name == name).description}
   />
   <br />
-  short description<br />
+  </div>
+
+  <div class="sub4-container">
+  short description : <br />
   <input
     type="text"
     id="short_description"
     maxlength="30"
     value={$subjects.find((x) => x.name == name).short_description}
-  />
-  <button on:click={() => change_subject()}>บันทึก</button>
+  /> 
+  </div>
+
+  <div class="sub5-container"><button on:click={() => change_subject()}>บันทึก</button></div>
   </form>
+</div>
 {/if}
+
+<style>
+  div.title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  #title1{
+    background-color: white;
+    padding:15px;
+    border-radius: 20px;
+  }
+
+  div.container{
+    display: flex;
+    justify-content: center;
+  }
+  .sub1-container,.sub2-container,.sub3-container,.sub4-container,.sub5-container{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sub5-container{
+    margin-top: 20px;
+  }
+  .sub2-container,.sub3-container,.sub4-container{
+    margin-top: 5px;
+  }
+  form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
+  }
+
+</style>
