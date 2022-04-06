@@ -106,7 +106,7 @@
   }
 
   .nav {
-    background-color: #3a3845;
+    background-color: #000000;
   }
 
   .btn {
@@ -146,7 +146,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #3a3845;
+    background-color: #000000;
     min-width: 160px;
   }
 
