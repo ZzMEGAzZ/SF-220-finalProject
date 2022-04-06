@@ -101,7 +101,7 @@
   /> 
   </div>
 
-  <div class="sub5-container"><button on:click={() => change_subject()}>บันทึก</button></div>
+  <div class="sub5-container"><button class="button" on:click={() => change_subject()}>บันทึก</button></div>
   </form>
 </div>
 {/if}
@@ -140,6 +140,28 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
+  }
+  .button {
+    margin-top: auto;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(228, 228, 228);
+  }
+
+  .button:hover {
+    background-color: #b5b5b5;
+  }
+
+  .button:active {
+    background-color: #b5b5b5;
+    box-shadow: 0 5px rgb(228, 228, 228);
+    transform: translateY(4px);
   }
 
 </style>
