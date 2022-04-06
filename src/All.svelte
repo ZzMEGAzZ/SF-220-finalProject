@@ -12,7 +12,6 @@
     }
   }
 </script>
-
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 <div>
   <table>
@@ -43,7 +42,6 @@
     {/each}
   </table>
 </div>
-
 <style>
   * {
     padding: 0px;

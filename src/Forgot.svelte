@@ -30,6 +30,7 @@
     }
   }
 </script>
+
 forgot
 <br>
 {#if show2}
@@ -45,6 +46,7 @@ forgot
   <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
   <button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button>
 {/if}
+
 
 <style>
 </style>
