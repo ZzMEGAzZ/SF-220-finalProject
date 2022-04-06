@@ -26,8 +26,11 @@
     if (new_password == confirm_password) {
       if (old_password == $accounts[$account].password) {
         $accounts[$account].password = new_password;
+        alert("Password Changed");
+        show2 = false;
+        $mode = "";
+        $islogin = false;
         $accounts = [...new Set($accounts)];
-        show2 = !show2;
       } else {
         alert("รหัสผ่านเก่าไม่ถูกต้อง");
       }

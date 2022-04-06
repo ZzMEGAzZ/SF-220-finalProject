@@ -5,7 +5,7 @@
   }
   function logout() {
     $islogin = false;
-    $account = {};
+    $account = "";
   }
 
   function checkrole_admin() {
