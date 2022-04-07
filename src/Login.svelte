@@ -22,7 +22,7 @@
   
 </script>
 <div id="login-container">
-  <h1>asdasdasdsa</h1>
+  <h1>Soft-fell</h1>
 
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
