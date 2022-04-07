@@ -54,7 +54,16 @@
   });
 </script>
 
+<div class="container">
+  <h1>statistics</h1>
+  <canvas id="myChart" width="3" height="1" />
+</div>
 
-<h1>statistics</h1>
-
-<canvas id="myChart" width="3" height="1" />
+<style>
+  div.container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

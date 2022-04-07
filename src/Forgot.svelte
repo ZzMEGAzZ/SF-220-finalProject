@@ -29,6 +29,10 @@
       alert("รหัสผ่านใหม่ไม่ตรงกัน");
     }
   }
+
+	function goback() {
+    $mode = "";
+  }
 </script>
 
 <div class="container">
@@ -36,7 +40,9 @@
 {#if show2}
   <input id="account_now" type="text" placeholder="username" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
-  <div class="button"><button on:click={() => show_input()}>ยืนยัน</button></div>
+  <div class="button"><button on:click={() => show_input()}>ยืนยัน</button>
+	<button on:click={() => goback()}>back</button>
+	</div>
 {/if}
 
 {#if show}
