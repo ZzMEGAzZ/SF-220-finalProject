@@ -36,7 +36,7 @@
 </script>
 
 <div class="container">
-  <h1>Forgot Password</h1>
+  <h1>ลืมรหัสผ่าน</h1>
 {#if show2}
   <input id="account_now" type="text" placeholder="username" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />

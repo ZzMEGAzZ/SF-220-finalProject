@@ -13,6 +13,7 @@
       $accounts[$account].image = reader.result;
       $accounts = [...new Set($accounts)];
       show = !show;
+      $mode = '';
     };
   }
   function show_input2() {
@@ -41,7 +42,7 @@
 </script>
 
 <div>
-  <h1>แก้ไขรูปโปรไฟล์</h1>
+  <h1>แก้ไขโปรไฟล์</h1>
 </div>
 
 <div id="profile">

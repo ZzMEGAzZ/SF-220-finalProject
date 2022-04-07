@@ -24,12 +24,12 @@
 <div id="login-container">
   <h1>Soft-fell</h1>
 
-  <input bind:value={username} placeholder="Username" />
-  <input type="password" bind:value={pin} placeholder="Password" />
+  <input bind:value={username} placeholder="ชื่อบัญชี" />
+  <input type="password" bind:value={pin} placeholder="รหัสผ่าน" />
   <div id="login-btn-container">
-    <button on:click={() => checkLogin()}>Log In</button>
+    <button on:click={() => checkLogin()}>เข้าสู่ระบบ</button>
     <p>|</p>
-    <button on:click={() => forgot()}>forgot password</button>
+    <button on:click={() => forgot()}>ลืมรหัสผ่าน</button>
   </div>
 </div>
 
