@@ -20,6 +20,13 @@
     $mode = "forgot";
   }
 
+	input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myBtn").click();
+  }
+});
+
   
 </script>
 <div id="login-container">
@@ -28,7 +35,7 @@
   <input bind:value={username} placeholder="Username" />
   <input type="password" bind:value={pin} placeholder="Password" />
   <div id="login-btn-container">
-    <button on:click={() => checkLogin()}>Log In</button>
+    <button id="myBtn" on:click={() => checkLogin()}>Log In</button>
     <p>|</p>
     <button on:click={() => forgot()}>forgot password</button>
   </div>
