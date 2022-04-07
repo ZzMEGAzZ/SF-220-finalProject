@@ -13,7 +13,7 @@
       $accounts[$account].image = reader.result;
       $accounts = [...new Set($accounts)];
       show = !show;
-      $mode = '';
+      $mode = 'profile';
     };
   }
   function show_input2() {
