@@ -41,7 +41,7 @@
   <input id="account_now" type="text" placeholder="username" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
   <div class="button"><button on:click={() => show_input()}>ยืนยัน</button>
-	<button on:click={() => goback()}>back</button>
+	<button on:click={() => goback()}>ย้อนกลับ</button>
 	</div>
 {/if}
 
