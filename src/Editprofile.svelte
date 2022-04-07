@@ -61,8 +61,7 @@
     <input id="file" type="file" on:change={() => change_image()} />
   {/if}
   <button id="button-password" on:click={() => show_input2()}
-    >เปลี่ยนรหัสผ่าน</button
-  >
+    >เปลี่ยนรหัสผ่าน</button>
 </div>
 
 <div id="change-password">
