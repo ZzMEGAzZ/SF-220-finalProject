@@ -11,9 +11,9 @@
     reader.readAsDataURL(file);
     reader.onload = function () {
       $accounts[$account].image = reader.result;
-      $accounts = [...new Set($accounts)];
       show = !show;
-      $mode = 'profile';
+      $accounts = [...new Set($accounts)];
+      
     };
   }
   function show_input2() {
