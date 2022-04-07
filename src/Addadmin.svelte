@@ -148,6 +148,7 @@
   }
 
   .model {
+    margin-top: 60px;
     max-width: 50%;
     padding: 1rem 2rem;
     -webkit-backdrop-filter: blur(10px);
