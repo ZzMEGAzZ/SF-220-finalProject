@@ -20,23 +20,23 @@
     let confirm_password = document.getElementById("confirm_password").value;
     if (new_password == confirm_password) {
       $accounts[$account].password = new_password;
-      $accounts = [...new Set($accounts)];
       alert("เปลี่ยนรหัสผ่านเรียบร้อย");
       show = !show;
       $mode = "";
       $account = "";
+      $accounts = [...new Set($accounts)];
     } else {
       alert("รหัสผ่านใหม่ไม่ตรงกัน");
     }
   }
 </script>
 
-forgot
-<br>
+<div class="container">
+  <h1>Forgot Password</h1>
 {#if show2}
   <input id="account_now" type="text" placeholder="username" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
-  <button on:click={() => show_input()}>ยืนยัน</button>
+  <div class="button"><button on:click={() => show_input()}>ยืนยัน</button></div>
 {/if}
 
 {#if show}
@@ -44,9 +44,22 @@ forgot
   {$account}
   <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
   <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
-  <button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button>
+  <div class="button"><button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button></div>
 {/if}
-
+</div>
 
 <style>
+  div.container{
+    height: 100%;
+    width: 100%;
+
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  div.button{
+    margin-top: 10px;
+  }
 </style>

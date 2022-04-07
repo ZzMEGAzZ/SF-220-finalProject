@@ -39,7 +39,7 @@
   }
 </script>
 
-<div class="title"><h1>Detail</h1>
+<div class="title"><h1>รายละเอียดวิชา</h1>
 <div id="title1">{name}</div></div>
 <br />
 {#if !isadmin()}
