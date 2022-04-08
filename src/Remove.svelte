@@ -63,8 +63,8 @@
 </div>
 
 <div>
-  <p id="space">วิชาที่ต้องการถอน</p>
-  <p>{x}</p>
+  <p id="p1">วิชาที่ต้องการถอน</p>
+  <p id="p2">{x}</p>
 </div>
 
 <div>
@@ -130,7 +130,12 @@
     transform: translateY(4px);
   }
 
-  #space {
+  #p1 {
+    font-weight: bold;
     margin: 10px;
+  }
+  #p2 {
+    font-weight: bold;
+    margin: 12px;
   }
 </style>
