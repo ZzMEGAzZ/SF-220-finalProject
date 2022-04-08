@@ -25,13 +25,7 @@
   <h1>Soft-fell</h1>
 
   <input bind:value={username} placeholder="ชื่อบัญชี" />
-  <input type="password" bind:value={pin} placeholder="รหัสผ่าน" 
-  on:keypress= {(e) => {
-    if (e.key == 'Enter') {
-      checkLogin();
-    }
-  }}
-  />
+  <input type="password" bind:value={pin} placeholder="รหัสผ่าน" />
   <div id="login-btn-container">
     <button on:click={() => checkLogin()}>เข้าสู่ระบบ</button>
     <p>|</p>
@@ -80,21 +74,6 @@
     background-color: transparent;
     color: #3a3845;
     font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  #login-btn-container button:hover {
-    color: #ff2361;
-    transition: 0.1s;
-  }
-
-  :global(input) {
-    display: flex;
-    margin: 6px;
-  }
-</style>
-   font-size: 15px;
     font-weight: bold;
     cursor: pointer;
   }
