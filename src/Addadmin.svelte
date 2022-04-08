@@ -12,7 +12,7 @@
   function show_results() {
     if (newname == "" || newtotal == "" || newcredit == "") {
       alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
-    } elseif(!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)){
+    } else if(!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)){
       alert("กรุณากรอกเป็นจำนวนเต็ม");
     }
     else if (
