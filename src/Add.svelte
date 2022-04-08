@@ -87,8 +87,8 @@
 </div>
 
 <div>
-  <p id="space">วิชาที่ต้องการลงทะเบียน</p>
-  <p>{x}</p>
+  <p id="p1">วิชาที่ต้องการลงทะเบียน</p>
+  <p id="p2">{x}</p>
 </div>
 
 <div>
@@ -150,7 +150,12 @@
     box-shadow: 0 5px rgb(228, 228, 228);
     transform: translateY(4px);
   }
-  #space {
+  #p1 {
+    font-weight: bold;
     margin: 10px;
+  }
+  #p2 {
+    font-weight: bold;
+    margin: 12px;
   }
 </style>
