@@ -15,7 +15,9 @@
     let newdescription = document.getElementById("description").value;
     let new_short_description =
       document.getElementById("short_description").value;
-    if (
+    if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
+      alert("กรุณากรอกเป็นจำนวนเต็ม");
+    } else if (
       newcredit >= 0 &&
       newtotal >= 0 &&
       newcredit <= 3 &&
@@ -39,8 +41,10 @@
   }
 </script>
 
-<div class="title"><h1>รายละเอียดวิชา</h1>
-<div id="title1">{name}</div></div>
+<div class="title">
+  <h1>รายละเอียดวิชา</h1>
+  <div id="title1">{name}</div>
+</div>
 <br />
 {#if !isadmin()}
   วิชา<br />{subject}
@@ -53,89 +57,102 @@
   <br />
   description<br />{$subjects.find((x) => x.name == name).description}
 {:else}
-<div class="container">
-  <form>
-  <div class="sub1-container">
-  วิชา {subject} จำนวนหน่วยกิต
-  <div><input
-    type="number"
-    id="credit"
-    min="0"
-    max="3"
-    value={$subjects.find((x) => x.name == name).credit}
-  /></div>(0-3)
-  </div>
+  <div class="container">
+    <form>
+      <div class="sub1-container">
+        วิชา {subject} จำนวนหน่วยกิต
+        <div>
+          <input
+            type="number"
+            id="credit"
+            min="0"
+            max="3"
+            value={$subjects.find((x) => x.name == name).credit}
+          />
+        </div>
+        (0-3)
+      </div>
 
-  <div class="sub2-container">
-  จำนวนโควต้า : 
-  <div><input
-    type="number"
-    id="total"
-    min={$subjects.find((x) => x.name == name).register}
-    max="100"
-    value={$subjects.find((x) => x.name == name).total}
-  /></div>
-  ({$subjects.find((x) => x.name == name).register}-100)
-  <br />
-  </div>
+      <div class="sub2-container">
+        จำนวนโควต้า :
+        <div>
+          <input
+            type="number"
+            id="total"
+            min={$subjects.find((x) => x.name == name).register}
+            max="100"
+            value={$subjects.find((x) => x.name == name).total}
+          />
+        </div>
+        ({$subjects.find((x) => x.name == name).register}-100)
+        <br />
+      </div>
 
-  <div class="sub3-container">
-  จำนวนที่ลงทะเบียน 
-  {$subjects.find((x) => x.name == name).register}
-  description : <br />
-  <input
-    type="text"
-    id="description"
-    value={$subjects.find((x) => x.name == name).description}
-  />
-  <br />
-  </div>
+      <div class="sub3-container">
+        จำนวนที่ลงทะเบียน
+        {$subjects.find((x) => x.name == name).register}
+        description : <br />
+        <input
+          type="text"
+          id="description"
+          value={$subjects.find((x) => x.name == name).description}
+        />
+        <br />
+      </div>
 
-  <div class="sub4-container">
-  short description : <br />
-  <input
-    type="text"
-    id="short_description"
-    maxlength="30"
-    value={$subjects.find((x) => x.name == name).short_description}
-  /> 
-  </div>
+      <div class="sub4-container">
+        short description : <br />
+        <input
+          type="text"
+          id="short_description"
+          maxlength="30"
+          value={$subjects.find((x) => x.name == name).short_description}
+        />
+      </div>
 
-  <div class="sub5-container"><button class="button" on:click={() => change_subject()}>บันทึก</button></div>
-  </form>
-</div>
+      <div class="sub5-container">
+        <button class="button" on:click={() => change_subject()}>บันทึก</button>
+      </div>
+    </form>
+  </div>
 {/if}
 
 <style>
-  div.title{
+  div.title {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
   }
-  #title1{
+  #title1 {
     background-color: white;
-    padding:15px;
+    padding: 15px;
     border-radius: 20px;
   }
 
-  div.container{
+  div.container {
     display: flex;
     justify-content: center;
   }
-  .sub1-container,.sub2-container,.sub3-container,.sub4-container,.sub5-container{
+  .sub1-container,
+  .sub2-container,
+  .sub3-container,
+  .sub4-container,
+  .sub5-container {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .sub5-container{
+  .sub5-container {
     margin-top: 20px;
   }
-  .sub2-container,.sub3-container,.sub4-container{
+  .sub2-container,
+  .sub3-container,
+  .sub4-container {
     margin-top: 5px;
   }
-  form{
+  form {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -163,5 +180,4 @@
     box-shadow: 0 5px rgb(228, 228, 228);
     transform: translateY(4px);
   }
-
 </style>
