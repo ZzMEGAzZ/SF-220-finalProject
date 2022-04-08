@@ -49,7 +49,11 @@
 
   {$account}
   <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
-  <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
+  <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" on:keypress={(e) => {
+    if (e.key == 'Enter') {
+      change_password();
+    }
+  }} />
   <div class="button"><button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button></div>
 {/if}
 </div>
