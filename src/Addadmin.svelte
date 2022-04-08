@@ -73,6 +73,7 @@
           type="number"
           min="0"
           max="100"
+          step='1'
           on:input={(e) => (newtotal = e.target.value)}
         />
         หน่วยกิต:
@@ -80,6 +81,7 @@
           type="number"
           min="0"
           max="3"
+          step='1'
           on:input={(e) => (newcredit = e.target.value)}
         />
         ชื่ออาจารย์ผู้สอน:<input
