@@ -25,8 +25,7 @@
   <h1>Soft-fell</h1>
 
   <input bind:value={username} placeholder="ชื่อบัญชี" />
-  <input type="password" bind:value={p
-    on:keypress= {(e) => {
+  <input type="password" bind:value={ on:keypress= {(e) => {
     if (e.key == 'Enter') {
       checkLogin();
     }
