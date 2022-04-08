@@ -19,13 +19,22 @@
     $islogin = false;
     $mode = "forgot";
   }
-  
 </script>
+
 <div id="login-container">
   <h1>Soft-fell</h1>
 
   <input bind:value={username} placeholder="ชื่อบัญชี" />
-  <input type="password" bind:value={pin} placeholder="รหัสผ่าน" />
+  <input
+    type="password"
+    bind:value={pin}
+    placeholder="รหัสผ่าน"
+    on:keypress={(e) => {
+      if (e.key == "Enter") {
+        checkLogin();
+      }
+    }}
+  />
   <div id="login-btn-container">
     <button on:click={() => checkLogin()}>เข้าสู่ระบบ</button>
     <p>|</p>
@@ -40,7 +49,7 @@
     margin: 0;
     padding: 0;
     font-family: "prompt", sans-serif;
-		background-image: url("https://cdn.discordapp.com/attachments/959342189224271872/960768895021637712/BG_center_wave5.png");
+    background-image: url("https://cdn.discordapp.com/attachments/959342189224271872/960768895021637712/BG_center_wave5.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -79,6 +88,16 @@
   }
 
   #login-btn-container button:hover {
+    color: #ff2361;
+    transition: 0.1s;
+  }
+
+  :global(input) {
+    display: flex;
+    margin: 6px;
+  }
+</style>
+ #login-btn-container button:hover {
     color: #ff2361;
     transition: 0.1s;
   }
