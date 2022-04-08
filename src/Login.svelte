@@ -1,6 +1,10 @@
 <script>
   import { accounts, account, islogin, mode } from "./stores.js";
 
+  const inputpassword = document.getElementById("inputpassword");
+
+
+
   let username = "";
   let pin = "";
 
@@ -19,15 +23,21 @@
     $islogin = false;
     $mode = "forgot";
   }
+
+  inputpassword.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+      document.getElementById("loginbutton").click();
+    }
+  });
   
 </script>
 <div id="login-container">
   <h1>Soft-fell</h1>
 
   <input bind:value={username} placeholder="ชื่อบัญชี" />
-  <input type="password" bind:value={pin} placeholder="รหัสผ่าน" />
+  <input  id='inputpassword' type="password" bind:value={pin} placeholder="รหัสผ่าน" />
   <div id="login-btn-container">
-    <button on:click={() => checkLogin()}>เข้าสู่ระบบ</button>
+    <button id="loginbutton" on:click={() => checkLogin()}>เข้าสู่ระบบ</button>
     <p>|</p>
     <button on:click={() => forgot()}>ลืมรหัสผ่าน</button>
   </div>
