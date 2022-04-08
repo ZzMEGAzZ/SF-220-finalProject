@@ -11,8 +11,6 @@
       return false;
     }
   }
-  
-  
 </script>
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 <div>

@@ -17,7 +17,6 @@
       newtotal >= 0 &&
       newcredit <= 3 &&
       newtotal <= 100
-       && Number.isInteger(newcredit) && Number.isInteger(newtotal)
     ) {
       showmode = false;
     } else {
