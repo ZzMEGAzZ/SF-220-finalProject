@@ -14,7 +14,7 @@
   }
 
   function deletesubjectallusers(name) {
-    alert("deletesubjectallusers");
+    alert("ลบรายวิชาออกจากผู้ใช้ทั้งหมดแล้ว");
     for (let key in $accounts) {
       for (let i = 0; i < $accounts[key].sub.length; i++) {
         if ($accounts[key].sub[i] == name) {
