@@ -210,5 +210,8 @@
     padding: 15px;
     border-radius: 20px;
   }
+  .stu_sub5{
+    display: flex;
+  }
 
 </style>
