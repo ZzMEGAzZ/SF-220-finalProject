@@ -47,15 +47,31 @@
 </div>
 <br />
 {#if !isadmin()}
-  วิชา<br />{subject}
-  <br />
-  หน่วยกิต<br />{$subjects.find((x) => x.name == name).credit}
-  <br />
-  จำนวนโควต้า<br />{$subjects.find((x) => x.name == name).total}
-  <br />
-  จำนวนที่ลงทะเบียน<br />{$subjects.find((x) => x.name == name).register}
-  <br />
-  description<br />{$subjects.find((x) => x.name == name).description}
+  <div class="stu_container">
+    <div class="All_stu">
+      <div class="stu_sub1">
+        วิชา {subject}
+      </div>
+
+      <div class="stu_sub2">
+        หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
+      </div>
+
+      <div class="stu_sub3">
+        จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
+      </div>
+
+      <div class="stu_sub4">
+        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
+      </div>
+
+      <div class="stu_sub5">
+        <div>description</div> : 
+        {$subjects.find((x) => x.name == name).description}
+      </div>
+
+    </div>
+  </div>
 {:else}
   <div class="container">
     <form>
@@ -89,9 +105,9 @@
       </div>
 
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน
+        จำนวนที่ลงทะเบียน<br />
         {$subjects.find((x) => x.name == name).register}
-        description : <br />
+        description :
         <input
           type="text"
           id="description"
@@ -180,4 +196,19 @@
     box-shadow: 0 5px rgb(228, 228, 228);
     transform: translateY(4px);
   }
+
+  .stu_container, .All_stu{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .All_stu{
+    background-color: white;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
+    padding: 15px;
+    border-radius: 20px;
+  }
+
 </style>
