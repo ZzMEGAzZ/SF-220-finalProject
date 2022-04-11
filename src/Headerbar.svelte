@@ -84,8 +84,8 @@
   }
 
   #profile-nav-container img {
-    width: 45px;
-    height: 45px;
+    width: 65px;
+    height: 65px;
     border-radius: 45px;
     margin-right: 15px;
     vertical-align: middle;
@@ -93,7 +93,7 @@
 
   #profile-nav-container p {
     margin: 0;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .flex-nav {
@@ -101,6 +101,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    height: 80px;
     margin-left: 30px;
     margin-right: 100px;
   }
@@ -134,7 +135,7 @@
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .dropdown {
