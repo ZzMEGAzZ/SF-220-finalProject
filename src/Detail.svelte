@@ -24,8 +24,8 @@
       newtotal <= 100 &&
       newtotal >= $subjects.find((x) => x.name == name).register
     ) {
-      $subjects.find((x) => x.name == name).credit = newcredit;
-      $subjects.find((x) => x.name == name).total = newtotal;
+      $subjects.find((x) => x.name == name).credit = Math.ceil(newcredit);
+      $subjects.find((x) => x.name == name).total = Math.ceil(newtotal);
       $subjects.find((x) => x.name == name).description = newdescription;
       $subjects.find((x) => x.name == name).short_description =
         new_short_description;
@@ -105,7 +105,9 @@
       </div>
 
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน<br />
+        จำนวนที่ลงทะเบียน
+      </div>
+      <div class="sub6-container">
         {$subjects.find((x) => x.name == name).register}
         description :
         <input
@@ -113,7 +115,6 @@
           id="description"
           value={$subjects.find((x) => x.name == name).description}
         />
-        <br />
       </div>
 
       <div class="sub4-container">
@@ -154,20 +155,26 @@
   .sub2-container,
   .sub3-container,
   .sub4-container,
-  .sub5-container {
+  .sub5-container,
+  .sub6-container{
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  
   .sub5-container {
     margin-top: 20px;
   }
   .sub2-container,
-  .sub3-container,
-  .sub4-container {
+  .sub4-container{
     margin-top: 5px;
   }
+
+  .sub3-container{
+    margin-top: 10px;
+  }
+
   form {
     background-color: white;
     padding: 20px;
