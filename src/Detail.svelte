@@ -24,8 +24,8 @@
       newtotal <= 100 &&
       newtotal >= $subjects.find((x) => x.name == name).register
     ) {
-      $subjects.find((x) => x.name == name).credit = newcredit;
-      $subjects.find((x) => x.name == name).total = newtotal;
+      $subjects.find((x) => x.name == name).credit = Math.ceil(newcredit);
+      $subjects.find((x) => x.name == name).total = Math.ceil(newtotal);
       $subjects.find((x) => x.name == name).description = newdescription;
       $subjects.find((x) => x.name == name).short_description =
         new_short_description;

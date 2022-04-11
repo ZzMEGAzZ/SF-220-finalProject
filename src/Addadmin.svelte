@@ -32,10 +32,10 @@
       $subjects.push({
         name: newname,
         subject: newsubject,
-        total: newtotal,
+        total: Math.ceil(newtotal),
         register: 0,
         remaining: newtotal,
-        credit: newcredit,
+        credit: Math.ceil(newcredit),
         teacher: newTeacher,
         short_description: newshort_description,
         description: newdescription,
