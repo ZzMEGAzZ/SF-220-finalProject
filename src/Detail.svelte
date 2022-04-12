@@ -105,10 +105,9 @@
       </div>
 
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน
+        จำนวนที่ลงทะเบียน {$subjects.find((x) => x.name == name).register}
       </div>
       <div class="sub6-container">
-        {$subjects.find((x) => x.name == name).register}
         description :
         <input
           type="text"

@@ -55,9 +55,10 @@
   }
 </script>
 
+<h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
+
 <div class="container">
   <div class="model">
-    <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
     <div class="terms">
     {#if showmode == true}
       <form>
@@ -112,6 +113,7 @@
   </div>
 </div>
 
+<div>
 {#if showmode == false}
   <table>
     <thead>
@@ -137,8 +139,10 @@
       </tr>
     </tbody>
   </table>
-  <button on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+<button class="button" on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
 {/if}
+</div>
+
 
 <style>
   .container {
@@ -153,14 +157,13 @@
   }
 
   .model {
-    margin-top: 60px;
+    margin-top: 50px;
     max-width: 50%;
     padding: 1rem 2rem;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 0.25rem;
-    box-shadow: 0px 10px 30px 5px rgba(87,85,101,.2);
+    
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
     
   }
 
@@ -185,5 +188,45 @@
     background-color: #b5b5b5;
     box-shadow: 0 5px rgb(228, 228, 228);
     transform: translateY(4px);
+  }
+  table, td, th {    
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+
+    background-color: #c7d0d8;
+
+    padding: 10px;
+    text-align: center;
+
+    width: 700px;
+    height: 150px;
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2)
+  }
+  th, td {
+    padding: 10px;
+    border-bottom: 1px dashed grey;
+    background-color: white;
+    height: 50px;
+  }
+  tr:nth-last-child(-n + 1) {
+    border-bottom: none;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  form { height: 600px;
+    width: 400px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  div {
+    display: flex;
+    justify-content: center;
   }
 </style>
