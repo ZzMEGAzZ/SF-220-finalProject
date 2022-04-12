@@ -109,7 +109,7 @@
       </div>
       <div class="sub6-container">
         description :
-        <input
+        <textarea
           type="text"
           id="description"
           value={$subjects.find((x) => x.name == name).description}
