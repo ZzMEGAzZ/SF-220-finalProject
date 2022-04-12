@@ -104,7 +104,7 @@
         <br />
       </div>
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน {$subjects.find((x) => x.name == name).register} <br/>
+        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register} <br/>
       </div>
       <div class="sub6-container">
         description :
