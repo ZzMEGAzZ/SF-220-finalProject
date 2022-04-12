@@ -99,10 +99,9 @@
           maxlength="5"
           on:input={(e) => (newshort_description = e.target.value)}
         />
-        รายละเอียดวิชา:<input
-          class="resize-box"
+        รายละเอียดวิชา:<textarea
           type="text"
-          maxlenght="100"
+          maxlenght="300"
           on:input={(e) => (newdescription = e.target.value)}
         />
 
@@ -145,6 +144,14 @@
 
 
 <style>
+  textarea {
+    resize: both;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 300px;
+    max-height: 250px;
+  }
+
   .container {
     display: flex;
     justify-content: center;
