@@ -142,8 +142,8 @@
         </tr>
       </tbody>
     </table>
-    <button class="button" on:click={() => confirm()}
-      >ยืนยันวิชาที่ต้องการเพิ่ม</button
+    <button class="button1" style="vertical-align: middle;" on:click={() => confirm()}
+      ><span>ยืนยันวิชาที่ต้องการเพิ่ม</span></button
     >
   {/if}
 </div>
@@ -243,4 +243,40 @@
     display: flex;
     justify-content: center;
   }
+  .button1 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #b5b5b5;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 9px rgb(228, 228, 228)
+  }
+  .button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .button1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .button1:hover span {
+    padding-right: 25px;
+  }
+  .button1:hover span:after {
+    opacity: 1;
+    right: 0;
+  }          
 </style>
