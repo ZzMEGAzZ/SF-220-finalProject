@@ -247,7 +247,6 @@
     border-radius: 4px;
     background-color: #b5b5b5;
     border: none;
-    color: black;
     text-align: center;
     font-size: 28px;
     padding: 20px;
