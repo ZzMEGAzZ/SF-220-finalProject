@@ -76,7 +76,7 @@
   <div class="container">
     <form>
       <div class="sub1-container">
-        วิชา {subject} จำนวนหน่วยกิต
+        วิชา {subject} จำนวนหน่วยกิต : 
         <div>
           <input
             type="number"
@@ -104,7 +104,7 @@
         <br />
       </div>
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน : 
+        จำนวนที่ลงทะเบียน :  
         <textarea class="register">{$subjects.find((x) => x.name == name).register}</textarea> <br/>
       </div>
       <div class="sub6-container">
@@ -149,10 +149,11 @@
   }
 
   textarea.register {
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    margin-left: 20px;
     resize: none;
   }
   
@@ -162,6 +163,7 @@
     min-height: 200px;
     max-width: 300px;
     max-height: 250px;
+    margin-left: 20px;
   }
 
   div.container {
@@ -172,16 +174,18 @@
   .sub2-container,
   .sub3-container,
   .sub4-container,
-  .sub5-container,
   .sub6-container{
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
   }
   
   .sub5-container {
-    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .sub2-container,
   .sub4-container{

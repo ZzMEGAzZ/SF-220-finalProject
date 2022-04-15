@@ -40,8 +40,10 @@
 {#if show2}
   <input id="account_now" type="text" placeholder="username" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
-  <div class="button"><button on:click={() => show_input()}>ยืนยัน</button>
-	<button on:click={() => goback()}>ย้อนกลับ</button>
+  <div class="button">
+    <button on:click={() => show_input()}>ยืนยัน</button>
+    <p> | </p>
+	  <button on:click={() => goback()}>ย้อนกลับ</button>
 	</div>
 {/if}
 
@@ -60,7 +62,7 @@
 
 <style>
   div.container{
-    height: 100%;
+    height: 95%;
     width: 100%;
 
     display:flex;
@@ -71,5 +73,21 @@
   }
   div.button{
     margin-top: 10px;
+    display: inline-flex;
   }
+  div.button button{
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    color: #3a3845;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  div.button button:hover{
+    color: #ff2361;
+    transition: 0.1s;
+  }
+
 </style>
