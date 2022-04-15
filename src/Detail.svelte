@@ -104,13 +104,15 @@
         <br />
       </div>
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register} <br/>
+        จำนวนที่ลงทะเบียน : 
+        <textarea class="register">{$subjects.find((x) => x.name == name).register}</textarea> <br/>
       </div>
       <div class="sub6-container">
         description :
         <textarea
           type="text"
           id="description"
+          class="description"
           maxlength="300"
           value={$subjects.find((x) => x.name == name).description}
         />
@@ -146,7 +148,15 @@
     border-radius: 20px;
   }
 
-  textarea {
+  textarea.register {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    resize: none;
+  }
+  
+  textarea.description {
     resize: both;
     min-width: 200px;
     min-height: 200px;
