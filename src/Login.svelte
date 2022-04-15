@@ -6,7 +6,7 @@
 
   function checkLogin() {
     if (!(username in $accounts) || $accounts[username].password != pin) {
-      alert("Incorrect Account Number or PIN");
+      alert("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
     } else {
       $islogin = true;
       $mode = "profile";

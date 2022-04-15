@@ -64,24 +64,30 @@
     {#if showmode == true}
       <div class="terms">
         <form>
+          <div class="highsub-1">
+          <div class="sub-1">
           รหัสวิชา:<input
             type="text"
             minlength="5"
             maxlength="5"
             on:input={(e) => (newname = e.target.value)}
-          />
+          /></div>
+          <div class="sub-2">
           ชื่อวิชา:<input
             type="text"
             maxlength="30"
             on:input={(e) => (newsubject = e.target.value)}
-          />
+          /> </div> </div>
+          <div class="highsub-2">
+          <div class="sub-3">
           จำนวนโควต้า:<input
             type="number"
             min="0"
             max="100"
             step="1"
             on:input={(e) => (newtotal = e.target.value)}
-          />
+          /> </div>
+          <div class="sub-4">
           หน่วยกิต:
           <input
             type="number"
@@ -89,34 +95,38 @@
             max="3"
             step="1"
             on:input={(e) => (newcredit = e.target.value)}
-          />
+          /> </div> </div>
+          <div class="highsub-3">
+          <div class="sub-5">
           ชื่ออาจารย์ผู้สอน:<input
             type="text"
             maxlength="30"
             on:input={(e) => (newTeacher = e.target.value)}
-          />
+          /> </div>
+          <div class="sub-6">
           เพิ่มเติม:
           <input
             type="text"
             maxlength="5"
             on:input={(e) => (newshort_description = e.target.value)}
-          />
+          /> </div> </div>
+          <div class="sub-7">
           รายละเอียดวิชา:<textarea
             type="text"
             maxlenght="300"
             on:input={(e) => (newdescription = e.target.value)}
-          />
-
+          /> </div>
+          <div class="sub-8">
           <button class="button" on:click={() => show_results()}
             >ยืนยันวิชาที่ต้องการเพิ่ม</button
-          >
+          > </div>
         </form>
       </div>
     {/if}
   </div>
 </div>
 
-<div>
+<div id="confirm">
   {#if showmode == false}
     <table>
       <thead>
@@ -155,26 +165,24 @@
     min-height: 200px;
     max-width: 300px;
     max-height: 250px;
+    margin-left: 20px;
   }
 
-  #container {
+  div#confirm {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
-  #model {
-    margin-top: 50px;
-    max-width: 50%;
-    padding: 1rem 2rem;
-    width: 100%;
-    height: 100%;
+  div#container {
+    display: flex;
+    justify-content: center;
+  }
+
+  form {
     background-color: white;
+    padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
   }
 
   .button {
@@ -233,16 +241,7 @@
     justify-content: center;
     margin-top: 50px;
   }
-  form {
-    height: 600px;
-    width: 400px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-  div {
-    display: flex;
-    justify-content: center;
-  }
+
   .button1 {
     display: inline-block;
     border-radius: 4px;
@@ -278,5 +277,42 @@
   .button1:hover span:after {
     opacity: 1;
     right: 0;
-  }          
+  }
+  
+  .highsub-1,
+  .highsub-2,
+  .highsub-3 {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+  }
+
+  .sub-1,
+  .sub-2,
+  .sub-5,
+  .sub-6,
+  .sub-7 {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .sub-3, 
+  .sub-4 {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+  }
+
+  .sub-4 {
+    margin-left: 70px;
+  }
+
+  .sub-8 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
 </style>
