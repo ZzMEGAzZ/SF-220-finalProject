@@ -80,7 +80,7 @@
     showmode = true;
     document.getElementById("container").style.display = "flex";
     document.getElementById("model").style.display = "flex";
-    document.getElementById("subject").value = newname;
+    document.getElementById("name").value = newname;
   }
 
 </script>
@@ -93,7 +93,7 @@
       <div class="terms">
           <div class="highsub-1">
           <div class="sub-1">
-          รหัสวิชา:<input id="subject"
+          รหัสวิชา:<input id="name"
             type="text"
             minlength="5"
             maxlength="5"
