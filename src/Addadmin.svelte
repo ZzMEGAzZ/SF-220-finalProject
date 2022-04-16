@@ -63,13 +63,6 @@
   }
 
    function back() {
-    newname = "";
-    newsubject = "";
-    newtotal = "";
-    newcredit = "";
-    newTeacher = "";
-    newshort_description = "";
-    newdescription = "";
     showmode = true;
     document.getElementById("container").style.display = "flex";
     document.getElementById("model").style.display = "flex";
@@ -97,50 +90,57 @@
             type="text"
             minlength="5"
             maxlength="5"
+            value="{newname}"
             on:input={(e) => (newname = e.target.value)}
           /></div>
           <div class="sub-2">
-          ชื่อวิชา:<input
+          ชื่อวิชา:<input id="subject"
             type="text"
             maxlength="30"
+            value="{newsubject}"
             on:input={(e) => (newsubject = e.target.value)}
           /> </div> </div>
           <div class="highsub-2">
           <div class="sub-3">
-          จำนวนโควต้า:<input
+          จำนวนโควต้า:<input id="total"
             type="number"
             min="1"
             max="100"
             step="1"
+            value="{newtotal}"
             on:input={(e) => (newtotal = e.target.value)}
           /> </div>
           <div class="sub-4">
           หน่วยกิต:
-          <input
+          <input id="credit"
             type="number"
             min="0"
             max="3"
             step="1"
+            value="{newcredit}"
             on:input={(e) => (newcredit = e.target.value)}
           /> </div> </div>
           <div class="highsub-3">
           <div class="sub-5">
-          ชื่ออาจารย์ผู้สอน:<input
+          ชื่ออาจารย์ผู้สอน:<input id="teacher"
             type="text"
             maxlength="30"
+            value="{newTeacher}"
             on:input={(e) => (newTeacher = e.target.value)}
           /> </div>
           <div class="sub-6">
           เพิ่มเติม:
-          <input
+          <input id="short_description"
             type="text"
             maxlength="5"
+            value="{newshort_description}"
             on:input={(e) => (newshort_description = e.target.value)}
           /> </div> </div>
           <div class="sub-7">
-          รายละเอียดวิชา:<textarea
+          รายละเอียดวิชา:<textarea id="description"
             type="text"
             maxlength="300"
+            value="{newdescription}"
             on:input={(e) => (newdescription = e.target.value)}
           /> </div>
           <div class="sub-8">
