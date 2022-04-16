@@ -16,7 +16,7 @@
       alert("กรุณากรอกเป็นจำนวนเต็ม");
     } else if (
       newcredit >= 0 &&
-      newtotal >= 0 &&
+      newtotal >= 1 &&
       newcredit <= 3 &&
       newtotal <= 100
     ) {
@@ -30,7 +30,7 @@
   }
 
   function confirm() {
-    if (newcredit >= 0 && newtotal >= 0 && newcredit <= 3 && newtotal <= 100) {
+    if (newcredit >= 0 && newtotal >= 1 && newcredit <= 3 && newtotal <= 100) {
       $subjects.push({
         name: newname,
         subject: newsubject,
@@ -54,6 +54,19 @@
       newdescription = "";
       mode.set("allsubjects");
     }
+  }
+
+   function back() {
+    showmode = true;
+    document.getElementById("container").style.display = "flex";
+    document.getElementById("model").style.display = "flex";
+    newname = "";
+    newsubject = "";
+    newtotal = "";
+    newcredit = "";
+    newTeacher = "";
+    newshort_description = "";
+    newdescription = "";
   }
 </script>
 
@@ -82,7 +95,7 @@
           <div class="sub-3">
           จำนวนโควต้า:<input
             type="number"
-            min="0"
+            min="1"
             max="100"
             step="1"
             on:input={(e) => (newtotal = e.target.value)}
@@ -152,6 +165,7 @@
         </tr>
       </tbody>
     </table>
+    <button on:click={() => back()}>ย้อนกลับ</button>
     <button class="button1" style="vertical-align: middle;" on:click={() => confirm()}
       ><span>ยืนยันวิชาที่ต้องการเพิ่ม</span></button
     >
