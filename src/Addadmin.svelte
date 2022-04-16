@@ -27,6 +27,12 @@
     } else {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
+    for (let i = 0; i < $subjects.length; i++) {
+      if ($subjects[i].name == newname) {
+        alert("มีรายวิชาดังกล่าวแล้ว");
+        duplicate();
+    }
+    }
   }
 
   function confirm() {
@@ -57,9 +63,6 @@
   }
 
    function back() {
-    showmode = true;
-    document.getElementById("container").style.display = "flex";
-    document.getElementById("model").style.display = "flex";
     newname = "";
     newsubject = "";
     newtotal = "";
@@ -67,7 +70,19 @@
     newTeacher = "";
     newshort_description = "";
     newdescription = "";
+    showmode = true;
+    document.getElementById("container").style.display = "flex";
+    document.getElementById("model").style.display = "flex";
   }
+
+  function duplicate() {
+    newname = "";
+    showmode = true;
+    document.getElementById("container").style.display = "flex";
+    document.getElementById("model").style.display = "flex";
+    document.getElementById("subject").value = newname;
+  }
+
 </script>
 
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
@@ -76,10 +91,9 @@
   <div id="model">
     {#if showmode == true}
       <div class="terms">
-        <form>
           <div class="highsub-1">
           <div class="sub-1">
-          รหัสวิชา:<input
+          รหัสวิชา:<input id="subject"
             type="text"
             minlength="5"
             maxlength="5"
@@ -133,7 +147,6 @@
           <button class="button" on:click={() => show_results()}
             >ยืนยันวิชาที่ต้องการเพิ่ม</button
           > </div>
-        </form>
       </div>
     {/if}
   </div>
