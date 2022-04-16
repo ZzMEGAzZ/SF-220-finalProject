@@ -113,7 +113,7 @@
           <div class="sub-7">
           รายละเอียดวิชา:<textarea
             type="text"
-            maxlenght="300"
+            maxlength="300"
             on:input={(e) => (newdescription = e.target.value)}
           /> </div>
           <div class="sub-8">

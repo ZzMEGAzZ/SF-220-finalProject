@@ -38,7 +38,7 @@
 <div class="container">
   <h1>ลืมรหัสผ่าน</h1>
 {#if show2}
-  <input id="account_now" type="text" placeholder="username" />
+  <input id="account_now" type="text" placeholder="ชื่อบัญชี" />
   <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
   <div class="button">
     <button on:click={() => show_input()}>ยืนยัน</button>

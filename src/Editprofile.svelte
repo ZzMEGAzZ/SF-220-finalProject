@@ -66,9 +66,9 @@
 
 <div id="change-password">
   {#if show2}
-    <input id="old_password" type="text" placeholder="รหัสผ่านเดิม" />
-    <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
-    <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
+    <input id="old_password" type="password" placeholder="รหัสผ่านเดิม" />
+    <input id="new_password" type="password" placeholder="รหัสผ่านใหม่" />
+    <input id="confirm_password" type="password" placeholder="ยืนยันรหัสผ่านใหม่" />
     <button on:click={() => change_password()}>ยืนยัน</button>
   {/if}
 </div>

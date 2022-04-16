@@ -21,6 +21,8 @@
   }
 </script>
 
+<main on:load={startTime()} />
+<header><div id="txt" /></header>
 <div id="login-container">
   <h1>Soft-fell</h1>
 
@@ -95,5 +97,15 @@
   :global(input) {
     display: flex;
     margin: 6px;
+  }
+
+  header {
+    background-color: #000000;
+  }
+  
+  #txt {
+    margin-left: 27px;
+    color: #ffffff;
+    font-size: 20px;
   }
 </style>
