@@ -10,45 +10,62 @@
   import { subjects, accounts, account, mode } from "./stores.js";
 
   function show_results() {
-    if ((newcredit < 0 || newcredit > 3 || newcredit == "") && (newtotal < 1 || newtotal > 100 || newtotal == "") && (newname == "" || newname.length < 5)) {
+    if (
+      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
+      (newtotal < 1 || newtotal > 100 || newtotal == "") &&
+      (newname == "" || newname.length < 5)
+    ) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("name-sub").style.display = "block";
-    } else if ((newcredit < 0 || newcredit > 3 || newcredit == "") && (newtotal < 1 || newtotal > 100 || newtotal == "")) {
+    } else if (
+      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
+      (newtotal < 1 || newtotal > 100 || newtotal == "")
+    ) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("name-sub").style.display = "none";
-    } else if ((newcredit < 0 || newcredit > 3 || newcredit == "") && (newname == "" || newname.length < 5)) {
+    } else if (
+      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
+      (newname == "" || newname.length < 5)
+    ) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("name-sub").style.display = "block";
-    } else if ((newtotal < 1 || newtotal > 100 || newtotal == "") && (newname == "" || newname.length < 5)) {
+    } else if (
+      (newtotal < 1 || newtotal > 100 || newtotal == "") &&
+      (newname == "" || newname.length < 5)
+    ) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "none";
       document.getElementById("name-sub").style.display = "block";
     } else if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
-      alert("กรุณากรอกเป็นจำนวนเต็ม");    
+      alert("กรุณากรอกเป็นจำนวนเต็ม");
     } else if (newname == "" || newname.length < 5) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("name-sub").style.display = "block";
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
-    } else if (newcredit < 0 || newcredit > 3 || newcredit == "")  {
+    } else if (newcredit < 0 || newcredit > 3 || newcredit == "") {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("name-sub").style.display = "none";
-    } else if (newtotal < 1 || newtotal > 100 || newtotal == "")  {
+    } else if (newtotal < 1 || newtotal > 100 || newtotal == "") {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "none";
       document.getElementById("name-sub").style.display = "none";
-
-    } else if (newcredit >= 0 && newtotal >= 1 && newcredit <= 3 && newtotal <= 100) {
+    } else if (
+      newcredit >= 0 &&
+      newtotal >= 1 &&
+      newcredit <= 3 &&
+      newtotal <= 100
+    ) {
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
       document.getElementById("name-sub").style.display = "none";
@@ -64,6 +81,7 @@
       if ($subjects[i].name == newname) {
         alert("มีรายวิชาดังกล่าวแล้ว");
         duplicate();
+        break;
       }
     }
   }
@@ -110,14 +128,16 @@
 
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
 
-<div id="container">
-  <div id="model">
-    {#if showmode == true}
+{#if showmode == true}
+  <div id="container">
+    <div id="model">
       <div class="terms">
         <div class="highsub-1">
           <div class="sub-1">
             <div class="sub-name">
-            รหัสวิชา: <p id="name-sub">*กรุณาใส่ให้ครบ 5 ตำแหน่ง </p></div><input
+              รหัสวิชา: <p id="name-sub">*กรุณาใส่ให้ครบ 5 ตำแหน่ง</p>
+            </div>
+            <input
               id="name"
               type="text"
               minlength="5"
@@ -139,7 +159,10 @@
         <div class="highsub-2">
           <div class="sub-3">
             <div class="sub-total">
-            จำนวนโควต้า:<p id="total-sub">*ขั้นต่ำ 1 คน <br> ไม่เกิน 100 คน</p></div><input
+              จำนวนโควต้า:
+              <p id="total-sub">*ขั้นต่ำ 1 คน <br /> ไม่เกิน 100 คน</p>
+            </div>
+            <input
               id="total"
               type="number"
               min="1"
@@ -151,7 +174,10 @@
           </div>
           <div class="sub-4">
             <div class="sub-credit">
-            หน่วยกิต:<p id="credit-sub">*ขั้นต่ำ 0 หน่วย <br> ไม่เกิน 3 หน่วย</p></div><input
+              หน่วยกิต:
+              <p id="credit-sub">*ขั้นต่ำ 0 หน่วย <br /> ไม่เกิน 3 หน่วย</p>
+            </div>
+            <input
               id="credit"
               type="number"
               min="0"
@@ -198,12 +224,12 @@
           >
         </div>
       </div>
-    {/if}
+    </div>
   </div>
-</div>
+{/if}
 
-<div id="confirm">
-  {#if showmode == false}
+{#if showmode == false}
+  <div id="confirm">
     <table>
       <thead>
         <tr>
@@ -228,14 +254,12 @@
         </tr>
       </tbody>
     </table>
-    <button on:click={() => back()}>ย้อนกลับ</button>
-    <button
-      class="button1"
-      style="vertical-align: middle;"
-      on:click={() => confirm()}><span>ยืนยันวิชาที่ต้องการเพิ่ม</span></button
-    >
-  {/if}
-</div>
+    <div class="flex-btn">
+      <button class="button" on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+      <button class="button" on:click={() => back()}>ย้อนกลับ</button>
+    </div>
+  </div>
+{/if}
 
 <style>
   p {
@@ -267,6 +291,7 @@
   div#confirm {
     display: flex;
     justify-content: center;
+    margin-top: 10%;
   }
 
   div#container {
@@ -285,6 +310,16 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
+  }
+
+  .flex-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 10px;
   }
 
   .button {
@@ -342,42 +377,6 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
-  }
-
-  .button1 {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #b5b5b5;
-    border: none;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    box-shadow: 0 9px rgb(228, 228, 228);
-  }
-  .button1 span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  .button1 span:after {
-    content: "\00bb";
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  .button1:hover span {
-    padding-right: 25px;
-  }
-  .button1:hover span:after {
-    opacity: 1;
-    right: 0;
   }
 
   .highsub-1,
