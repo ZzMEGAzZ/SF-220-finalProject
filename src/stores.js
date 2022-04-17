@@ -52,7 +52,7 @@ const default_data = {
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image: "https://fbi.dek-d.com/27/0585/6939/128381235",
+    image: "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
   },
 };
 
