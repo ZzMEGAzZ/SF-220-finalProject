@@ -2,6 +2,14 @@
   import { mode, subjects, sub, accounts, account } from "./stores.js";
   let name = $sub;
   let subject = $subjects.find((x) => x.name == name).subject;
+  let mintotal = 1;
+
+  if ($subjects.find((x) => x.name == name).register > 0) {
+    mintotal = $subjects.find((x) => x.name == name).register
+  } else {
+    mintotal = 1
+  }
+
   function isadmin() {
     if ($accounts[$account].role == "admin") {
       return true;
@@ -19,7 +27,7 @@
       alert("กรุณากรอกเป็นจำนวนเต็ม");
     } else if (
       newcredit >= 0 &&
-      newtotal >= 0 &&
+      newtotal >= 1 &&
       newcredit <= 3 &&
       newtotal <= 100 &&
       newtotal >= $subjects.find((x) => x.name == name).register
@@ -95,12 +103,12 @@
           <input
             type="number"
             id="total"
-            min={$subjects.find((x) => x.name == name).register}
+            min={mintotal}
             max="100"
             value={$subjects.find((x) => x.name == name).total}
           />
         </div>
-        ({$subjects.find((x) => x.name == name).register}-100)
+        ({mintotal} - 100)
         <br />
       </div>
       <div class="sub3-container">
