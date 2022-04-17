@@ -117,7 +117,7 @@
         <div class="highsub-1">
           <div class="sub-1">
             <div class="sub-name">
-            รหัสวิชา: <p id="name-sub">*กรุณาใส่ให้ครบ <br> 5 ตำแหน่ง </p></div><input
+            รหัสวิชา: <p id="name-sub">*กรุณาใส่ให้ครบ 5 ตำแหน่ง </p></div><input
               id="name"
               type="text"
               minlength="5"
