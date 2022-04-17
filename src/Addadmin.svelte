@@ -177,7 +177,7 @@
             <input
               id="short_description"
               type="text"
-              maxlength="5"
+              maxlength="30"
               value={newshort_description}
               on:input={(e) => (newshort_description = e.target.value)}
             />
