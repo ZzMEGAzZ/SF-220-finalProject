@@ -5,9 +5,9 @@
   let mintotal = 1;
 
   if ($subjects.find((x) => x.name == name).register > 0) {
-    mintotal = $subjects.find((x) => x.name == name).register
+    mintotal = $subjects.find((x) => x.name == name).register;
   } else {
-    mintotal = 1
+    mintotal = 1;
   }
 
   function isadmin() {
