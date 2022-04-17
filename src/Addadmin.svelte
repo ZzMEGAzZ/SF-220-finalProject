@@ -305,7 +305,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
