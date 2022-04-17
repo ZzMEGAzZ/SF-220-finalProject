@@ -37,7 +37,7 @@
       document.getElementById("name-sub").style.display = "block";
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
-    } else if (newcredit < 1 || newcredit > 4 || newcredit == "")  {
+    } else if (newcredit < 0 || newcredit > 3 || newcredit == "")  {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("total-sub").style.display = "none";
@@ -151,7 +151,7 @@
           </div>
           <div class="sub-4">
             <div class="sub-credit">
-            หน่วยกิต:<p id="credit-sub">*ขั้นต่ำ 1 หน่วย <br> ไม่เกิน 3 หน่วย</p></div><input
+            หน่วยกิต:<p id="credit-sub">*ขั้นต่ำ 0 หน่วย <br> ไม่เกิน 3 หน่วย</p></div><input
               id="credit"
               type="number"
               min="0"
