@@ -52,8 +52,7 @@ const default_data = {
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image:
-      "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
+    image: "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
   },
 };
 
@@ -61,9 +60,9 @@ const data = [
   {
     name: "SF210",
     subject: "Programming Skill Development 1",
-    total: 50,
-    register: 50,
-    remaining: 0,
+    total: 30,
+    register: 1,
+    remaining: 29,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
@@ -73,9 +72,9 @@ const data = [
   {
     name: "SF220",
     subject: "Introduction to software engineering",
-    total: 50,
-    register: 13,
-    remaining: 37,
+    total: 30,
+    register: 0,
+    remaining: 30,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
@@ -84,9 +83,9 @@ const data = [
   {
     name: "SF230",
     subject: "Linear Algebra and Numerical Methods for Computer Engineering",
-    total: 60,
-    register: 20,
-    remaining: 40,
+    total: 30,
+    register: 0,
+    remaining: 30,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
@@ -96,8 +95,8 @@ const data = [
     name: "TU107",
     subject: "Digital skill and Problem Solving",
     total: 100,
-    register: 15,
-    remaining: 85,
+    register: 0,
+    remaining: 100,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
     short_description: "Software Engineer",
@@ -107,8 +106,8 @@ const data = [
     name: "TU109",
     subject: "Innovation and entrepreneurial mindset",
     total: 100,
-    register: 20,
-    remaining: 80,
+    register: 0,
+    remaining: 100,
     credit: 3,
     Teacher: "Thanapath Cheeranawanith",
     short_description: "All Section",
@@ -117,9 +116,9 @@ const data = [
   {
     name: "TU105",
     subject: "Communication skills in English",
-    total: 50,
-    register: 10,
-    remaining: 40,
+    total: 3,
+    register: 0,
+    remaining: 3,
     credit: 3,
     Teacher: "Kriengkrai Sakulprasertsri",
     short_description: "Software Engineer",
@@ -129,9 +128,9 @@ const data = [
   {
     name: "TU050",
     subject: "English Skill Development",
-    total: 35,
-    register: 10,
-    remaining: 25,
+    total: 10,
+    register: 0,
+    remaining: 10,
     credit: 3,
     Teacher: "Kriengkrai Sakulprasertsri",
     short_description: "Software Engineer",
@@ -140,16 +139,9 @@ const data = [
   },
 ];
 
-//export const accounts = writable(data);
-//export const islogin = writable(false);
-//export const mode = writable("");
-//export const account = writable("");
-//export const subjects = writable(data2);
-//export const sub = writable("");
-
 export const accounts = persistStore("accounts", default_data);
 export const subjects = persistStore("subjects", data);
-export const islogin = persistStore("islogin", false);
-export const mode = persistStore("mode", "");
-export const account = persistStore("account", "");
+export const islogin = writable(false);
+export const mode = writable("");
+export const account = writable("");
 export const sub = persistStore("sub", "");
