@@ -43,8 +43,9 @@
 {:else if !$islogin && $mode == "forgot"}
   <Forgot />
 {:else}
+  <div class="sticky">
   <Headerbar />
-
+  </div>
   {#if $mode == "profile"}
     <Profile />
   {:else if $mode == "allsubjects"}
@@ -68,3 +69,11 @@
   {/if}
 {/if}
 
+<style>
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+</style>
