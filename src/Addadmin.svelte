@@ -126,6 +126,7 @@
   }
 </script>
 
+<div id="bg" />
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
 
 {#if showmode == true}
@@ -228,6 +229,7 @@
   </div>
 {/if}
 
+
 {#if showmode == false}
   <div id="confirm">
     <table>
@@ -262,6 +264,23 @@
 {/if}
 
 <style>
+
+  #bg {
+    background-image: linear-gradient(
+      180deg,
+      rgba(17, 34, 49, 1) 4%,
+      rgba(30, 71, 112, 1) 32%,
+      rgba(69, 117, 165, 0.8) 72%,
+      rgba(190, 220, 239, 1) 100%
+    );
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
   p {
     font-size: 10px;
     color: tomato;

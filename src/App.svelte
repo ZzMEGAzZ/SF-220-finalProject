@@ -70,6 +70,28 @@
 {/if}
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+  :global(body) {
+  margin: 0;
+  padding: 0;
+  font-family: "prompt", sans-serif;
+}
+
+:global(input) {
+  display: flex;
+  margin: 6px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+:global(textarea) {
+  display: flex;
+  margin: 6px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
   .sticky {
     position: -webkit-sticky;
     position: sticky;

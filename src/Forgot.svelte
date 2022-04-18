@@ -35,6 +35,7 @@
   }
 </script>
 
+<body>
 <div class="container">
   <h1>ลืมรหัสผ่าน</h1>
 {#if show2}
@@ -59,8 +60,29 @@
   <div class="button"><button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button></div>
 {/if}
 </div>
+</body>
 
 <style>
+
+body {
+	background: linear-gradient(-45deg,#bedcef, #7ebce9,#4575a5, #1e4770, #112231);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
   div.container{
     height: 95%;
     width: 100%;

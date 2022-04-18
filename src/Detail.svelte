@@ -49,101 +49,122 @@
   }
 </script>
 
-<div class="title">
-  <h1>รายละเอียดวิชา</h1>
-  <div id="title1">{name}</div>
-</div>
-<br />
-{#if !isadmin()}
-  <div class="stu_container">
-    <div class="All_stu">
-      <div class="stu_sub1">
-        วิชา {subject}
-      </div>
+<div id="bg" />
+  <div class="title">
+    <h1>รายละเอียดวิชา</h1>
+    <div id="title1">{name}</div>
+  </div>
+  <br />
+  {#if !isadmin()}
+    <div class="stu_container">
+      <div class="All_stu">
+        <div class="stu_sub1">
+          วิชา {subject}
+        </div>
 
-      <div class="stu_sub2">
-        หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
-      </div>
+        <div class="stu_sub2">
+          หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
+        </div>
 
-      <div class="stu_sub3">
-        จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
-      </div>
+        <div class="stu_sub3">
+          จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
+        </div>
 
-      <div class="stu_sub4">
-        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
-      </div>
+        <div class="stu_sub4">
+          จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
+        </div>
 
-      <div class="stu_sub5">
-        <div>description</div> : 
-        {$subjects.find((x) => x.name == name).description}
+        <div class="stu_sub5">
+          <div>description</div>
+          :
+          {$subjects.find((x) => x.name == name).description}
+        </div>
       </div>
-
     </div>
-  </div>
-{:else}
-  <div class="container">
-    <form>
-      <div class="sub1-container">
-        วิชา {subject} จำนวนหน่วยกิต : 
-        <div>
-          <input
-            type="number"
-            id="credit"
-            min="0"
-            max="3"
-            value={$subjects.find((x) => x.name == name).credit}
+  {:else}
+    <div class="container">
+      <form>
+        <div class="sub1-container">
+          วิชา {subject} จำนวนหน่วยกิต :
+          <div>
+            <input
+              type="number"
+              id="credit"
+              min="0"
+              max="3"
+              value={$subjects.find((x) => x.name == name).credit}
+            />
+          </div>
+          (0-3)
+        </div>
+
+        <div class="sub2-container">
+          จำนวนโควต้า :
+          <div>
+            <input
+              type="number"
+              id="total"
+              min={mintotal}
+              max="100"
+              value={$subjects.find((x) => x.name == name).total}
+            />
+          </div>
+          ({mintotal} - 100)
+          <br />
+        </div>
+        <div class="sub3-container">
+          จำนวนที่ลงทะเบียน :
+          <textarea class="register"
+            >{$subjects.find((x) => x.name == name).register}</textarea
+          > <br />
+        </div>
+        <div class="sub6-container">
+          description :
+          <textarea
+            type="text"
+            id="description"
+            class="description"
+            maxlength="300"
+            value={$subjects.find((x) => x.name == name).description}
           />
         </div>
-        (0-3)
-      </div>
 
-      <div class="sub2-container">
-        จำนวนโควต้า :
-        <div>
+        <div class="sub4-container">
+          short description : <br />
           <input
-            type="number"
-            id="total"
-            min={mintotal}
-            max="100"
-            value={$subjects.find((x) => x.name == name).total}
+            type="text"
+            id="short_description"
+            maxlength="30"
+            value={$subjects.find((x) => x.name == name).short_description}
           />
         </div>
-        ({mintotal} - 100)
-        <br />
-      </div>
-      <div class="sub3-container">
-        จำนวนที่ลงทะเบียน :  
-        <textarea class="register">{$subjects.find((x) => x.name == name).register}</textarea> <br/>
-      </div>
-      <div class="sub6-container">
-        description :
-        <textarea
-          type="text"
-          id="description"
-          class="description"
-          maxlength="300"
-          value={$subjects.find((x) => x.name == name).description}
-        />
-      </div>
 
-      <div class="sub4-container">
-        short description : <br />
-        <input
-          type="text"
-          id="short_description"
-          maxlength="30"
-          value={$subjects.find((x) => x.name == name).short_description}
-        />
-      </div>
-
-      <div class="sub5-container">
-        <button class="button" on:click={() => change_subject()}>บันทึก</button>
-      </div>
-    </form>
-  </div>
-{/if}
+        <div class="sub5-container">
+          <button class="button" on:click={() => change_subject()}
+            >บันทึก</button
+          >
+        </div>
+      </form>
+    </div>
+  {/if}
 
 <style>
+  #bg {
+    background-image: linear-gradient(
+      180deg,
+      rgba(17, 34, 49, 1) 4%,
+      rgba(30, 71, 112, 1) 32%,
+      rgba(69, 117, 165, 0.8) 72%,
+      rgba(190, 220, 239, 1) 100%
+    );
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
   div.title {
     display: flex;
     justify-content: center;
@@ -164,7 +185,7 @@
     margin-left: 20px;
     resize: none;
   }
-  
+
   textarea.description {
     resize: both;
     min-width: 200px;
@@ -182,13 +203,13 @@
   .sub2-container,
   .sub3-container,
   .sub4-container,
-  .sub6-container{
+  .sub6-container {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: left;
   }
-  
+
   .sub5-container {
     text-align: center;
     display: flex;
@@ -196,11 +217,11 @@
     justify-content: center;
   }
   .sub2-container,
-  .sub4-container{
+  .sub4-container {
     margin-top: 5px;
   }
 
-  .sub3-container{
+  .sub3-container {
     margin-top: 10px;
   }
 
@@ -233,21 +254,21 @@
     transform: translateY(4px);
   }
 
-  .stu_container, .All_stu{
+  .stu_container,
+  .All_stu {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
   }
 
-  .All_stu{
+  .All_stu {
     background-color: white;
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
     padding: 15px;
     border-radius: 20px;
   }
-  .stu_sub5{
+  .stu_sub5 {
     display: flex;
   }
-
 </style>
