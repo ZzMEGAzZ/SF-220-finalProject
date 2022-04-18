@@ -1,6 +1,8 @@
 <script>
   let x = [];
   let y = [];
+  let issearch = false;
+  let searchname = "";
   import { subjects, accounts, account, mode } from "./stores.js";
 
   function addsubjects(name, index) {
@@ -53,6 +55,14 @@
   <h1>ลงทะเบียนรายวิชา</h1>
 </div>
 
+<input
+  type="text"
+  id="search"
+  placeholder="ค้นหารายวิชา"
+  on:input={(e) => (searchname = e.target.value)}
+  on:input={() => (issearch = true)}
+/>
+
 <div>
   <table>
     <tr>
@@ -65,22 +75,26 @@
     </tr>
 
     {#each $subjects as { name, total, register, remaining }, index}
-      <tr>
-        <td>{index + 1}</td>
-        <td>{name}</td>
-        <td>{total}</td>
-        <td>{register}</td>
-        <td>{remaining}</td>
-        <td>
-          {#if check(name)}
-            ลงทะเบียนแล้ว
-          {:else if remaining == 0}
-            วิชานี้เต็มแล้ว
-          {:else}
-            <button on:click={addsubjects(name, index)}> เพิ่ม </button>
-          {/if}
-        </td>
-      </tr>
+      {#if issearch == false || name
+          .toLowerCase()
+          .includes(searchname.toLowerCase())}
+        <tr>
+          <td>{index + 1}</td>
+          <td>{name}</td>
+          <td>{total}</td>
+          <td>{register}</td>
+          <td>{remaining}</td>
+          <td>
+            {#if check(name)}
+              ลงทะเบียนแล้ว
+            {:else if remaining == 0}
+              วิชานี้เต็มแล้ว
+            {:else}
+              <button on:click={addsubjects(name, index)}> เพิ่ม </button>
+            {/if}
+          </td>
+        </tr>
+      {/if}
     {/each}
   </table>
 </div>
