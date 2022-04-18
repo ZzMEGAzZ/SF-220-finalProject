@@ -1,5 +1,9 @@
 <script>
   import { mode, subjects, sub, accounts, account } from "./stores.js";
+
+  let issearch = false;
+  let searchname = "";
+
   function description(subject) {
     $mode = "detail";
     $sub = subject;
@@ -11,11 +15,23 @@
       return false;
     }
   }
+  function showliststudents(subject) {
+    $mode = "liststudent";
+    $sub = subject;
+  }
 </script>
-
 
 <div id="bg" />
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
+
+<input
+  type="text"
+  id="search"
+  placeholder="ค้นหารายวิชา"
+  on:input={(e) => (searchname = e.target.value)}
+  on:input={() => (issearch = true)}
+/>
+
 <div>
   <table>
     <tr>
@@ -27,21 +43,51 @@
       <th>เพิ่มเติม</th>
     </tr>
     {#each $subjects as { name, total, register, remaining, short_description }, index}
-      <tr>
-        <td>{index + 1}</td>
-        {#if !isadmin()}
-          <td><button on:click={() => description(name)}>{name}</button></td>
-        {:else}
-          <td>{name}</td>
-        {/if}
-        <td>{total}</td>
-        <td>{register}</td>
-        <td>{remaining}</td>
-        <td>{short_description}</td>
-        {#if isadmin()}
-          <td><button on:click={() => description(name)}>แก้ไข</button></td>
-        {/if}
-      </tr>
+      {#if issearch == false}
+        <tr>
+          <td>{index + 1}</td>
+          {#if !isadmin()}
+            <td><button on:click={() => description(name)}>{name}</button></td>
+          {:else}
+            <td>{name}</td>
+          {/if}
+          <td>{total}</td>
+          <td>{register}</td>
+          <td>{remaining}</td>
+          <td>{short_description}</td>
+          {#if isadmin()}
+            <td
+              ><button on:click={() => showliststudents(name)}
+                >รายชื่อนักศึกษา</button
+              ></td
+            >
+            <td><button on:click={() => description(name)}>แก้ไข</button></td>
+          {/if}
+        </tr>
+      {:else if issearch == true && name
+          .toLowerCase()
+          .includes(searchname.toLowerCase())}
+        <tr>
+          <td>{index + 1}</td>
+          {#if !isadmin()}
+            <td><button on:click={() => description(name)}>{name}</button></td>
+          {:else}
+            <td>{name}</td>
+          {/if}
+          <td>{total}</td>
+          <td>{register}</td>
+          <td>{remaining}</td>
+          <td>{short_description}</td>
+          {#if isadmin()}
+            <td
+              ><button on:click={() => showliststudents(name)}
+                >รายชื่อนักศึกษา</button
+              ></td
+            >
+            <td><button on:click={() => description(name)}>แก้ไข</button></td>
+          {/if}
+        </tr>
+      {/if}
     {/each}
   </table>
 </div>

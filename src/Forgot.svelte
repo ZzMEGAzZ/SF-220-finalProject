@@ -30,74 +30,86 @@
     }
   }
 
-	function goback() {
+  function goback() {
     $mode = "";
   }
 </script>
 
 <body>
-<div class="container">
-  <h1>ลืมรหัสผ่าน</h1>
-{#if show2}
-  <input id="account_now" type="text" placeholder="ชื่อบัญชี" />
-  <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
-  <div class="button">
-    <button on:click={() => show_input()}>ยืนยัน</button>
-    <p> | </p>
-	  <button on:click={() => goback()}>ย้อนกลับ</button>
-	</div>
-{/if}
+  <div class="container">
+    <h1>ลืมรหัสผ่าน</h1>
+    {#if show2}
+      <input id="account_now" type="text" placeholder="ชื่อบัญชี" />
+      <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
+      <div class="button">
+        <button on:click={() => show_input()}>ยืนยัน</button>
+        <p>|</p>
+        <button on:click={() => goback()}>ย้อนกลับ</button>
+      </div>
+    {/if}
 
-{#if show}
-
-  {$account}
-  <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
-  <input id="confirm_password" type="text" placeholder="ยืนยันรหัสผ่านใหม่" on:keypress={(e) => {
-    if (e.key == 'Enter') {
-      change_password();
-    }
-  }} />
-  <div class="button"><button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button></div>
-{/if}
-</div>
+    {#if show}
+      {$account}
+      <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
+      <input
+        id="confirm_password"
+        type="text"
+        placeholder="ยืนยันรหัสผ่านใหม่"
+        on:keypress={(e) => {
+          if (e.key == "Enter") {
+            change_password();
+          }
+        }}
+      />
+      <div class="button">
+        <button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button>
+      </div>
+    {/if}
+  </div>
 </body>
 
 <style>
+  body {
+    background: linear-gradient(
+      -45deg,
+      #bedcef,
+      #7ebce9,
+      #4575a5,
+      #1e4770,
+      #112231
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
 
-body {
-	background: linear-gradient(-45deg,#bedcef, #7ebce9,#4575a5, #1e4770, #112231);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-  div.container{
+  div.container {
     height: 95%;
     width: 100%;
 
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     align-items: center;
   }
-  div.button{
+  div.button {
     margin-top: 10px;
     display: inline-flex;
   }
-  div.button button{
+  div.button button {
     margin: 0;
     border: none;
     background-color: transparent;
@@ -107,9 +119,8 @@ body {
     cursor: pointer;
   }
 
-  div.button button:hover{
+  div.button button:hover {
     color: #ff2361;
     transition: 0.1s;
   }
-
 </style>

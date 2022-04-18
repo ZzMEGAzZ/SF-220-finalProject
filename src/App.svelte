@@ -13,6 +13,7 @@
   import Addadmin from "./Addadmin.svelte";
   import Removeadmin from "./Removeadmin.svelte";
   import Detail from "./Detail.svelte";
+  import Liststudent from "./Liststudent.svelte";
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "firebase/app";
@@ -29,13 +30,12 @@
     storageBucket: "sf-220-final.appspot.com",
     messagingSenderId: "759002209096",
     appId: "1:759002209096:web:bb3137ba26b0db5359b17d",
-    measurementId: "G-XL6ZHD3ND7"
+    measurementId: "G-XL6ZHD3ND7",
   };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
 </script>
 
 {#if !$islogin && !($mode == "forgot")}
@@ -44,7 +44,7 @@
   <Forgot />
 {:else}
   <div class="sticky">
-  <Headerbar />
+    <Headerbar />
   </div>
   {#if $mode == "profile"}
     <Profile />
@@ -66,6 +66,8 @@
     <Removeadmin />
   {:else if $mode == "detail"}
     <Detail />
+  {:else if $mode == "liststudent"}
+    <Liststudent />
   {/if}
 {/if}
 
@@ -73,24 +75,24 @@
   @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 
   :global(body) {
-  margin: 0;
-  padding: 0;
-  font-family: "prompt", sans-serif;
-}
+    margin: 0;
+    padding: 0;
+    font-family: "prompt", sans-serif;
+  }
 
-:global(input) {
-  display: flex;
-  margin: 6px;
-  border-radius: 20px;
-  background-color: rgb(255, 255, 255, 0.5);
-}
+  :global(input) {
+    display: flex;
+    margin: 6px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
+  }
 
-:global(textarea) {
-  display: flex;
-  margin: 6px;
-  border-radius: 20px;
-  background-color: rgb(255, 255, 255, 0.5);
-}
+  :global(textarea) {
+    display: flex;
+    margin: 6px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
+  }
 
   .sticky {
     position: -webkit-sticky;

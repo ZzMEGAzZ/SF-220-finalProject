@@ -229,7 +229,6 @@
   </div>
 {/if}
 
-
 {#if showmode == false}
   <div id="confirm">
     <table>
@@ -257,14 +256,15 @@
       </tbody>
     </table>
     <div class="flex-btn">
-      <button class="button" on:click={() => confirm()}>ยืนยันวิชาที่ต้องการเพิ่ม</button>
+      <button class="button" on:click={() => confirm()}
+        >ยืนยันวิชาที่ต้องการเพิ่ม</button
+      >
       <button class="button" on:click={() => back()}>ย้อนกลับ</button>
     </div>
   </div>
 {/if}
 
 <style>
-
   #bg {
     background-image: linear-gradient(
       180deg,

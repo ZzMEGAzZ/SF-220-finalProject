@@ -6,6 +6,7 @@
   function logout() {
     $islogin = false;
     $account = "";
+    $mode = "";
   }
 
   function checkrole_admin() {

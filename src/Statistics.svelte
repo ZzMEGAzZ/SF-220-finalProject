@@ -60,10 +60,8 @@
   <canvas id="myChart" width="3" height="1" />
 </div>
 
-
 <style>
-
-#bg {
+  #bg {
     background-image: linear-gradient(
       180deg,
       rgba(17, 34, 49, 1) 4%,
@@ -79,8 +77,8 @@
     z-index: -1;
   }
 
-  div.container{
-    display:flex;
+  div.container {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;

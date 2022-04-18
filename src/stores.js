@@ -52,7 +52,8 @@ const default_data = {
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
-    image: "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
+    image:
+      "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
   },
 };
 
@@ -148,7 +149,7 @@ const data = [
 
 export const accounts = persistStore("accounts", default_data);
 export const subjects = persistStore("subjects", data);
-export const islogin = writable(false);
-export const mode = writable("");
-export const account = writable("");
+export const islogin = persistStore("islogin", false);
+export const mode = persistStore("mode", "");
+export const account = persistStore("account", "");
 export const sub = persistStore("sub", "");

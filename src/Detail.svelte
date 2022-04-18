@@ -50,103 +50,103 @@
 </script>
 
 <div id="bg" />
-  <div class="title">
-    <h1>รายละเอียดวิชา</h1>
-    <div id="title1">{name}</div>
-  </div>
-  <br />
-  {#if !isadmin()}
-    <div class="stu_container">
-      <div class="All_stu">
-        <div class="stu_sub1">
-          วิชา {subject}
-        </div>
+<div class="title">
+  <h1>รายละเอียดวิชา</h1>
+  <div id="title1">{name}</div>
+</div>
+<br />
+{#if !isadmin()}
+  <div class="stu_container">
+    <div class="All_stu">
+      <div class="stu_sub1">
+        วิชา {subject}
+      </div>
 
-        <div class="stu_sub2">
-          หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
-        </div>
+      <div class="stu_sub2">
+        หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
+      </div>
 
-        <div class="stu_sub3">
-          จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
-        </div>
+      <div class="stu_sub3">
+        จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
+      </div>
 
-        <div class="stu_sub4">
-          จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
-        </div>
+      <div class="stu_sub4">
+        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
+      </div>
 
-        <div class="stu_sub5">
-          <div>description</div>
-          :
-          {$subjects.find((x) => x.name == name).description}
-        </div>
+      อาจารย์ผู้สอน : {$subjects.find((x) => x.name == name).teacher}
+
+      <div class="stu_sub5">
+        <div>description</div>
+        :
+        {$subjects.find((x) => x.name == name).description}
       </div>
     </div>
-  {:else}
-    <div class="container">
-      <form>
-        <div class="sub1-container">
-          วิชา {subject} จำนวนหน่วยกิต :
-          <div>
-            <input
-              type="number"
-              id="credit"
-              min="0"
-              max="3"
-              value={$subjects.find((x) => x.name == name).credit}
-            />
-          </div>
-          (0-3)
-        </div>
-
-        <div class="sub2-container">
-          จำนวนโควต้า :
-          <div>
-            <input
-              type="number"
-              id="total"
-              min={mintotal}
-              max="100"
-              value={$subjects.find((x) => x.name == name).total}
-            />
-          </div>
-          ({mintotal} - 100)
-          <br />
-        </div>
-        <div class="sub3-container">
-          จำนวนที่ลงทะเบียน :
-          <textarea class="register"
-            >{$subjects.find((x) => x.name == name).register}</textarea
-          > <br />
-        </div>
-        <div class="sub6-container">
-          description :
-          <textarea
-            type="text"
-            id="description"
-            class="description"
-            maxlength="300"
-            value={$subjects.find((x) => x.name == name).description}
-          />
-        </div>
-
-        <div class="sub4-container">
-          short description : <br />
+  </div>
+{:else}
+  <div class="container">
+    <form>
+      <div class="sub1-container">
+        วิชา {subject} จำนวนหน่วยกิต :
+        <div>
           <input
-            type="text"
-            id="short_description"
-            maxlength="30"
-            value={$subjects.find((x) => x.name == name).short_description}
+            type="number"
+            id="credit"
+            min="0"
+            max="3"
+            value={$subjects.find((x) => x.name == name).credit}
           />
         </div>
+        (0-3)
+      </div>
 
-        <div class="sub5-container">
-          <button class="button" on:click={() => change_subject()}
-            >บันทึก</button
-          >
+      <div class="sub2-container">
+        จำนวนโควต้า :
+        <div>
+          <input
+            type="number"
+            id="total"
+            min={mintotal}
+            max="100"
+            value={$subjects.find((x) => x.name == name).total}
+          />
         </div>
-      </form>
-    </div>
-  {/if}
+        ({mintotal} - 100)
+        <br />
+      </div>
+      <div class="sub3-container">
+        จำนวนที่ลงทะเบียน :
+        <textarea class="register"
+          >{$subjects.find((x) => x.name == name).register}</textarea
+        > <br />
+      </div>
+      <div class="sub6-container">
+        description :
+        <textarea
+          type="text"
+          id="description"
+          class="description"
+          maxlength="300"
+          value={$subjects.find((x) => x.name == name).description}
+        />
+      </div>
+
+      <div class="sub4-container">
+        short description : <br />
+        <input
+          type="text"
+          id="short_description"
+          maxlength="30"
+          value={$subjects.find((x) => x.name == name).short_description}
+        />
+      </div>
+
+      <div class="sub5-container">
+        <button class="button" on:click={() => change_subject()}>บันทึก</button>
+      </div>
+    </form>
+  </div>
+{/if}
 
 <style>
   #bg {

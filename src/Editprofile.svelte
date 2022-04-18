@@ -13,7 +13,6 @@
       $accounts[$account].image = reader.result;
       show = !show;
       $accounts = [...new Set($accounts)];
-      
     };
   }
   function show_input2() {
@@ -42,64 +41,75 @@
 </script>
 
 <body>
-<div>
-  <h1>แก้ไขโปรไฟล์</h1>
-</div>
-
-<div id="profile">
-  <img src={$accounts[$account].image} alt="profile IMG" />
-  <div id="detail-profile">
-    <p><b>ชื่อ</b> {$accounts[$account].name}</p>
-    <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
-    <p><b>คณะ</b> {$accounts[$account].group}</p>
-    <p><b>ปีการศึกษา</b> {$accounts[$account].year}</p>
+  <div>
+    <h1>แก้ไขโปรไฟล์</h1>
   </div>
-</div>
 
-<div id="btn-edit">
-  <button id="button-img" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
-  {#if show}
-    <input id="file" type="file" on:change={() => change_image()} />
-  {/if}
-  <button id="button-password" on:click={() => show_input2()}
-    >เปลี่ยนรหัสผ่าน</button>
-</div>
+  <div id="profile">
+    <img src={$accounts[$account].image} alt="profile IMG" />
+    <div id="detail-profile">
+      <p><b>ชื่อ</b> {$accounts[$account].name}</p>
+      <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
+      <p><b>คณะ</b> {$accounts[$account].group}</p>
+      <p><b>ปีการศึกษา</b> {$accounts[$account].year}</p>
+    </div>
+  </div>
 
-<div id="change-password">
-  {#if show2}
-    <input id="old_password" type="password" placeholder="รหัสผ่านเดิม" />
-    <input id="new_password" type="password" placeholder="รหัสผ่านใหม่" />
-    <input id="confirm_password" type="password" placeholder="ยืนยันรหัสผ่านใหม่" />
-    <button on:click={() => change_password()}>ยืนยัน</button>
-  {/if}
-</div>
+  <div id="btn-edit">
+    <button id="button-img" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
+    {#if show}
+      <input id="file" type="file" on:change={() => change_image()} />
+    {/if}
+    <button id="button-password" on:click={() => show_input2()}
+      >เปลี่ยนรหัสผ่าน</button
+    >
+  </div>
+
+  <div id="change-password">
+    {#if show2}
+      <input id="old_password" type="password" placeholder="รหัสผ่านเดิม" />
+      <input id="new_password" type="password" placeholder="รหัสผ่านใหม่" />
+      <input
+        id="confirm_password"
+        type="password"
+        placeholder="ยืนยันรหัสผ่านใหม่"
+      />
+      <button on:click={() => change_password()}>ยืนยัน</button>
+    {/if}
+  </div>
 </body>
 
 <style>
-
-body {
-	background: linear-gradient(-45deg,#bedcef, #7ebce9,#4575a5, #1e4770, #112231);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  body {
+    background: linear-gradient(
+      -45deg,
+      #bedcef,
+      #7ebce9,
+      #4575a5,
+      #1e4770,
+      #112231
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
   img {
     width: 200px;

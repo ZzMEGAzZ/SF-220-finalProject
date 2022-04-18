@@ -28,7 +28,6 @@
   }
 </script>
 
-
 <div id="bg" />
 
 <div>
@@ -61,10 +60,8 @@
   </table>
 </div>
 
-
 <style>
-
-#bg {
+  #bg {
     background-image: linear-gradient(
       180deg,
       rgba(17, 34, 49, 1) 4%,

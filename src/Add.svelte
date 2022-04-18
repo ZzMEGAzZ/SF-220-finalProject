@@ -26,7 +26,7 @@
     let len = x.length;
     for (; i < len; i++) {
       $accounts[$account].sub.push(x[i]);
-      $accounts[$account].sub =  [...new Set($accounts[$account].sub)];
+      $accounts[$account].sub = [...new Set($accounts[$account].sub)];
     }
     let j = 0;
     len = y.length;
@@ -47,7 +47,6 @@
       }
     }
   }
-  
 </script>
 
 <div>
