@@ -43,28 +43,7 @@
       <th>เพิ่มเติม</th>
     </tr>
     {#each $subjects as { name, total, register, remaining, short_description }, index}
-      {#if issearch == false}
-        <tr>
-          <td>{index + 1}</td>
-          {#if !isadmin()}
-            <td><button on:click={() => description(name)}>{name}</button></td>
-          {:else}
-            <td>{name}</td>
-          {/if}
-          <td>{total}</td>
-          <td>{register}</td>
-          <td>{remaining}</td>
-          <td>{short_description}</td>
-          {#if isadmin()}
-            <td
-              ><button on:click={() => showliststudents(name)}
-                >รายชื่อนักศึกษา</button
-              ></td
-            >
-            <td><button on:click={() => description(name)}>แก้ไข</button></td>
-          {/if}
-        </tr>
-      {:else if issearch == true && name
+      {#if issearch == false || name
           .toLowerCase()
           .includes(searchname.toLowerCase())}
         <tr>
