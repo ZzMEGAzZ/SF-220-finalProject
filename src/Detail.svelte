@@ -23,6 +23,7 @@
     let newdescription = document.getElementById("description").value;
     let new_short_description =
       document.getElementById("short_description").value;
+    let new_teacher = document.getElementById("Teacher").value;
     if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
       alert("กรุณากรอกเป็นจำนวนเต็ม");
     } else if (
@@ -39,6 +40,8 @@
         new_short_description;
       $subjects.find((x) => x.name == name).remaining =
         newtotal - $subjects.find((x) => x.name == name).register;
+      $subjects.find((x) => x.name == name).Teacher = new_teacher;
+
       $mode = "allsubjects";
       alert("บันทึก");
     } else if (newtotal < $subjects.find((x) => x.name == name).register) {
@@ -74,7 +77,7 @@
         จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
       </div>
 
-      อาจารย์ผู้สอน : {$subjects.find((x) => x.name == name).teacher}
+      อาจารย์ผู้สอน : {$subjects.find((x) => x.name == name).Teacher}
 
       <div class="stu_sub5">
         <div>description</div>
@@ -120,6 +123,12 @@
           >{$subjects.find((x) => x.name == name).register}</textarea
         > <br />
       </div>
+      อาจารย์ผู้สอน :
+      <input
+        type="text"
+        id="Teacher"
+        value={$subjects.find((x) => x.name == name).Teacher}
+      />
       <div class="sub6-container">
         description :
         <textarea
