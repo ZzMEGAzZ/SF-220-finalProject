@@ -1,20 +1,21 @@
 <script>
-  import { accounts, account } from "./stores.js";
+  import { accounts, account, subjects } from "./stores.js";
 </script>
 
 <div><h1>ผลการจดทะเบียน</h1></div>
 
 <div>
-  <table>
-    <thead><tr>รายวิชา</tr></thead>
-    {#each $accounts[$account].sub as i}
-      <tbody
-        ><tr>
-          {i}
-        </tr></tbody
-      >
-    {/each}
-  </table>
+  <thead><tr>รายวิชา</tr></thead>
+  <br />
+  {#each $accounts[$account].sub as name, index}
+    {index + 1} &nbsp;
+    {name} &nbsp;
+    {$subjects.find((x) => x.name == name).subject} &nbsp;
+    {$subjects.find((x) => x.name == name).credit} &nbsp;
+    {$subjects.find((x) => x.name == name).Teacher} &nbsp;
+
+    <br />
+  {/each}
 </div>
 
 <style>
@@ -30,16 +31,7 @@
   div h1 {
     margin-top: 50px;
   }
-  div table {
-    margin-top: 40px;
-    border-collapse: collapse;
-    background-color: #c7d0d8;
 
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
-    width: 120px;
-  }
   thead tr {
     background-color: white;
     border-bottom: 1px dashed grey;
