@@ -21,6 +21,7 @@
   }
 </script>
 
+<div id="bg" />
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 
 <div><input
@@ -71,8 +72,6 @@
   </table>
 </div>
 
-<div id="bg" />
-
 <style>
   #bg {
     background-image: linear-gradient(
@@ -105,13 +104,8 @@
     margin-top: 20px;
     margin-bottom:20px;
   }
-
-  input{
-    text-align: center;
-  }
-
   div table {
-    margin-top: 40px;
+    margin-top: 30px;
     border-collapse: collapse;
     background-color: #ffffff;
 
@@ -130,5 +124,9 @@
   }
   tr:nth-last-child(-n + 1) {
     border-bottom: none;
+  }
+
+  input{
+    text-align: center;
   }
 </style>
