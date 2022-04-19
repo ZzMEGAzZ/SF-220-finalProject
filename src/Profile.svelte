@@ -10,6 +10,7 @@
   }
 </script>
 
+<p class="welcome">Welcome</p>
 <div id="profile">
   <box>
     <img src={$accounts[$account].image} alt="img profile" />
@@ -59,6 +60,14 @@
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  p.welcome {
+    color: rgb(255, 255, 255, 0.7);
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
   }
 
   img {

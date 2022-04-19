@@ -33,7 +33,39 @@
   function goback() {
     $mode = "";
   }
+
+  function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+    setTimeout(startTime, 1000);
+  }
+
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    } // add zero in front of numbers < 10
+    return i;
+  }
 </script>
+
+<main on:load={startTime()} />
+  <header>
+    <div class="menu-container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/959342189224271872/965819590682763264/Logo.png" alt="logo" />
+      </div>
+      <div class="menu">
+        <a href="https://github.com/aodaod0987/SF-220-finalProject">เกี่ยวกับเรา</a>
+        <a href="https://github.com/aodaod0987/SF-220-finalProject">ติดต่อเรา</a>
+      </div>
+    </div>
+    <div id="txt" />
+  </header>
 
 <div class="container">
   <box>
@@ -64,7 +96,7 @@
     {/if}
 
     {#if show}
-      {$account}
+      <p>{$account}</p>
       <input id="new_password" type="text" placeholder="รหัสผ่านใหม่" />
       <input
         id="confirm_password"
@@ -109,6 +141,30 @@
     }
   }
 
+  p {
+    display: inline;
+    color: white;
+  }
+
+  a {
+    color: white;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  #txt {
+    display: flex;
+    margin-left: 27px;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    color: #ffffff;
+    font-size: 50px;
+    justify-content: flex-end;
+  }
+
   div.container {
     height: 95%;
     width: 100%;
@@ -126,7 +182,7 @@
     margin: 0;
     border: none;
     background-color: transparent;
-    color: #3a3845;
+    color: white;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -138,8 +194,8 @@
   }
 
   box{
-    width: 325px;
-    height: 269px;
+    width: 350px;
+    height: 300px;
     border-radius: 30px;
     background-color: rgb(255, 255, 255, 0.3);
     text-align: center;
@@ -159,5 +215,22 @@
     display:flex;
     align-items: center;
   }
+
+  .menu-container {
+  position: fixed;
+    top: 50px;
+    left: 0;
+    margin: 20px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+}
 </style>
 

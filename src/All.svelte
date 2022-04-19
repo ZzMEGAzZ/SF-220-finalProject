@@ -39,12 +39,12 @@
 
     <div id="list">
       <div id="head-list">
-        <p>ลำดับที่</p>
-        <p>รายวิชา</p>
-        <p>โควตาทั้งหมด</p>
-        <p>จำนวนนักศึกษาที่ขอ</p>
-        <p>คงเหลือ</p>
-        <p>เพิ่มเติม</p>
+        <p class="num">ลำดับที่</p>
+        <p class="sub">รายวิชา</p>
+        <p class="quo">โควตา<br>ทั้งหมด</p>
+        <p class="amo">จำนวน<br>นักศึกษา<br>ที่ขอโควตา</p>
+        <p class="rem">คงเหลือ</p>
+        <p class="etc">เพิ่มเติม</p>
       </div>
     </div>
   </div>
@@ -89,6 +89,7 @@
     position: -webkit-sticky;
     position: fixed;
     top: 100px;
+    width: 100%;
     z-index: 60;
   }
 
@@ -147,12 +148,13 @@
     align-items: center;
     position: relative;
     height: auto;
+    width: 100%;
   }
 
   #content {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     height: auto;
@@ -181,7 +183,7 @@
   }
 
   #search input {
-    width: 60%;
+    width: 1000px;
     height: 40px;
     border: none;
     border-radius: 20px;
@@ -198,15 +200,15 @@
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding-left: 22%;
+    padding-right: 40%;
 
     color: white;
-
   }
 
   #head-list p {
-    font-size: 20px;
+    font-size: 15px;
     margin: 10px;
-    padding: 15px;
     text-align: center;
   }
 
@@ -224,12 +226,11 @@
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
+    width: 60%;
   }
 
   #list-container p {
     font-size: 20px;
-    margin: 10px;
-    padding: 40px;
     text-align: center;
   }
   .glow-on-hover {

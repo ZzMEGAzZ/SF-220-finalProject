@@ -110,7 +110,7 @@ const data = [
     remaining: 100,
     credit: 3,
     Teacher: "Thanapath Cheeranawanith",
-    short_description: "All Section",
+    short_description: "Software Engineer",
     description: "สำหรับนักศึกษา All Section",
   },
   {
