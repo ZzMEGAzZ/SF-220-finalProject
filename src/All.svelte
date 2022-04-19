@@ -23,13 +23,14 @@
 
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 
-<input
+<div><input
   type="text"
   id="search"
   placeholder="ค้นหารายวิชา"
   on:input={(e) => (searchname = e.target.value)}
   on:input={() => (issearch = true)}
 />
+</div>
 
 <div>
   <table>
@@ -100,8 +101,15 @@
     align-items: center;
   }
   div h1 {
-    margin-top: 50px;
+    color:white;
+    margin-top: 20px;
+    margin-bottom:20px;
   }
+
+  input{
+    text-align: center;
+  }
+
   div table {
     margin-top: 40px;
     border-collapse: collapse;

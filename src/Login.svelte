@@ -54,7 +54,7 @@
   </header>
   
   <div id="login-container">
-    <div id="box">
+    <box>
       <h1>Soft - fell</h1>
 
       <div id="profile-container">
@@ -88,7 +88,7 @@
         <p>|</p>
         <button on:click={() => forgot()}>ลืมรหัสผ่าน</button>
       </div>
-    </div>
+    </box>
   </div>
  
 <div id="bg" />
@@ -155,11 +155,11 @@
     align-items: center;
   }
 
-  #box {
+  box {
     width: 300px;
     height: 250px;
     background-color: rgb(255, 255, 255, 0.3);
-    border-radius: 10px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
