@@ -81,7 +81,6 @@
   }
 
   #detail-profile {
-    margin: 10%;
     display: flex;
     flex-direction: column;
   }

@@ -44,7 +44,8 @@
     <h1>แก้ไขโปรไฟล์</h1>
   </div>
 
-  <div id="profile">
+<div id="profile">
+  <box>
     <img src={$accounts[$account].image} alt="profile IMG" />
     <div id="detail-profile">
       <p><b>ชื่อ</b> {$accounts[$account].name}</p>
@@ -52,7 +53,8 @@
       <p><b>คณะ</b> {$accounts[$account].group}</p>
       <p><b>ปีการศึกษา</b> {$accounts[$account].year}</p>
     </div>
-  </div>
+  </box>
+</div>
 
   <div id="btn-edit">
     <button id="button-img" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
@@ -114,6 +116,8 @@
     width: 200px;
     height: 200px;
     border-radius: 20px;
+    margin-left: 40px;
+    margin-right:40px;
   }
 
   #profile {
@@ -141,7 +145,7 @@
     margin: 10px;
   }
   h1 {
-    margin-top: 10%;
+    margin-top: 30px;
   }
 
   button {
@@ -171,5 +175,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  box{
+    display:flex;
+    background-color: rgb(255, 255, 255, 0.3);
+    align-items: center;
+    flex-direction: row;
+    width: 500px;
+    height: 280px;
+    border-radius:40px;
   }
 </style>
