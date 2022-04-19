@@ -35,11 +35,27 @@
   }
 </script>
 
-  <div class="container">
+<div class="container">
+  <box>
     <h1>ลืมรหัสผ่าน</h1>
     {#if show2}
+    <div class="container-user">
+      <img
+        id="profile"
+        src="https://cdn.discordapp.com/attachments/959342189224271872/965599246294335529/Icon-01-02.png"
+        alt="profile"
+      >
       <input id="account_now" type="text" placeholder="ชื่อบัญชี" />
+    </div>
+
+    <div class="container-key">
+      <img
+        id="key"
+        src="https://cdn.discordapp.com/attachments/906605933772300349/965873596171972648/test.png"
+        alt="key"
+      >
       <input id="idnow" type="text" placeholder="รหัสนักศึกษา" />
+    </div>
       <div class="button">
         <button on:click={() => show_input()}>ยืนยัน</button>
         <p>|</p>
@@ -64,18 +80,13 @@
         <button on:click={() => change_password()}>ยืนยันรหัสผ่านใหม่</button>
       </div>
     {/if}
-  </div>
-  <div id="bg" />
+  </box>
+</div>
+<div id="bg" />
 
 <style>
   #bg {
-    background: linear-gradient(
-      -45deg,
-      #A202FF,
-      #0671B7,
-      #67A3D9,
-      #C8E7F5 
-    );
+    background: linear-gradient(-45deg, #a202ff, #0671b7, #67a3d9, #c8e7f5);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     width: 100%;
@@ -109,7 +120,6 @@
     align-items: center;
   }
   div.button {
-    margin-top: 10px;
     display: inline-flex;
   }
   div.button button {
@@ -126,4 +136,28 @@
     color: #ff2361;
     transition: 0.1s;
   }
+
+  box{
+    width: 325px;
+    height: 269px;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #profile, #key{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    opacity: 0.5;
+  }
+
+  .container-key, .container-user{
+    display:flex;
+    align-items: center;
+  }
 </style>
+
