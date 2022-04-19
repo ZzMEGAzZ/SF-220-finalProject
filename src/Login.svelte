@@ -39,12 +39,23 @@
   }
 </script>
 
-<body>
   <main on:load={startTime()} />
-  <header><div id="txt" /></header>
+  <header>
+    <div class="menu-container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/959342189224271872/965819590682763264/Logo.png" alt="logo" />
+      </div>
+      <div class="menu">
+        <a href="https://github.com/aodaod0987/SF-220-finalProject">เกี่ยวกับเรา</a>
+        <a href="https://github.com/aodaod0987/SF-220-finalProject">ติดต่อเรา</a>
+      </div>
+    </div>
+    <div id="txt" />
+  </header>
+  
   <div id="login-container">
     <div id="box">
-      <h1>Soft-fell</h1>
+      <h1>Soft - fell</h1>
 
       <div id="profile-container">
         <img
@@ -79,10 +90,11 @@
       </div>
     </div>
   </div>
-</body>
+ 
+<div id="bg" />
 
 <style>
-  body {
+  #bg {
     background: linear-gradient(
       -45deg,
       #bedcef,
@@ -93,7 +105,12 @@
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 
   @keyframes gradient {
@@ -106,6 +123,10 @@
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  a {
+    color: white;
   }
 
   #profile-container,
@@ -176,9 +197,31 @@
     transition: 0.1s;
   }
 
-  #txt {
-    margin-left: 27px;
-    color: #ffffff;
+.menu-container {
+  position: fixed;
+    top: 50px;
+    left: 0;
+    margin: 20px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
     font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+  #txt {
+    display: flex;
+    margin-left: 27px;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    color: #ffffff;
+    font-size: 50px;
+    justify-content: flex-end;
   }
 </style>

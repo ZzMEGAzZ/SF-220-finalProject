@@ -52,7 +52,6 @@
   }
 </script>
 
-<div id="bg" />
 <div class="title">
   <h1>รายละเอียดวิชา</h1>
   <div id="title1">{name}</div>
@@ -156,6 +155,8 @@
     </form>
   </div>
 {/if}
+
+<div id="bg" />
 
 <style>
   #bg {

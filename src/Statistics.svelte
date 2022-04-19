@@ -54,11 +54,12 @@
   });
 </script>
 
-<div id="bg" />
 <div class="container">
   <h1>statistics</h1>
   <canvas id="myChart" width="3" height="1" />
 </div>
+
+<div id="bg" />
 
 <style>
   #bg {

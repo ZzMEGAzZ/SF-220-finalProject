@@ -126,7 +126,6 @@
   }
 </script>
 
-<div id="bg" />
 <h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
 
 {#if showmode == true}
@@ -263,6 +262,8 @@
     </div>
   </div>
 {/if}
+
+<div id="bg" />
 
 <style>
   #bg {

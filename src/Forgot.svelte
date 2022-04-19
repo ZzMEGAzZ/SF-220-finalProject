@@ -35,7 +35,6 @@
   }
 </script>
 
-<body>
   <div class="container">
     <h1>ลืมรหัสผ่าน</h1>
     {#if show2}
@@ -66,10 +65,10 @@
       </div>
     {/if}
   </div>
-</body>
+  <div id="bg" />
 
 <style>
-  body {
+  #bg {
     background: linear-gradient(
       -45deg,
       #bedcef,
@@ -80,7 +79,12 @@
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 
   @keyframes gradient {

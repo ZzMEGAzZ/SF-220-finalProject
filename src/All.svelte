@@ -21,7 +21,6 @@
   }
 </script>
 
-<div id="bg" />
 <div><h1>รายวิชาที่เปิดลงทะเบียน</h1></div>
 
 <input
@@ -70,6 +69,8 @@
     {/each}
   </table>
 </div>
+
+<div id="bg" />
 
 <style>
   #bg {

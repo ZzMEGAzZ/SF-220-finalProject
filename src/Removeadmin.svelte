@@ -28,8 +28,6 @@
   }
 </script>
 
-<div id="bg" />
-
 <div>
   <h1>ลบรายวิชา</h1>
 </div>
@@ -59,6 +57,8 @@
     {/each}
   </table>
 </div>
+
+<div id="bg" />
 
 <style>
   #bg {

@@ -36,7 +36,6 @@
   }
 </script>
 
-<div id="bg" />
 <div><h1>ถอดถอนรายวิชา</h1></div>
 
 <div>
@@ -73,6 +72,8 @@
     >ยืนยันวิชาที่ต้องการถอน</button
   >
 </div>
+
+<div id="bg" />
 
 <style>
   #bg {

@@ -40,7 +40,6 @@
   }
 </script>
 
-<body>
   <div>
     <h1>แก้ไขโปรไฟล์</h1>
   </div>
@@ -77,10 +76,11 @@
       <button on:click={() => change_password()}>ยืนยัน</button>
     {/if}
   </div>
-</body>
+  
+<div id="bg" />
 
 <style>
-  body {
+  #bg {
     background: linear-gradient(
       -45deg,
       #bedcef,
