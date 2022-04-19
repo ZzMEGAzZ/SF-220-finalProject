@@ -83,11 +83,10 @@
   #bg {
     background: linear-gradient(
       -45deg,
-      #bedcef,
-      #7ebce9,
-      #4575a5,
-      #1e4770,
-      #112231
+      #A202FF,
+      #0671B7,
+      #67A3D9,
+      #C8E7F5 
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
