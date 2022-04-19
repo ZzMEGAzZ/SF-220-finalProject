@@ -69,12 +69,12 @@
           <p id="shortdes">{short_description}</p>
           {#if isadmin()}
             <div id="admin-list">
-              <button on:click={() => showliststudents(name)}
+              <button class="glow-on-hover" on:click={() => showliststudents(name)}
                 >รายชื่อนักศึกษา</button
               >
             </div>
             <div id="admin-edit">
-              <button on:click={() => description(name)}>แก้ไข</button>
+              <button class="glow-on-hover" on:click={() => description(name)}>แก้ไข</button>
             </div>
           {/if}
         </div>
