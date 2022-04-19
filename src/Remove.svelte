@@ -35,31 +35,29 @@
     $mode = "alladd";
   }
 </script>
-
+<box>
 <div><h1>ถอดถอนรายวิชา</h1></div>
 
 <div>
-  <table>
-    <tr>
-      <th>รายวิชา</th>
-      <th>เพิ่มเติม</th>
-    </tr>
+    <div id="list">
+      <p id="subject">รายวิชา</p>
+      <p id="etc">เพิ่มเติม</p>
+    </div>
 
     {#each $subjects as { name, total, register, remaining }, index}
       {#each $accounts[$account].sub as sub}
         {#if sub == name}
-          <tr>
-            <td>{name}</td>
-            <td>
+          <div id="content">
+            <p id="name">{name}</p>
+            <div>
               <button on:click={() => removesubjects(name, index)}
                 >ถอนรายวิชา</button
               >
-            </td>
-          </tr>
+              </div>
+            </div>
         {/if}
       {/each}
     {/each}
-  </table>
 </div>
 
 <div>
@@ -72,6 +70,7 @@
     >ยืนยันวิชาที่ต้องการถอน</button
   >
 </div>
+</box>
 
 <div id="bg" />
 
@@ -97,33 +96,43 @@
     margin: 0px;
     box-sizing: border-box;
   }
-  div {
+
+  box {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
   }
-  div h1 {
-    margin-top: 50px;
-    color:white;
-  }
-  div table {
-    margin-top: 40px;
-    border-collapse: collapse;
-    background-color: #c7d0d8;
 
+  #content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
     padding: 10px;
-    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 
-    width: 540px;
-    height: 200px;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+  p#name {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
   }
-  tr {
-    border-bottom: 1px dashed grey;
-    background-color: white;
-    height: 50px;
-  }
-  td {
-    border-top: 1px dashed grey;
+
+  #list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+
   }
 
   .button {
@@ -156,5 +165,6 @@
   #p2 {
     font-weight: bold;
     margin: 12px;
+    color: white;
   }
 </style>
