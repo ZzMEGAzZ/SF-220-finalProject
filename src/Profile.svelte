@@ -11,19 +11,21 @@
 </script>
 
 <div id="profile">
-  <img src={$accounts[$account].image} alt="img profile" />
-  <div id="detail-profile">
-    {#if !isadmin()}
-      <p><b>ชื่อ</b> {$accounts[$account].name}</p>
-      <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
-      <p><b>คณะ</b> {$accounts[$account].group}</p>
-      <p><b>ปีการศึกษา</b> {$accounts[$account].year}</p>
-    {:else}
-      <p><b>ชื่อ</b> {$accounts[$account].name}</p>
-      <p><b>เลขประจำตัว</b> {$accounts[$account].id}</p>
-      <p><b>สังกัด</b> {$accounts[$account].group}</p>
-    {/if}
-  </div>
+  <box>
+    <img src={$accounts[$account].image} alt="img profile" />
+    <div id="detail-profile">
+      {#if !isadmin()}
+        <p><b>ชื่อ :</b> {$accounts[$account].name}</p>
+        <p><b>เลขประจำตัว :</b> {$accounts[$account].id}</p>
+        <p><b>คณะ :</b> {$accounts[$account].group}</p>
+        <p><b>ปีการศึกษา :</b> {$accounts[$account].year}</p>
+      {:else}
+        <p><b>ชื่อ :</b> {$accounts[$account].name}</p>
+        <p><b>เลขประจำตัว :</b> {$accounts[$account].id}</p>
+        <p><b>สังกัด :</b> {$accounts[$account].group}</p>
+      {/if}
+    </div>
+  </box>
 </div>
 
 <div id="bg" />
@@ -63,6 +65,8 @@
     width: 200px;
     height: 200px;
     border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   #profile {
@@ -80,5 +84,15 @@
     margin: 10%;
     display: flex;
     flex-direction: column;
+  }
+
+  box{
+    background-color: rgb(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    border-radius:40px;
+    width: 530px;
+    height: 294px;
   }
 </style>
