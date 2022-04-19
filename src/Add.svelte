@@ -55,13 +55,15 @@
   <h1>การขอโควตา</h1>
 </div>
 
-<input
-  type="text"
-  id="search"
-  placeholder="ค้นหารายวิชา"
-  on:input={(e) => (searchname = e.target.value)}
-  on:input={() => (issearch = true)}
-/>
+<div>
+  <input
+    type="text"
+    id="search"
+    placeholder="ค้นหารายวิชา"
+    on:input={(e) => (searchname = e.target.value)}
+    on:input={() => (issearch = true)}
+  />
+</div>
 
 <div>
   <table>
@@ -139,9 +141,11 @@
   }
   div h1 {
     margin-top: 50px;
+    margin-bottom:20px;
+    color: white;
   }
   div table {
-    margin-top: 40px;
+    margin-top: 20px;
     border-collapse: collapse;
     background-color: #c7d0d8;
 
@@ -189,5 +193,8 @@
   #p2 {
     font-weight: bold;
     margin: 12px;
+  }
+  input{
+    text-align: center;
   }
 </style>
