@@ -51,6 +51,7 @@
   }
 </script>
 
+<box>
 <div>
   <h1>การขอโควตา</h1>
 </div>
@@ -65,28 +66,27 @@
   />
 </div>
 
-<div>
-  <table>
-    <tr>
-      <th />
-      <th>รายวิชา</th>
-      <th>โควตาทั้งหมด</th>
-      <th>จำนวนนักศึกษาที่ขอ</th>
-      <th>คงเหลือ</th>
-      <th>เพิ่มเติม</th>
-    </tr>
+<div id="headlist">
+    <div id="content">
+      <p />
+      <p id="subject">รายวิชา</p>
+      <p id="total">โควตาทั้งหมด</p>
+      <p id="register">จำนวนนักศึกษาที่ขอ</p>
+      <p id="remaining">คงเหลือ</p>
+      <p id="etc">เพิ่มเติม</p>
+    </div>
 
     {#each $subjects as { name, total, register, remaining }, index}
       {#if issearch == false || name
           .toLowerCase()
           .includes(searchname.toLowerCase())}
-        <tr>
-          <td>{index + 1}</td>
-          <td>{name}</td>
-          <td>{total}</td>
-          <td>{register}</td>
-          <td>{remaining}</td>
-          <td>
+        <div id="content">
+          <p id="num">{index + 1}</p>
+          <p id="name">{name}</p>
+          <p id="tot">{total}</p>
+          <p id="reg">{register}</p>
+          <p id="rem">{remaining}</p>
+          <div id="result">
             {#if check(name)}
               ขอโควตาแล้ว
             {:else if remaining == 0}
@@ -94,11 +94,10 @@
             {:else}
               <button class="glow-on-hover" on:click={addsubjects(name, index)}> เพิ่ม </button>
             {/if}
-          </td>
-        </tr>
+          </div>
+        </div>
       {/if}
     {/each}
-  </table>
 </div>
 
 <div>
@@ -109,7 +108,7 @@
 <div>
   <button class="button" on:click={() => confirm(x)}>ยืนยันการขอโควตา</button>
 </div>
-
+</box>
 <div id="bg" />
 
 <style>
@@ -135,35 +134,36 @@
     margin: 0px;
     box-sizing: border-box;
   }
-  div {
+
+  box {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
   }
-  div h1 {
-    margin-top: 20px;
-    margin-bottom:20px;
-    color: white;
-  }
-  div table {
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #c7d0d8;
 
-    padding: 10px;
-    text-align: center;
+  #headlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
 
-    width: 540px;
-    height: 200px;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.2);
+  #content {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: auto;
+    margin-top: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
   }
-  tr {
-    border-bottom: 1px dashed grey;
-    background-color: white;
-    height: 50px;
-  }
-  tr:nth-last-child(-n + 1) {
-    border-bottom: none;
-  }
+  
   .button {
     margin-top: auto;
     padding: 10px 20px;
