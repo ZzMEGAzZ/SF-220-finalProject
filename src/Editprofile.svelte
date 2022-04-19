@@ -57,7 +57,7 @@
   <div id="btn-edit">
     <button id="button-img" on:click={() => show_input()}>เปลี่ยนรูปภาพ</button>
     {#if show}
-      <input id="file" type="file" on:change={() => change_image()} />
+      <input id="file" type="file" accept="image/png, image/jpeg" on:change={() => change_image()} />
     {/if}
     <button id="button-password" on:click={() => show_input2()}
       >เปลี่ยนรหัสผ่าน</button
