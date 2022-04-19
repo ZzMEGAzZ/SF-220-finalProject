@@ -3,10 +3,10 @@
 
   function removesubject(name, index) {
     let confirm = prompt(
-      "กรุณายืนยันการลบวิชา(กรอก 'ยืนยัน' เพื่อยืนยันการลบวิชา)"
+      "กรุณายืนยันการลบรายวิชา(กรอก 'ยืนยัน' เพื่อยืนยันการลบรายวิชา)"
     );
     if (confirm == "ยืนยัน") {
-      alert("ลบวิชาสำเร็จ");
+      alert("ลบรายวิชาสำเร็จ");
       $subjects.splice(index, 1);
       $subjects = [...new Set($subjects)];
       deletesubjectallusers(name);
@@ -14,7 +14,7 @@
   }
 
   function deletesubjectallusers(name) {
-    alert("ลบรายวิชาออกจากผู้ใช้ทั้งหมดแล้ว");
+    alert("ลบรายวิชานี้ออกจากผู้ใช้ทั้งหมดแล้ว");
     for (let key in $accounts) {
       for (let i = 0; i < $accounts[key].sub.length; i++) {
         if ($accounts[key].sub[i] == name) {
@@ -37,8 +37,8 @@
     <tr>
       <th />
       <th>รายวิชา</th>
-      <th>โควตา</th>
-      <th>ลงทะเบียนแล้ว</th>
+      <th>โควตาทั้งหมด</th>
+      <th>จำนวนนักศึกษาที่ขอ</th>
       <th>คงเหลือ</th>
       <th>เพิ่มเติม</th>
     </tr>

@@ -2,7 +2,7 @@
   import { accounts, account, subjects } from "./stores.js";
 </script>
 
-<div><h1>ผลการจดทะเบียน</h1></div>
+<div><h1>ผลการขอโควตา</h1></div>
 
 <div>
   <thead><tr>รายวิชา</tr></thead>

@@ -8,7 +8,7 @@
   function addsubjects(name, index) {
     if (!(name in $accounts[$account].sub)) {
       let confirm = prompt(
-        "กรุณายืนยันการลงทะเบียน(กรอก 'ยืนยัน' เพื่อยืนยันการลงทะเบียน)"
+        "กรุณายืนยันการขอโควตา(กรอก 'ยืนยัน' เพื่อยืนยันการขอโควตา)"
       );
       if (confirm == "ยืนยัน") {
         x.push(name);
@@ -52,7 +52,7 @@
 </script>
 
 <div>
-  <h1>ลงทะเบียนรายวิชา</h1>
+  <h1>การขอโควตา</h1>
 </div>
 
 <input
@@ -68,8 +68,8 @@
     <tr>
       <th />
       <th>รายวิชา</th>
-      <th>โควตา</th>
-      <th>ลงทะเบียนแล้ว</th>
+      <th>โควตาทั้งหมด</th>
+      <th>จำนวนนักศึกษาที่ขอ</th>
       <th>คงเหลือ</th>
       <th>เพิ่มเติม</th>
     </tr>
@@ -86,7 +86,7 @@
           <td>{remaining}</td>
           <td>
             {#if check(name)}
-              ลงทะเบียนแล้ว
+              ขอโควตาแล้ว
             {:else if remaining == 0}
               วิชานี้เต็มแล้ว
             {:else}
@@ -100,12 +100,12 @@
 </div>
 
 <div>
-  <p id="p1">วิชาที่ต้องการลงทะเบียน</p>
+  <p id="p1">วิชาที่ต้องการขอโควตา</p>
   <p id="p2">{x}</p>
 </div>
 
 <div>
-  <button class="button" on:click={() => confirm(x)}>ยืนยันการลงทะเบียน</button>
+  <button class="button" on:click={() => confirm(x)}>ยืนยันการขอโควตา</button>
 </div>
 
 <div id="bg" />

@@ -45,7 +45,7 @@
       $mode = "allsubjects";
       alert("บันทึก");
     } else if (newtotal < $subjects.find((x) => x.name == name).register) {
-      alert("จำนวนผู้ลงทะเบียนเกินกว่าค่าที่แก้");
+      alert("จำนวนผู้ขอโควตาเกินกว่าค่าที่แก้");
     } else {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
     }
@@ -69,11 +69,11 @@
       </div>
 
       <div class="stu_sub3">
-        จำนวนโควต้า : {$subjects.find((x) => x.name == name).total}
+        จำนวนโควต้าทั้งหมด : {$subjects.find((x) => x.name == name).total}
       </div>
 
       <div class="stu_sub4">
-        จำนวนที่ลงทะเบียน : {$subjects.find((x) => x.name == name).register}
+        จำนวนที่ขอโควตาไปแล้ว : {$subjects.find((x) => x.name == name).register}
       </div>
 
       อาจารย์ผู้สอน : {$subjects.find((x) => x.name == name).Teacher}
@@ -103,7 +103,7 @@
       </div>
 
       <div class="sub2-container">
-        จำนวนโควต้า :
+        จำนวนโควตา :
         <div>
           <input
             type="number"
@@ -117,7 +117,7 @@
         <br />
       </div>
       <div class="sub3-container">
-        จำนวนที่ลงทะเบียน :
+        จำนวนที่ขอโควตาไปแล้ว :
         <textarea class="register"
           >{$subjects.find((x) => x.name == name).register}</textarea
         > <br />
