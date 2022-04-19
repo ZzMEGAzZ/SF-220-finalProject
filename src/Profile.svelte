@@ -91,7 +91,7 @@
     align-items: center;
     margin-top: 100px;
     border-radius:40px;
-    width: 530px;
+    width: 540px;
     height: 294px;
   }
 </style>

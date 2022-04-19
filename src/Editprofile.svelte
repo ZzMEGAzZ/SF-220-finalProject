@@ -132,7 +132,6 @@
   }
 
   #detail-profile {
-    margin: 10%;
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -181,7 +180,7 @@
     background-color: rgb(255, 255, 255, 0.3);
     align-items: center;
     flex-direction: row;
-    width: 500px;
+    width: 530px;
     height: 280px;
     border-radius:40px;
   }

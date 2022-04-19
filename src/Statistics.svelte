@@ -84,4 +84,7 @@
     flex-direction: column;
     align-items: center;
   }
+  h1{
+    color:white;
+  }
 </style>

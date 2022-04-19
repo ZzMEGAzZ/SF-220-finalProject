@@ -49,6 +49,7 @@
   }
   div h1 {
     margin-top: 50px;
+    color:white;
   }
 
   thead tr {

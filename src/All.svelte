@@ -21,112 +21,215 @@
   }
 </script>
 
+<div id="bg2" />
 <div id="bg" />
-<div><h1>รายวิชาที่เปิดให้ขอโควตา</h1></div>
+<box>
+  <div id="sticky">
+    <div id="page-name"><h1>รายวิชาที่เปิดให้ขอโควตา</h1></div>
 
-<div><input
-  type="text"
-  id="search"
-  placeholder="ค้นหารายวิชา"
-  on:input={(e) => (searchname = e.target.value)}
-  on:input={() => (issearch = true)}
-/>
-</div>
+    <div id="search">
+      <input
+        type="text"
+        id="search"
+        placeholder="ค้นหารายวิชา"
+        on:input={(e) => (searchname = e.target.value)}
+        on:input={() => (issearch = true)}
+      />
+    </div>
 
-<div>
-  <table>
-    <tr>
-      <th>ลำดับที่</th>
-      <th>รายวิชา</th>
-      <th>โควตาทั้งหมด</th>
-      <th>จำนวนนักศึกษาที่ขอ</th>
-      <th>คงเหลือ</th>
-      <th>เพิ่มเติม</th>
-    </tr>
+    <div id="list">
+      <div id="head-list">
+        <p>ลำดับที่</p>
+        <p>รายวิชา</p>
+        <p>โควตาทั้งหมด</p>
+        <p>จำนวนนักศึกษาที่ขอ</p>
+        <p>คงเหลือ</p>
+        <p>เพิ่มเติม</p>
+      </div>
+    </div>
+  </div>
+  <div id="wrap">
+  <div id="content">
     {#each $subjects as { name, total, register, remaining, short_description }, index}
       {#if issearch == false || name
           .toLowerCase()
           .includes(searchname.toLowerCase())}
-        <tr>
-          <td>{index + 1}</td>
+        <div id="list-container">
+          <p id="index">{index + 1}</p>
           {#if !isadmin()}
-            <td><button on:click={() => description(name)}>{name}</button></td>
+            <div id="description">
+              <button on:click={() => description(name)}>{name}</button>
+            </div>
           {:else}
-            <td>{name}</td>
+            <p id="name">{name}</p>
           {/if}
-          <td>{total}</td>
-          <td>{register}</td>
-          <td>{remaining}</td>
-          <td>{short_description}</td>
+          <p id="total">{total}</p>
+          <p id="register">{register}</p>
+          <p id="remaining">{remaining}</p>
+          <p id="shortdes">{short_description}</p>
           {#if isadmin()}
-            <td
-              ><button on:click={() => showliststudents(name)}
+            <div id="admin-list">
+              <button on:click={() => showliststudents(name)}
                 >รายชื่อนักศึกษา</button
-              ></td
-            >
-            <td><button on:click={() => description(name)}>แก้ไข</button></td>
+              >
+            </div>
+            <div id="admin-edit">
+              <button on:click={() => description(name)}>แก้ไข</button>
+            </div>
           {/if}
-        </tr>
+        </div>
       {/if}
     {/each}
-  </table>
-</div>
+  </div>
+  </div>
+</box>
 
 <style>
+  #sticky {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 100px;
+    z-index: 60;
+  }
+
   #bg {
     background-image: linear-gradient(
       180deg,
-      rgba(17, 34, 49, 1) 4%,
-      rgba(30, 71, 112, 1) 32%,
-      rgba(69, 117, 165, 0.8) 72%,
-      rgba(190, 220, 239, 1) 100%
+      rgba(17, 34, 49, 1) 10%,
+      rgba(30, 71, 112, 1) 22%,
+      rgba(69, 117, 165, 1) 32%,
+      rgba(190, 220, 239, 1) 42%
     );
     width: 100%;
-    height: 100%;
+    height: 800%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
   }
+
+  #bg2 {
+    background-image: linear-gradient(
+      0deg,
+      rgba(17, 34, 49, 1) 10%,
+      rgba(30, 71, 112, 1) 72%,
+      rgba(69, 117, 165, 1) 92%
+    );
+    width: 100%;
+    height: 380px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+  }
+
   * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
   }
-  div {
+
+  box {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    height: auto;
   }
-  div h1 {
-    color:white;
+
+  #wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
+  }
+
+  #content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 300px;
+  }
+
+  #page-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #page-name h1 {
+    color: white;
     margin-top: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
+    font-size: 60px;
   }
-  div table {
-    margin-top: 30px;
-    border-collapse: collapse;
-    background-color: #ffffff;
 
-    padding: 10px;
+  #search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #search input {
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255, 0.15);
+    padding-left: 10px;
+  }
+
+  #head-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    color: white;
+
+  }
+
+  #head-list p {
+    font-size: 20px;
+    margin: 10px;
+    padding: 15px;
     text-align: center;
-
-    width: 700px;
-    height: 200px;
-
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
   }
-  tr {
-    background-color: white;
-    border-bottom: 1px dashed grey;
+
+  #list-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    width: auto;
     height: 50px;
-  }
-  tr:nth-last-child(-n + 1) {
-    border-bottom: none;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.15);
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
   }
 
-  input{
+  #list-container p {
+    font-size: 20px;
+    margin: 10px;
+    padding: 40px;
     text-align: center;
   }
 </style>

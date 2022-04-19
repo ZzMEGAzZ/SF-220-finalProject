@@ -103,6 +103,7 @@
   }
   div h1 {
     margin-top: 50px;
+    color:white;
   }
   div table {
     margin-top: 40px;
