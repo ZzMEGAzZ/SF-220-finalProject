@@ -2,21 +2,28 @@
   import { accounts, account, subjects } from "./stores.js";
 </script>
 
-<div><h1>ผลการขอโควตา</h1></div>
+<box>
+<div id="pagehead"><h1>ผลการขอโควตา</h1></div>
 
-<div>
-  <thead><tr>รายวิชา</tr></thead>
-  <br />
+<div id="list">
+  <p id="num">ลำดับที่</p>
+  <p id="sub">รหัสวิชา</p>
+  <p id="name">ชื่อวิชา</p>
+  <p id="cred">หน่วยกิต</p>
+  <p id="teach">อาจารย์ผู้สอน</p>
+</div>
+
+  <div id="content">
   {#each $accounts[$account].sub as name, index}
-    {index + 1} &nbsp;
-    {name} &nbsp;
-    {$subjects.find((x) => x.name == name).subject} &nbsp;
-    {$subjects.find((x) => x.name == name).credit} &nbsp;
-    {$subjects.find((x) => x.name == name).Teacher} &nbsp;
-
-    <br />
+  <br>
+    <p id="index">{index + 1}</p>
+    <p id="idsub">{name}</p>
+    <p id="subject">{$subjects.find((x) => x.name == name).subject}</p>
+    <p id="credit">{$subjects.find((x) => x.name == name).credit}</p>
+    <p id="teacher">{$subjects.find((x) => x.name == name).Teacher}</p>
   {/each}
 </div>
+</box>
 
 <div id="bg" />
 
@@ -52,9 +59,42 @@
     color:white;
   }
 
-  thead tr {
-    background-color: white;
-    border-bottom: 1px dashed grey;
-    height: 50px;
+  box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
+  }
+
+  #content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: auto;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+  }
+
+    #list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 50%;
+      height: auto;
+      margin-top: 10px;
+      justify-content: space-evenly;
+      align-items: center;
+      border-radius: 20px;
+      background-color: rgb(255, 255, 255, 0.5);
+      padding: 10px;
+      margin: 10px;
+      color: white;
   }
 </style>
