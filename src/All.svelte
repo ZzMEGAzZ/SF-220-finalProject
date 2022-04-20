@@ -21,10 +21,9 @@
   }
 </script>
 
-<div id="bg2" />
+<!--<div id="bg2" />-->
 <div id="bg" />
-<box>
-  <div id="sticky">
+
     <div id="page-name"><h1>รายวิชาที่เปิดให้ขอโควตา</h1></div>
 
     <div id="search">
@@ -36,53 +35,46 @@
         on:input={() => (issearch = true)}
       />
     </div>
+    <table>
+      <tr>
+        <th class="num">ลำดับที่</th>
+        <th class="sub">รายวิชา</th>
+        <th class="quo">โควตา</th>
+        <th class="amo">ลงทะเบียนแล้ว</th>
+        <th class="rem">คงเหลือ</th>
+        <th class="etc">เพิ่มเติม</th>
+      </tr>
 
-        <div id="list">
-      <div id="head-list">
-        <p class="num">ลำดับที่</p>
-        <p class="sub">รายวิชา</p>
-        <p class="quo">โควต้า<br>ทั้งหมด</p>
-        <p class="amo">จำนวนที่<br>ขอโควตา</p>
-        <p class="rem">เหลือ</p>
-        <p class="etc">เพิ่มเติม</p>
-      </div>
-    </div>
-  </div>
-  <div id="wrap">
-  <div id="content">
-    {#each $subjects as { name, total, register, remaining, short_description }, index}
-      {#if issearch == false || name
-          .toLowerCase()
-          .includes(searchname.toLowerCase())}
-        <div id="list-container">
-          <p id="index">{index + 1}</p>
-          {#if !isadmin()}
-            <div id="description">
-              <button class="glow-on-hover" on:click={() => description(name)}>{name}</button>
-            </div>
-          {:else}
-            <p id="name">{name}</p>
-          {/if}
-          <p id="total">{total}</p>
-          <p id="register">{register}</p>
-          <p id="remaining">{remaining}</p>
-          <p id="shortdes">{short_description}</p>
-          {#if isadmin()}
-            <div id="admin-list">
-              <button class="glow-on-hover" on:click={() => showliststudents(name)}
-                >รายชื่อนักศึกษา</button
+      {#each $subjects as { name, total, register, remaining, short_description }, index}
+        {#if issearch == false || name
+            .toLowerCase()
+            .includes(searchname.toLowerCase())}
+          <tr>
+            <td id="index">{index + 1}</td>
+            {#if !isadmin()}
+              <td><button on:click={() => description(name)}>{name}</button></td
               >
-            </div>
-            <div id="admin-edit">
-              <button class="glow-on-hover" on:click={() => description(name)}>แก้ไข</button>
-            </div>
-          {/if}
-        </div>
-      {/if}
-    {/each}
-  </div>
-  </div>
-</box>
+            {:else}
+              <td id="name">{name}</td>
+            {/if}
+            <td id="total">{total}</td>
+            <td id="register">{register}</td>
+            <td id="remaining">{remaining}</td>
+            <td id="shortdes">{short_description}</td>
+            {#if isadmin()}
+              <td
+                ><button on:click={() => showliststudents(name)}
+                  >รายชื่อนักศึกษา</button
+                ></td
+              >
+              <td><button on:click={() => description(name)}>แก้ไข</button></td>
+            {/if}
+          </tr>
+        {/if}
+      {/each}
+    </table>
+
+
 
 <style>
   #sticky {
@@ -304,27 +296,31 @@
       background-position: 0 0;
     }
   }
-  .num,.sub,.quo,.amo,.rem,.etc{
-  position:relative;
-}
+  .num,
+  .sub,
+  .quo,
+  .amo,
+  .rem,
+  .etc {
+    position: relative;
+  }
 
-.num{
-  right: 177px;
-}
-.sub{
-  right: 178px;
-}
-.quo{
-  right: 180px;
-}
-.amo{
-  right: 192px;
-}
-.rem{
-  right: 208px;
-}
-.etc{
-  right: 145px;
-}
-
+  .num {
+    right: 177px;
+  }
+  .sub {
+    right: 178px;
+  }
+  .quo {
+    right: 180px;
+  }
+  .amo {
+    right: 192px;
+  }
+  .rem {
+    right: 208px;
+  }
+  .etc {
+    right: 145px;
+  }
 </style>
