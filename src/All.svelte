@@ -37,13 +37,13 @@
       />
     </div>
 
-    <div id="list">
+        <div id="list">
       <div id="head-list">
         <p class="num">ลำดับที่</p>
         <p class="sub">รายวิชา</p>
-        <p class="quo">โควตา<br>ทั้งหมด</p>
-        <p class="amo">จำนวน<br>นักศึกษา<br>ที่ขอโควตา</p>
-        <p class="rem">คงเหลือ</p>
+        <p class="quo">โควต้า<br>ทั้งหมด</p>
+        <p class="amo">จำนวนที่<br>ขอโควตา</p>
+        <p class="rem">เหลือ</p>
         <p class="etc">เพิ่มเติม</p>
       </div>
     </div>
@@ -305,4 +305,27 @@
       background-position: 0 0;
     }
   }
+  .num,.sub,.quo,.amo,.rem,.etc{
+  position:relative;
+}
+
+.num{
+  right: 177px;
+}
+.sub{
+  right: 178px;
+}
+.quo{
+  right: 180px;
+}
+.amo{
+  right: 192px;
+}
+.rem{
+  right: 208px;
+}
+.etc{
+  right: 145px;
+}
+
 </style>

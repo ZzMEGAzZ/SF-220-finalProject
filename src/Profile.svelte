@@ -98,7 +98,7 @@
     background-color: rgb(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
-    margin-top: 100px;
+    margin-top: -95px;
     border-radius:40px;
     width: 540px;
     height: 294px;
