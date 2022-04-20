@@ -5,71 +5,85 @@
   import { accounts, account, mode, subjects } from "./stores.js";
 
   function removesubjects(subject, index) {
-    let confirm = prompt(
-      "กรุณายืนยันวิชาที่ต้องการเอาออก(กรอก 'ยืนยัน' เพื่อยืนยันวิชาที่ต้องการถอน)"
-    );
-    if (confirm == "ยืนยัน") {
-      x.push(subject);
-      x = x;
-      x = Array.from(new Set(x));
-      y.push(index);
-      y = y;
-      y = Array.from(new Set(y));
-    }
+    x.push(subject);
+    x = x;
+    x = Array.from(new Set(x));
+    y.push(index);
+    y = y;
+    y = Array.from(new Set(y));
   }
 
   function confirm(x, y) {
-    let i = 0;
-    let len = x.length;
-    for (; i < len; i++) {
-      $accounts[$account].sub.splice($accounts[$account].sub.indexOf(x[i]), 1);
-    }
-    $accounts[$account].sub = [...new Set($accounts[$account].sub)];
-    let j = 0;
-    len = y.length;
-    for (; j < len; j++) {
-      $subjects[y[j]].register--;
-      $subjects[y[j]].remaining++;
-    }
+    let confirm = prompt(
+      'กรุณายืนยันการลบรายวิชา(กรอก "ยืนยัน" เพื่อยืนยันการลบรายวิชา)'
+    );
+    if ((confirm = "ยืนยัน")) {
+      let i = 0;
+      let len = x.length;
+      for (; i < len; i++) {
+        $accounts[$account].sub.splice(
+          $accounts[$account].sub.indexOf(x[i]),
+          1
+        );
+      }
+      $accounts[$account].sub = [...new Set($accounts[$account].sub)];
+      let j = 0;
+      len = y.length;
+      for (; j < len; j++) {
+        $subjects[y[j]].register--;
+        $subjects[y[j]].remaining++;
+      }
 
-    $mode = "alladd";
+      $mode = "alladd";
+    }
   }
 </script>
-<box>
-<div><h1>ถอดถอนรายวิชา</h1></div>
 
-<div>
+<box>
+  <div><h1>ถอดถอนรายวิชา</h1></div>
+
+  <div>
     <div id="list">
       <p id="subject">รายวิชา</p>
       <p id="etc">เพิ่มเติม</p>
     </div>
 
-    {#each $subjects as { name, total, register, remaining }, index}
+    {#each $subjects as { name, subject, credit, Teacher }, index}
       {#each $accounts[$account].sub as sub}
         {#if sub == name}
           <div id="content">
             <p id="name">{name}</p>
+            <p id="total">{subject}</p>
+            <p id="register">{credit}</p>
+            {Teacher}
+
             <div>
               <button on:click={() => removesubjects(name, index)}
                 >ถอนรายวิชา</button
               >
-              </div>
             </div>
+          </div>
         {/if}
       {/each}
     {/each}
-</div>
+  </div>
 
-<div>
-  <p id="p1">วิชาที่ต้องการถอน</p>
-  <p id="p2">{x}</p>
-</div>
+  <div>
+    <p id="p1">วิชาที่ต้องการถอน</p>
+    {#each x as name, index}
+      <p id="p2">{name}</p>
+      <button on:click={() => (x = x.filter((_, i) => i != index))}
+        >&#10060;
+      </button>
+      <br />
+    {/each}
+  </div>
 
-<div>
-  <button class="button" on:click={() => confirm(x, y)}
-    >ยืนยันวิชาที่ต้องการถอน</button
-  >
-</div>
+  <div>
+    <button class="button" on:click={() => confirm(x, y)}
+      >ยืนยันวิชาที่ต้องการถอน</button
+    >
+  </div>
 </box>
 
 <div id="bg" />
@@ -132,7 +146,6 @@
     align-items: center;
     color: white;
     font-size: 15px;
-
   }
 
   .button {

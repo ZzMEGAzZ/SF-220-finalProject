@@ -7,37 +7,37 @@
 
   function addsubjects(name, index) {
     if (!(name in $accounts[$account].sub)) {
-      let confirm = prompt(
-        "กรุณายืนยันการขอโควตา(กรอก 'ยืนยัน' เพื่อยืนยันการขอโควตา)"
-      );
-      if (confirm == "ยืนยัน") {
-        x.push(name);
-        x = x;
-        x = Array.from(new Set(x));
-        y.push(index);
-        y = y;
-        y = Array.from(new Set(y));
-      }
+      x.push(name);
+      x = x;
+      x = Array.from(new Set(x));
+      y.push(index);
+      y = y;
+      y = Array.from(new Set(y));
     } else {
       alert("วิชานี้ถูกเพิ่มไปแล้ว");
     }
   }
 
   function confirm(x) {
-    let i = 0;
-    let len = x.length;
-    for (; i < len; i++) {
-      $accounts[$account].sub.push(x[i]);
-      $accounts[$account].sub = [...new Set($accounts[$account].sub)];
-    }
-    let j = 0;
-    len = y.length;
-    for (; j < len; j++) {
-      $subjects[y[j]].register++;
-      $subjects[y[j]].remaining--;
-    }
+    let confirm = prompt(
+      "กรุณายืนยันการขอโควตา(กรอก 'ยืนยัน' เพื่อยืนยันการขอโควตา)"
+    );
+    if ((confirm = "ยืนยัน")) {
+      let i = 0;
+      let len = x.length;
+      for (; i < len; i++) {
+        $accounts[$account].sub.push(x[i]);
+        $accounts[$account].sub = [...new Set($accounts[$account].sub)];
+      }
+      let j = 0;
+      len = y.length;
+      for (; j < len; j++) {
+        $subjects[y[j]].register++;
+        $subjects[y[j]].remaining--;
+      }
 
-    $mode = "alladd";
+      $mode = "alladd";
+    }
   }
 
   var listsub = $accounts[$account].sub;
@@ -52,21 +52,21 @@
 </script>
 
 <box>
-<div>
-  <h1>การขอโควตา</h1>
-</div>
+  <div>
+    <h1>การขอโควตา</h1>
+  </div>
 
-<div>
-  <input
-    type="text"
-    id="search"
-    placeholder="ค้นหารายวิชา"
-    on:input={(e) => (searchname = e.target.value)}
-    on:input={() => (issearch = true)}
-  />
-</div>
+  <div>
+    <input
+      type="text"
+      id="search"
+      placeholder="ค้นหารายวิชา"
+      on:input={(e) => (searchname = e.target.value)}
+      on:input={() => (issearch = true)}
+    />
+  </div>
 
-<div id="headlist">
+  <div id="headlist">
     <div id="content">
       <p />
       <p id="subject">รายวิชา</p>
@@ -92,28 +92,35 @@
             {:else if remaining == 0}
               วิชานี้เต็มแล้ว
             {:else}
-              <button class="glow-on-hover" on:click={addsubjects(name, index)}> เพิ่ม </button>
+              <button class="glow-on-hover" on:click={addsubjects(name, index)}>
+                เพิ่ม
+              </button>
             {/if}
           </div>
         </div>
       {/if}
     {/each}
-</div>
+  </div>
 
-<div>
-  <p id="p1">วิชาที่ต้องการขอโควตา</p>
-  <p id="p2">{x}</p>
-</div>
+  <div>
+    <p id="p1">วิชาที่ต้องการขอโควตา</p>
+    {#each x as name, index}
+      {name}
+      <button on:click={() => (x = x.filter((_, i) => i != index))}
+        >&#10060;
+      </button>
+      <br />
+    {/each}
+  </div>
 
-<div>
-  <button class="button" on:click={() => confirm(x)}>ยืนยันการขอโควตา</button>
-</div>
+  <div>
+    <button class="button" on:click={() => confirm(x)}>ยืนยันการขอโควตา</button>
+  </div>
 </box>
 <div id="bg" />
 
 <style>
-
-#bg {
+  #bg {
     background-image: linear-gradient(
       180deg,
       rgba(17, 34, 49, 1) 4%,
@@ -163,7 +170,7 @@
     border-radius: 20px;
     background-color: rgb(255, 255, 255, 0.5);
   }
-  
+
   .button {
     margin-top: auto;
     padding: 10px 20px;
@@ -194,7 +201,7 @@
     font-weight: bold;
     margin: 12px;
   }
-  input{
+  input {
     text-align: center;
   }
   .glow-on-hover {
