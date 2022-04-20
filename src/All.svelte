@@ -96,10 +96,9 @@
   #bg {
     background-image: linear-gradient(
       180deg,
-      rgba(17, 34, 49, 1) 10%,
-      rgba(30, 71, 112, 1) 22%,
-      rgba(69, 117, 165, 1) 32%,
-      rgba(190, 220, 239, 1) 42%
+      rgb(6, 113, 183) 22%,
+      rgb(103, 163, 217) 32%,
+      rgb(199, 230, 245) 42%
     );
     width: 100%;
     height: 800%;
@@ -112,9 +111,9 @@
   #bg2 {
     background-image: linear-gradient(
       0deg,
-      rgba(17, 34, 49, 1) 10%,
-      rgba(30, 71, 112, 1) 72%,
-      rgba(69, 117, 165, 1) 92%
+      rgb(6, 113, 183) 10%,
+      rgb(103, 163, 217) 72%,
+      rgb(199, 230, 245) 92%
     );
     width: 100%;
     height: 380px;
