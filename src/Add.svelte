@@ -323,9 +323,6 @@
     box-shadow: 0 5px rgb(228, 228, 228);
     transform: translateY(4px);
   }
-  input {
-    text-align: center;
-  }
   .glow-on-hover {
     width: auto;
     height: 42px;

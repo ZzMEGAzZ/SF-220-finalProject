@@ -39,70 +39,123 @@
   }
 </script>
 
+<div id="bg2" />
+<div id="bg" />
 <box>
-  <div><h1>ถอดถอนรายวิชา</h1></div>
+  <div id="sticky">
+    <div id="page-name"><h1>ถอดถอนรายวิชา</h1></div>
 
-  <div>
-    <div id="list">
-      <p id="subject">รายวิชา</p>
-      <p id="etc">เพิ่มเติม</p>
-    </div>
-
+    <table id="head">
+      <tr id="head-list">
+        <td class="half-space" />
+        <th class="sub">รหัสวิชา</th>
+        <td class="space" />
+        <td class="space" />
+        <td class="space" />
+        <th class="name">รายวิชา</th>
+        <td class="half-space" />
+        <td class="space" />
+        <td class="space" />
+        <td class="space" />
+        <td class="space" />
+        <th class="credit">หน่วยกิต</th>
+        <td class="half-space" />
+        <td class="space" />
+        <td class="space" />
+        <th class="teach">อาจารย์ผู้สอน</th>
+      </tr>
+    </table>
+  </div>
+  <table id="content">
     {#each $subjects as { name, subject, credit, Teacher }, index}
       {#each $accounts[$account].sub as sub}
         {#if sub == name}
-          <div id="content">
-            <p id="name">{name}</p>
-            <p id="total">{subject}</p>
-            <p id="register">{credit}</p>
-            {Teacher}
-
-            <div>
+          <tr id="list-content">
+            <td class="half-space" />
+            <td id="sub-name">{name}</td>
+            <td class="space" />
+            <td id="subject">{subject}</td>
+            <td class="space" />
+            <td id="credit">{credit}</td>
+            <td class="space" />
+            <td id="teacher">{Teacher}</td>
+            <td class="space" />
+            <td id="remove">
               <button on:click={() => removesubjects(name, index)}
                 >ถอนรายวิชา</button
               >
-            </div>
-          </div>
+            </td>
+          </tr>
         {/if}
       {/each}
     {/each}
-  </div>
+  </table>
 
-  <div>
-    <p id="p1">วิชาที่ต้องการถอน</p>
-    {#each x as name, index}
-      <p id="p2">{name}</p>
-      <button on:click={() => (x = x.filter((_, i) => i != index))}
-        >&#10060;
-      </button>
-      <br />
-    {/each}
-  </div>
+  <div id="sum">
+    <table id="sum-sub">
+      <th> วิชาที่ต้องการถอน: &nbsp; </th>
+      {#each x as name, index}
+        <td>{name}</td>
+        <td
+          ><button on:click={() => (x = x.filter((_, i) => i != index))}
+            >&#10060;</button
+          ></td
+        >
+        <br />
+      {/each}
+    </table>
 
   <div>
     <button class="button" on:click={() => confirm(x, y)}
       >ยืนยันวิชาที่ต้องการถอน</button
     >
   </div>
+  <bottom />
 </box>
 
-<div id="bg" />
-
 <style>
+  #sticky {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   #bg {
     background-image: linear-gradient(
       180deg,
-      rgba(17, 34, 49, 1) 4%,
-      rgba(30, 71, 112, 1) 32%,
-      rgba(69, 117, 165, 0.8) 72%,
-      rgba(190, 220, 239, 1) 100%
+      rgb(6, 113, 183) 22%,
+      rgb(103, 163, 217) 32%,
+      rgb(199, 230, 245) 42%
     );
     width: 100%;
-    height: 100%;
+    height: 800%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
+  }
+
+  #bg2 {
+    background-image: linear-gradient(
+      0deg,
+      rgb(6, 113, 183) 10%,
+      rgb(103, 163, 217) 72%,
+      rgb(199, 230, 245) 92%
+    );
+    width: 100%;
+    height: 380px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
   }
 
   * {
@@ -120,32 +173,91 @@
     height: auto;
   }
 
-  #content {
+  #head {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 1000px;
+  }
+
+  #head-list {
+    display: flex;
+    justify-content: left;
     align-items: center;
+    flex-direction: row;
     width: 100%;
     height: auto;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-  p#name {
-    font-size: 15px;
-    font-weight: bold;
+    position: relative;
+    top: 0px;
+    margin-top: 60px;
     color: white;
   }
 
-  #list {
+  #content,
+  #sum {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    width: 1000px;
+    height: auto;
+    position: relative;
+    top: 300px;
+    bottom: 0;
+  }
+
+  #sum {
+    margin: 50px;
+    width: 1000px;
+  }
+
+  .half-space {
+    width: 20px;
+  }
+
+  td {
+    width: 40px;
+  }
+
+  #subject {
+    width: 300px;
+  }
+
+  #teacher {
+    width: 300px;
+  }
+
+  #list-content {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0px;
+    margin: 10px;
+
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
     color: white;
-    font-size: 15px;
+    background-color: rgb(255, 255, 255, 0.3);
+  }
+
+  #page-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #page-name h1 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
   }
 
   .button {
@@ -171,13 +283,7 @@
     transform: translateY(4px);
   }
 
-  #p1 {
-    font-weight: bold;
-    margin: 10px;
-  }
-  #p2 {
-    font-weight: bold;
-    margin: 12px;
-    color: white;
+  bottom {
+    margin-bottom: 50px;
   }
 </style>
