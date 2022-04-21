@@ -205,7 +205,7 @@
   #head {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     width: 600px;
   }
