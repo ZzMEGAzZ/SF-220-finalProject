@@ -164,7 +164,7 @@
   #head {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
     width: 1000px;
   }
