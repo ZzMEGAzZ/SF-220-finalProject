@@ -190,7 +190,7 @@
     height: auto;
     position: relative;
     top: 0px;
-    margin-top: 60px;
+    margin-top: 100px;
     color: white;
   }
 
