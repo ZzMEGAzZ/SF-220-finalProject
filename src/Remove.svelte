@@ -43,7 +43,7 @@
 <div id="bg" />
 <box>
   <div id="sticky">
-    <div id="page-name"><h1>ถอดถอนรายวิชา</h1></div>
+    <div id="page-name"><h1>ถอนรายชื่อโควตา</h1></div>
 
     <table id="head">
       <tr id="head-list">

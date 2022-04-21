@@ -53,41 +53,33 @@
 </script>
 
 <div class="title">
-  <h1>รายละเอียดวิชา</h1>
-  <div id="title1">{name}</div>
+  <div id="page-name"><h1>รายละเอียดวิชา</h1></div>
+  <div id="title">{name}</div>
 </div>
 <br />
 {#if !isadmin()}
   <div class="stu_container">
     <div class="All_stu">
       <div class="stu_sub1">
-        วิชา {subject}
+        <b>วิชา {subject}</b>
       </div>
 
       <div class="stu_sub2">
-        หน่วยกิต : {$subjects.find((x) => x.name == name).credit}
+        <b>หน่วยกิต :</b> {$subjects.find((x) => x.name == name).credit} หน่วยกิต &nbsp;
+        <b>จำนวนโควต้าทั้งหมด :</b> {$subjects.find((x) => x.name == name).total} คน &nbsp;
+        <b>จำนวนที่ขอโควตาไปแล้ว :</b> {$subjects.find((x) => x.name == name).register} คน
       </div>
-
       <div class="stu_sub3">
-        จำนวนโควต้าทั้งหมด : {$subjects.find((x) => x.name == name).total}
+      <b>อาจารย์ผู้สอน :</b> {$subjects.find((x) => x.name == name).Teacher}
       </div>
-
-      <div class="stu_sub4">
-        จำนวนที่ขอโควตาไปแล้ว : {$subjects.find((x) => x.name == name).register}
-      </div>
-
-      อาจารย์ผู้สอน : {$subjects.find((x) => x.name == name).Teacher}
 
       <div class="stu_sub5">
-        <div>description</div>
-        :
-        {$subjects.find((x) => x.name == name).description}
+      <b>description :</b> &nbsp; {$subjects.find((x) => x.name == name).description}
       </div>
     </div>
   </div>
 {:else}
   <div class="container">
-    <form>
       <div class="sub1-container">
         วิชา {subject} จำนวนหน่วยกิต :
         <div>
@@ -152,7 +144,6 @@
       <div class="sub5-container">
         <button class="button" on:click={() => change_subject()}>บันทึก</button>
       </div>
-    </form>
   </div>
 {/if}
 
@@ -161,11 +152,10 @@
 <style>
   #bg {
     background-image: linear-gradient(
-      180deg,
-      rgba(17, 34, 49, 1) 4%,
-      rgba(30, 71, 112, 1) 32%,
-      rgba(69, 117, 165, 0.8) 72%,
-      rgba(190, 220, 239, 1) 100%
+      0deg,
+      rgb(6, 113, 183) 22%,
+      rgb(103, 163, 217) 87%,
+      rgb(199, 230, 245) 97%
     );
     width: 100%;
     height: 100%;
@@ -181,10 +171,22 @@
     flex-direction: column;
     align-items: center;
   }
-  #title1 {
-    background-color: white;
+  #title {
     padding: 15px;
     border-radius: 20px;
+    color: white;
+    font-size: 40px;
+  }
+
+  .stu_container .All_stu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 60%;
+    height: auto;
+    font-size: 20px;
+    color: white;
   }
 
   textarea.register {
@@ -235,12 +237,6 @@
     margin-top: 10px;
   }
 
-  form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
-  }
   .button {
     margin-top: auto;
     padding: 10px 20px;
@@ -273,7 +269,7 @@
   }
 
   .All_stu {
-    background-color: white;
+    background-color: rgb(255, 255, 255, 0.3);
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);
     padding: 15px;
     border-radius: 20px;
@@ -281,4 +277,19 @@
   .stu_sub5 {
     display: flex;
   }
+
+  #page-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #page-name h1 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+  }
+
 </style>
