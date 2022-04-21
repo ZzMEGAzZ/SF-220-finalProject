@@ -21,8 +21,10 @@
   }
 </script>
 
-<!--<div id="bg2" />-->
+<div id="bg2" />
 <div id="bg" />
+<box>
+  <div id="sticky">
 
     <div id="page-name"><h1>รายวิชาที่เปิดให้ขอโควตา</h1></div>
 
@@ -35,44 +37,67 @@
         on:input={() => (issearch = true)}
       />
     </div>
-    <table>
-      <tr>
+    <table id="head">
+      <tr id="head-list">
+        <td class="half-space" />
         <th class="num">ลำดับที่</th>
+        <td class="space" />
+        <td class="half-space" />
         <th class="sub">รายวิชา</th>
+        <td class="half-space" />
+        <td class="space" />
         <th class="quo">โควตา</th>
-        <th class="amo">ลงทะเบียนแล้ว</th>
+        <td class="half-space" />
+        <th class="amo">ลงทะเบียน</th>
+        <td class="half-space" />
         <th class="rem">คงเหลือ</th>
+        <td class="space" />
+        <td class="space" />
         <th class="etc">เพิ่มเติม</th>
+        <td class="space" />
       </tr>
+    </table>
+  </div>
+    <table id="content">
 
       {#each $subjects as { name, total, register, remaining, short_description }, index}
         {#if issearch == false || name
             .toLowerCase()
             .includes(searchname.toLowerCase())}
-          <tr>
+          <tr id="list-content">
+            <td class="space" />
             <td id="index">{index + 1}</td>
+            <td class="space" />
             {#if !isadmin()}
-              <td><button on:click={() => description(name)}>{name}</button></td
-              >
+              <td><button class="glow-on-hover" on:click={() => description(name)}>{name}</button></td
+              ><td class="space" />
             {:else}
               <td id="name">{name}</td>
+              <td class="space" />
             {/if}
+            <td class="space" />
             <td id="total">{total}</td>
+            <td class="space" />
             <td id="register">{register}</td>
+            <td class="space" />
             <td id="remaining">{remaining}</td>
+            <td class="space" />
             <td id="shortdes">{short_description}</td>
+            <td class="space" />
             {#if isadmin()}
               <td
                 ><button on:click={() => showliststudents(name)}
                   >รายชื่อนักศึกษา</button
                 ></td
-              >
-              <td><button on:click={() => description(name)}>แก้ไข</button></td>
-            {/if}
+              ><td class="space" />
+              <td><button class="glow-on-hover" on:click={() => description(name)}>แก้ไข</button></td>
+              <td class="space" />
+              {/if}
           </tr>
         {/if}
       {/each}
     </table>
+</box>
 
 
 
@@ -83,6 +108,10 @@
     top: 100px;
     width: 100%;
     z-index: 60;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #bg {
@@ -132,14 +161,25 @@
     height: auto;
   }
 
-  #wrap {
+  #head {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    position: relative;
-    height: auto;
+    flex-direction: column;
+    width: 1000px;
+  }
+
+  #head-list {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
     width: 100%;
+    height: auto;
+    position: relative;
+    top: 0px;
+    margin-top: 30px;
+    color: white;
   }
 
   #content {
@@ -147,10 +187,40 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 1000px;
     height: auto;
     position: relative;
     top: 300px;
+  }
+
+  td#shortdes {
+    width: 300px;
+  }
+
+  .half-space {
+    width: 20px;
+  }
+
+  td {
+    width: 40px;
+  }
+
+  #list-content {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0px;
+    margin: 10px;
+
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.3);
   }
 
   #page-name {
@@ -181,49 +251,9 @@
     font-size: 20px;
     background-color: rgb(255, 255, 255, 0.15);
     padding-left: 10px;
-  }
-
-  #head-list {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 22%;
-    padding-right: 40%;
-
-    color: white;
-  }
-
-  #head-list p {
-    font-size: 15px;
     margin: 10px;
-    text-align: center;
   }
 
-  #list-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    width: auto;
-    height: 50px;
-    color: white;
-    background-color: rgb(255, 255, 255, 0.15);
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    width: 60%;
-  }
-
-  #list-container p {
-    font-size: 20px;
-    text-align: center;
-  }
   .glow-on-hover {
     width: auto;
     height: 42px;
@@ -295,32 +325,5 @@
     100% {
       background-position: 0 0;
     }
-  }
-  .num,
-  .sub,
-  .quo,
-  .amo,
-  .rem,
-  .etc {
-    position: relative;
-  }
-
-  .num {
-    right: 177px;
-  }
-  .sub {
-    right: 178px;
-  }
-  .quo {
-    right: 180px;
-  }
-  .amo {
-    right: 192px;
-  }
-  .rem {
-    right: 208px;
-  }
-  .etc {
-    right: 145px;
   }
 </style>
