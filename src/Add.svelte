@@ -108,7 +108,7 @@
                 วิชานี้เต็มแล้ว
               {:else}
                 <button
-                  class="glow-on-hover"
+                  class="button button1"
                   on:click={addsubjects(name, index)}
                 >
                   เพิ่ม
@@ -133,7 +133,7 @@
     </table>
 
     <div>
-      <button class="button" on:click={() => confirm(x)}
+      <button class="button button1" on:click={() => confirm(x)}
         >ยืนยันการขอโควตา</button
       >
     </div>
@@ -308,93 +308,25 @@
     text-align: center;
     cursor: pointer;
     outline: none;
-    background-color: #d3d3d3;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px rgb(228, 228, 228);
-  }
-
-  .button:hover {
-    background-color: #b5b5b5;
-  }
-
-  .button:active {
-    background-color: #b5b5b5;
-    box-shadow: 0 5px rgb(228, 228, 228);
-    transform: translateY(4px);
-  }
-  .glow-on-hover {
-    width: auto;
-    height: 42px;
-    padding: 10px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: rgba(190, 220, 239, 1) 42%;
+    border-radius: 40px;
+    transition-duration: 0.4s;
     cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .glow-on-hover:before {
-    content: "";
-    background: linear-gradient(
-      180deg,
-      rgba(17, 34, 49, 1) 10%,
-      rgba(30, 71, 112, 1) 22%,
-      rgba(69, 117, 165, 1) 32%,
-      rgba(190, 220, 239, 1) 42%
-    );
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid rgba(69, 117, 165, 1);
   }
 
-  .glow-on-hover:active {
-    color: #000;
+  .button1:hover {
+    background-color: rgb(103, 163, 217);
+    color: white;
   }
-
-  .glow-on-hover:active:after {
-    background: transparent;
-  }
-
-  .glow-on-hover:hover:before {
-    opacity: 1;
-  }
-
-  .glow-on-hover:after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-  }
-
-  @keyframes glowing {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 400% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
+  
 
   bottom {
     margin-bottom: 50px;
