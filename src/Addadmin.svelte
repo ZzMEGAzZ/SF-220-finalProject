@@ -221,7 +221,7 @@
           />
         </div>
         <div class="sub-8">
-          <button class="button" on:click={() => show_results()}
+          <button class="button button1" on:click={() => show_results()}
             >ยืนยันวิชาที่ต้องการเพิ่ม</button
           >
         </div>
@@ -349,20 +349,23 @@
     text-align: center;
     cursor: pointer;
     outline: none;
-    background-color: #d3d3d3;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px rgb(228, 228, 228);
+    border-radius: 40px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .button:hover {
-    background-color: #b5b5b5;
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid rgba(69, 117, 165, 1);
   }
 
-  .button:active {
-    background-color: #b5b5b5;
-    box-shadow: 0 5px rgb(228, 228, 228);
-    transform: translateY(4px);
+  .button1:hover {
+    background-color: rgb(103, 163, 217);
+    color: white;
   }
   table,
   td,
