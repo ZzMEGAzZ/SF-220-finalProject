@@ -13,12 +13,14 @@
     if (
       (newcredit < 0 || newcredit > 3 || newcredit == "") &&
       (newtotal < 1 || newtotal > 100 || newtotal == "") &&
-      (newname == "" || newname.length < 5)
+      (newname == "" || newname.length < 5) 
     ) {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("name-sub").style.display = "block";
+    } else if (newsubject = "") {
+      alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
     } else if (
       (newcredit < 0 || newcredit > 3 || newcredit == "") &&
       (newtotal < 1 || newtotal > 100 || newtotal == "")
