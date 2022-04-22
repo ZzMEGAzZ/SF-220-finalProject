@@ -86,7 +86,7 @@
             <td class="space" />
             {#if isadmin()}
               <td
-                ><button on:click={() => showliststudents(name)}
+                ><button class="glow-on-hover" on:click={() => showliststudents(name)}
                   >รายชื่อนักศึกษา</button
                 ></td
               ><td class="space" />
