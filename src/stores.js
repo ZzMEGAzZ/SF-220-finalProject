@@ -23,7 +23,7 @@ const default_data = {
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
   mek: {
-    name: "อภิสิทธิ์ แสงกระจ่าง",
+    name: "นายอภิสิทธิ์ แสงกระจ่าง",
     password: "mek",
     id: 6410742016,
     role: "student",
