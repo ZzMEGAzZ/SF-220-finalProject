@@ -1,7 +1,16 @@
 import { writable } from "svelte/store";
 import { persistStore } from "./persistStore";
-
 const default_data = {
+  admin: {
+    name: "aadministrator",
+    password: "admin",
+    id: 6410700000,
+    role: "admin",
+    group: "วิศวกรรมศาสตร์",
+    year: "2564",
+    sub: [],
+    image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  },
   test: {
     name: "นายภาณุวัฒน์ มั่งคั่ง",
     password: "test",
@@ -14,9 +23,9 @@ const default_data = {
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
   mek: {
-    name: "นายอภิสิทธิ์ แสงกระจ่าง",
+    name: "aadministrator",
     password: "mek",
-    id: 6410742016,
+    id: 6410700000,
     role: "student",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
@@ -27,7 +36,7 @@ const default_data = {
     name: "นางสาวศศิภา บุญอุ้มชู",
     password: "$",
     id: 6410742511,
-    role: "student",
+    role: "admin",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
@@ -37,7 +46,7 @@ const default_data = {
     name: "นางสาวณพัชสินี พวงบุบผา",
     password: "e",
     id: 6410742354,
-    role: "student",
+    role: "admin",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
@@ -54,16 +63,7 @@ const default_data = {
     sub: [],
     image: "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
   },
-  admin: {
-    name: "administrator",
-    password: "admin",
-    id: 6410700000,
-    role: "admin",
-    group: "วิศวกรรมศาสตร์",
-    image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
-  }
 };
-
 const data = [
   {
     name: "SF210",
@@ -146,7 +146,6 @@ const data = [
       "จัดสอนโดย Prof. Kriengkrai Sakulprasertsri สำหรับนักศึกษา Software Engineer ที่มีคะเเนน o-net ตามเกณฑ์",
   },
 ];
-
 export const accounts = persistStore("accounts", default_data);
 export const subjects = persistStore("subjects", data);
 export const islogin = persistStore("islogin", false);
