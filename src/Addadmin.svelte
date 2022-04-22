@@ -230,10 +230,10 @@
       </tbody>
     </table>
     <div class="flex-btn">
-      <button class="button" on:click={() => confirm()}
+      <button class="button button1" on:click={() => confirm()}
         >ยืนยันวิชาที่ต้องการเพิ่ม</button
       >
-      <button class="button" on:click={() => back()}>ย้อนกลับ</button>
+      <button class="button button1" on:click={() => back()}>ย้อนกลับ</button>
     </div>
   </div>
 {/if}
