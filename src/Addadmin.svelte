@@ -19,7 +19,7 @@
       document.getElementById("total-sub").style.display = "block";
       document.getElementById("credit-sub").style.display = "block";
       document.getElementById("name-sub").style.display = "block";
-    } else if (newsubject = "") {
+    } else if (newsubject == "") {
       alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
     } else if (
       (newcredit < 0 || newcredit > 3 || newcredit == "") &&
