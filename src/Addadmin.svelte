@@ -101,7 +101,7 @@
   }
 </script>
 
-<h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1>
+<div id="page-name"><h1>รายละเอียดวิชาที่ต้องการเพิ่ม</h1></div>
 
 {#if showmode == true}
   <div id="container">
@@ -219,13 +219,13 @@
       </thead>
       <tbody>
         <tr>
-          <td>{newname}</td>
-          <td>{newsubject}</td>
-          <td>{newtotal}</td>
-          <td>{newcredit}</td>
-          <td>{newTeacher}</td>
-          <td>{newshort_description}</td>
-          <td id="new-des">{newdescription}</td>
+          <td><p id="new-name">{newname}</td>
+          <td><p id="new-sub">{newsubject}</td>
+          <td><p id="new-total">{newtotal}</td>
+          <td><p id="new-cre">{newcredit}</td>
+          <td><p id="new-teacher">{newTeacher}</td>
+          <td><p id="new-sdes">{newshort_description}</td>
+          <td ><p id="new-des">{newdescription}</p></td>
         </tr>
       </tbody>
     </table>
@@ -256,6 +256,20 @@
     z-index: -1;
   }
 
+  #page-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #page-name h1 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+  }
+
   p#name-sub, p#total-sub, p#credit-sub ,p#sub-sub {
     font-size: 10px;
     color: tomato;
@@ -275,6 +289,9 @@
     display: flex;
     justify-content: center;
     margin-top: 10%;
+    color: white;
+    flex-direction: column;
+    align-items: center;
   }
 
   div#container {
@@ -296,8 +313,7 @@
 
   .flex-btn {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
     margin-left: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -305,7 +321,7 @@
   }
 
   .button {
-    margin-top: auto;
+    margin: 10px;
     padding: 10px 20px;
     font-size: 15px;
     text-align: center;
@@ -336,14 +352,27 @@
     text-align: center;
   }
 
-  td#new-des {
+  #new-sub,#new-teacher,#new-sdes {
+    width: 100px;
+    word-wrap: break-word;
+    text-align: left;
+  }
+
+  #new-name,#new-total,#new-cre {
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  #new-des {
     width: 300px;
+    word-wrap: break-word;
+    text-align: left;
   }
 
   table {
     border-collapse: collapse;
 
-    background-color: #c7d0d8;
+    background-color: rgb(255,255,255, 0.3);
 
     padding: 10px;
     text-align: center;
@@ -356,7 +385,8 @@
   td {
     padding: 10px;
     border-bottom: 1px dashed grey;
-    background-color: white;
+    background-color: rgb(255,255,255, 0.3);
+
     height: 50px;
   }
   tr:nth-last-child(-n + 1) {

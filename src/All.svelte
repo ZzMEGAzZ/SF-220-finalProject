@@ -69,7 +69,7 @@
             <td id="index">{index + 1}</td>
             <td class="space" />
             {#if !isadmin()}
-              <td><button class="button button1" on:click={() => description(name)}>{name}</button></td
+              <td><button class="button buttonsub" on:click={() => description(name)}>{name}</button></td
               ><td class="space" />
             {:else}
               <td id="name">{name}</td>
@@ -272,6 +272,20 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     margin: auto;
   }
+  .buttonsub {
+      margin-top: auto;
+      padding: 10px 10px;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      border-radius: 40px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      margin: auto;
+    }
 
   .button2 {
     margin-top: auto;
@@ -294,7 +308,7 @@
     border: 2px solid rgba(69, 117, 165, 1);
   }
 
-  .button1:hover, .button2:hover {
+  .button1:hover, .button2:hover, .buttonsub:hover {
     background-color: rgb(103, 163, 217);
     color: white;
   }
