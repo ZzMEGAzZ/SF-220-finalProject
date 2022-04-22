@@ -81,7 +81,7 @@
             <td id="teacher">{Teacher}</td>
             <td class="space" />
             <td id="remove">
-              <button on:click={() => removesubjects(name, index)}
+              <button class="button button1" on:click={() => removesubjects(name, index)}
                 >ถอนรายวิชา</button
               >
             </td>
@@ -97,7 +97,7 @@
       {#each x as name, index}
         <td id="result-sub">{name}</td>
         <td
-          ><button on:click={() => (x = x.filter((_, i) => i != index))}
+          ><button class="button button1" on:click={() => (x = x.filter((_, i) => i != index))}
             >&#10060;</button
           ></td
         >
