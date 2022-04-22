@@ -268,11 +268,10 @@
 <style>
   #bg {
     background-image: linear-gradient(
-      180deg,
-      rgba(17, 34, 49, 1) 4%,
-      rgba(30, 71, 112, 1) 32%,
-      rgba(69, 117, 165, 0.8) 72%,
-      rgba(190, 220, 239, 1) 100%
+      0deg,
+      rgb(6, 113, 183) 22%,
+      rgb(103, 163, 217) 87%,
+      rgb(199, 230, 245) 97%
     );
     width: 100%;
     height: 100%;
@@ -282,21 +281,21 @@
     z-index: -1;
   }
 
-  p {
+  p#name-sub, p#total-sub, p#credit-sub {
     font-size: 10px;
     color: tomato;
   }
 
   #name-sub {
-    display: none;
+    display: block;
   }
 
   #total-sub {
-    display: none;
+    display: block;
   }
 
   #credit-sub {
-    display: none;
+    display: block;
   }
 
   textarea {
@@ -325,7 +324,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(255,255,255,0.3);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 10px 30px 5px rgba(87, 85, 101, 0.5);

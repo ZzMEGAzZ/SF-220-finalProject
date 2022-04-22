@@ -24,7 +24,24 @@
     let new_short_description =
       document.getElementById("short_description").value;
     let new_teacher = document.getElementById("Teacher").value;
-    if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
+    if (
+      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
+      (newtotal < mintotal || newtotal > 100 || newtotal == "")
+    ) {
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
+      document.getElementById("total-sub").style.display = "block";
+      document.getElementById("credit-sub").style.display = "block";
+    } else if (newtotal < 1 || newtotal > 100 || newtotal == "") {
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
+      document.getElementById("total-sub").style.display = "block";
+      document.getElementById("credit-sub").style.display = "none";
+    } else if (
+      (newcredit < 0 || newcredit > 3 || newcredit == "")
+    ) {
+      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
+      document.getElementById("total-sub").style.display = "none";
+      document.getElementById("credit-sub").style.display = "block";
+    } else if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
       alert("กรุณากรอกเป็นจำนวนเต็ม");
     } else if (
       newcredit >= 0 &&
@@ -33,6 +50,8 @@
       newtotal <= 100 &&
       newtotal >= $subjects.find((x) => x.name == name).register
     ) {
+      document.getElementById("total-sub").style.display = "none";
+      document.getElementById("credit-sub").style.display = "none";
       $subjects.find((x) => x.name == name).credit = Math.ceil(newcredit);
       $subjects.find((x) => x.name == name).total = Math.ceil(newtotal);
       $subjects.find((x) => x.name == name).description = newdescription;
@@ -44,10 +63,10 @@
 
       $mode = "allsubjects";
       alert("บันทึก");
-    } else if (newtotal < $subjects.find((x) => x.name == name).register) {
-      alert("จำนวนผู้ขอโควตาเกินกว่าค่าที่แก้");
     } else {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
+      document.getElementById("total-sub").style.display = "none";
+      document.getElementById("credit-sub").style.display = "none";
     }
   }
 </script>
@@ -79,6 +98,7 @@
     </div>
   </div>
 {:else}
+<box>
   <div class="container">
       <div class="sub1-container">
         วิชา {subject} จำนวนหน่วยกิต :
@@ -91,7 +111,7 @@
             value={$subjects.find((x) => x.name == name).credit}
           />
         </div>
-        (0-3)
+        (0-3) <p id="credit-sub">&nbsp; *ขั้นต่ำ 0 หน่วย <br /> ไม่เกิน 3 หน่วย</p>
       </div>
 
       <div class="sub2-container">
@@ -105,7 +125,7 @@
             value={$subjects.find((x) => x.name == name).total}
           />
         </div>
-        ({mintotal} - 100)
+        ({mintotal} - 100) <p id="total-sub">&nbsp; *ขั้นต่ำ {mintotal} คน <br /> ไม่เกิน 100 คน</p>
         <br />
       </div>
       <div class="sub3-container">
@@ -114,14 +134,16 @@
           >{$subjects.find((x) => x.name == name).register}</textarea
         > <br />
       </div>
-      อาจารย์ผู้สอน :
+      <div class="sub4-container">
+        อาจารย์ผู้สอน :
       <input
         type="text"
         id="Teacher"
         value={$subjects.find((x) => x.name == name).Teacher}
       />
-      <div class="sub6-container">
-        description :
+      </div>
+      <div class="sub5-container">
+        รายละเอียดวิชา :
         <textarea
           type="text"
           id="description"
@@ -131,8 +153,8 @@
         />
       </div>
 
-      <div class="sub4-container">
-        short description : <br />
+      <div class="sub6-container">
+        หมายเหตุ : <br />
         <input
           type="text"
           id="short_description"
@@ -141,10 +163,11 @@
         />
       </div>
 
-      <div class="sub5-container">
+      <div class="sub7-container">
         <button class="button" on:click={() => change_subject()}>บันทึก</button>
       </div>
   </div>
+</box>
 {/if}
 
 <div id="bg" />
@@ -163,6 +186,28 @@
     top: 0;
     left: 0;
     z-index: -1;
+  }
+
+  p#total-sub, p#credit-sub {
+    font-size: 10px;
+    color: tomato;
+  }
+
+  #total-sub {
+    display: none;
+  }
+
+  #credit-sub {
+    display: none;
+  }
+
+  box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
   }
 
   div.title {
@@ -210,6 +255,12 @@
   div.container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 20px;
   }
   .sub1-container,
   .sub2-container,
@@ -219,7 +270,6 @@
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: left;
   }
 
   .sub5-container {
@@ -235,6 +285,14 @@
 
   .sub3-container {
     margin-top: 10px;
+  }
+
+  .sub7-container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .button {
