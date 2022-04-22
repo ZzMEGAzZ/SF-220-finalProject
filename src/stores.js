@@ -57,7 +57,7 @@ const default_data = {
   admin: {
     name: "administrator",
     password: "admin",
-    id: 64107xxxx,
+    id: 641070000,
     role: "admin",
     group: "วิศวกรรมศาสตร์",
     image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
