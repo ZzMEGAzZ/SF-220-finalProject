@@ -120,9 +120,9 @@
     </table>
   <div id="sum">
     <table id="sum-sub">
-      <th> วิชาที่ต้องการขอโควตา: &nbsp; </th>
+      <th id="head-result"> วิชาที่ต้องการขอโควตา: &nbsp; </th>
       {#each x as name, index}
-        <td>{name}</td>
+        <td id="result-sub">{name}</td>
         <td
           ><button on:click={() => (x = x.filter((_, i) => i != index))}
             >&#10060;</button
@@ -220,6 +220,14 @@
     position: relative;
     top: 0px;
     margin-top: 30px;
+    color: white;
+  }
+
+  #result-sub {
+    color: white;
+  }
+
+  #head-result {
     color: white;
   }
 
