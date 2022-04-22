@@ -19,10 +19,10 @@
   }
 
   function confirm(x) {
-    let enter = prompt(
+    let confirm = prompt(
       "กรุณายืนยันการขอโควตา(กรอก 'ยืนยัน' เพื่อยืนยันการขอโควตา)"
     );
-    if ((enter = "ยืนยัน")) {
+    if (confirm == "ยืนยัน") {
       let i = 0;
       let len = x.length;
       for (; i < len; i++) {
