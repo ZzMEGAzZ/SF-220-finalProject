@@ -10,75 +10,48 @@
   import { subjects, accounts, account, mode } from "./stores.js";
 
   function show_results() {
-    if (
-      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
-      (newtotal < 1 || newtotal > 100 || newtotal == "") &&
-      (newname == "" || newname.length < 5) 
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "block";
-      document.getElementById("name-sub").style.display = "block";
-    } else if (newsubject == "") {
-      alert("กรุณากรอกรายละเอียดให้ครบถ้วน");
-    } else if (
-      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
-      (newtotal < 1 || newtotal > 100 || newtotal == "")
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "block";
-      document.getElementById("name-sub").style.display = "none";
-    } else if (
-      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
-      (newname == "" || newname.length < 5)
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "none";
-      document.getElementById("credit-sub").style.display = "block";
-      document.getElementById("name-sub").style.display = "block";
-    } else if (
-      (newtotal < 1 || newtotal > 100 || newtotal == "") &&
-      (newname == "" || newname.length < 5)
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "none";
-      document.getElementById("name-sub").style.display = "block";
-    } else if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
-      alert("กรุณากรอกเป็นจำนวนเต็ม");
-    } else if (newname == "" || newname.length < 5) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("name-sub").style.display = "block";
-      document.getElementById("total-sub").style.display = "none";
-      document.getElementById("credit-sub").style.display = "none";
-    } else if (newcredit < 0 || newcredit > 3 || newcredit == "") {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("credit-sub").style.display = "block";
-      document.getElementById("total-sub").style.display = "none";
-      document.getElementById("name-sub").style.display = "none";
-    } else if (newtotal < 1 || newtotal > 100 || newtotal == "") {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "none";
-      document.getElementById("name-sub").style.display = "none";
-    } else if (
-      newcredit >= 0 &&
-      newtotal >= 1 &&
-      newcredit <= 3 &&
-      newtotal <= 100
-    ) {
+    if ((newcredit >= 0 && newcredit <= 3 && newcredit != "") && 
+    (newtotal >= 1 && newtotal <= 100 && newtotal != "") && 
+    (newsubject != "") && 
+    (newname != "" && newname.length == 5)) {
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
       document.getElementById("name-sub").style.display = "none";
+      document.getElementById("sub-sub").style.display = "none";
       document.getElementById("model").style.display = "none";
       showmode = false;
     } else {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "none";
-      document.getElementById("credit-sub").style.display = "none";
+      
+      if (newname == "" || newname == null || newname.length < 5) {
+      document.getElementById("name-sub").style.display = "block";
+    } else {
       document.getElementById("name-sub").style.display = "none";
     }
+
+    if (newsubject == "" || newsubject == null ) {
+      document.getElementById("sub-sub").style.display = "block";
+    } else {
+      document.getElementById("sub-sub").style.display = "none";
+    }
+
+    if (newcredit == "" || newcredit == null  || newcredit < 0 || newcredit > 3) {
+      document.getElementById("credit-sub").style.display = "block";
+    } else {
+      document.getElementById("credit-sub").style.display = "none";
+    }
+
+    if (newtotal == "" || newtotal == null || newtotal < 1 || newtotal > 100) {
+      document.getElementById("total-sub").style.display = "block";
+    } else {
+      document.getElementById("total-sub").style.display = "none";
+    }
+    
+    if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
+      alert("กรุณากรอกเป็นจำนวนเต็ม");
+    }
+  }
+
     for (let i = 0; i < $subjects.length; i++) {
       if ($subjects[i].name == newname) {
         alert("มีรายวิชาดังกล่าวแล้ว");
@@ -149,7 +122,7 @@
             />
           </div>
           <div class="sub-2">
-            ชื่อวิชา:<input
+            ชื่อวิชา: <p id="sub-sub">*กรุณาใส่ชื่อวิชา</p> <input
               id="subject"
               type="text"
               maxlength="30"
@@ -252,7 +225,7 @@
           <td>{newcredit}</td>
           <td>{newTeacher}</td>
           <td>{newshort_description}</td>
-          <td>{newdescription}</td>
+          <td id="new-des">{newdescription}</td>
         </tr>
       </tbody>
     </table>
@@ -283,20 +256,9 @@
     z-index: -1;
   }
 
-  p#name-sub, p#total-sub, p#credit-sub {
+  p#name-sub, p#total-sub, p#credit-sub ,p#sub-sub {
     font-size: 10px;
     color: tomato;
-  }
-
-  #name-sub {
-    display: block;
-  }
-
-  #total-sub {
-    display: block;
-  }
-
-  #credit-sub {
     display: block;
   }
 
@@ -373,6 +335,11 @@
     border: 1px solid #ddd;
     text-align: center;
   }
+
+  td#new-des {
+    width: 300px;
+  }
+
   table {
     border-collapse: collapse;
 

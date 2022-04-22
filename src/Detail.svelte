@@ -24,32 +24,9 @@
     let new_short_description =
       document.getElementById("short_description").value;
     let new_teacher = document.getElementById("Teacher").value;
-    if (
-      (newcredit < 0 || newcredit > 3 || newcredit == "") &&
-      (newtotal < mintotal || newtotal > 100 || newtotal == "")
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "block";
-    } else if (newtotal < 1 || newtotal > 100 || newtotal == "") {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "block";
-      document.getElementById("credit-sub").style.display = "none";
-    } else if (
-      (newcredit < 0 || newcredit > 3 || newcredit == "")
-    ) {
-      alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "none";
-      document.getElementById("credit-sub").style.display = "block";
-    } else if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
-      alert("กรุณากรอกเป็นจำนวนเต็ม");
-    } else if (
-      newcredit >= 0 &&
-      newtotal >= 1 &&
-      newcredit <= 3 &&
-      newtotal <= 100 &&
-      newtotal >= $subjects.find((x) => x.name == name).register
-    ) {
+
+    if ((newcredit >= 0 && newcredit <= 3 && newcredit != "") && 
+    (newtotal >= 1 && newtotal <= 100 && newtotal != "" && newtotal >= mintotal)) {
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
       $subjects.find((x) => x.name == name).credit = Math.ceil(newcredit);
@@ -65,9 +42,23 @@
       alert("บันทึก");
     } else {
       alert("กรุณากรอกรายละเอียดให้ถูกต้อง");
-      document.getElementById("total-sub").style.display = "none";
+
+    if (newcredit == "" || newcredit == null  || newcredit < 0 || newcredit > 3) {
+      document.getElementById("credit-sub").style.display = "block";
+    } else {
       document.getElementById("credit-sub").style.display = "none";
     }
+
+    if (newtotal == "" || newtotal == null || newtotal < 1 || newtotal > 100) {
+      document.getElementById("total-sub").style.display = "block";
+    } else {
+      document.getElementById("total-sub").style.display = "none";
+    }
+    
+    if (!Number.isInteger(+newtotal) || !Number.isInteger(+newcredit)) {
+      alert("กรุณากรอกเป็นจำนวนเต็ม");
+    }
+  }
   }
 </script>
 
