@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import { persistStore } from "./persistStore";
 const default_data = {
   admin: {
-    name: "aadministrator",
+    name: "administrator",
     password: "admin",
     id: 6410700000,
     role: "admin",
@@ -23,7 +23,7 @@ const default_data = {
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
   mek: {
-    name: "aadministrator",
+    name: "อภิสิทธิ์ แสงกระจ่าง",
     password: "mek",
     id: 6410700000,
     role: "student",
