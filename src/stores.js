@@ -13,11 +13,11 @@ const default_data = {
     image:
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
-  admin: {
+  mek: {
     name: "นายอภิสิทธิ์ แสงกระจ่าง",
-    password: "admin",
+    password: "mek",
     id: 6410742016,
-    role: "admin",
+    role: "student",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
     sub: [],
@@ -54,6 +54,14 @@ const default_data = {
     sub: [],
     image: "https://media.discordapp.net/attachments/952656330546614334/965273780169605191/4CB7BF95-D023-4AE1-BE7E-B7E5061B4E81.jpg?width=410&height=410",
   },
+  admin: {
+    name: "administrator",
+    password: "admin",
+    id: 64107xxxx,
+    role: "admin",
+    group: "วิศวกรรมศาสตร์",
+    image: "https://i1.sndcdn.com/avatars-000600452151-38sfei-t500x500.jpg",
+  }
 };
 
 const data = [
