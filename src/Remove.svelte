@@ -14,10 +14,10 @@
   }
 
   function confirm(x, y) {
-    let confirm = prompt(
+    let enter = prompt(
       'กรุณายืนยันการลบรายวิชา(กรอก "ยืนยัน" เพื่อยืนยันการลบรายวิชา)'
     );
-    if ((confirm = "ยืนยัน")) {
+    if ((enter = "ยืนยัน")) {
       let i = 0;
       let len = x.length;
       for (; i < len; i++) {
