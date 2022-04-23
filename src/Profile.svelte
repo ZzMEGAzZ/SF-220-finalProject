@@ -102,5 +102,6 @@
     border-radius:40px;
     width: 540px;
     height: 294px;
+    color: white;
   }
 </style>

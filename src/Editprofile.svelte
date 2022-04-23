@@ -145,6 +145,7 @@
   }
   h1 {
     margin-top: 30px;
+    color: white;
   }
 
   button {
@@ -187,5 +188,6 @@
     width: 530px;
     height: 280px;
     border-radius:40px;
+    color: white;
   }
 </style>
