@@ -82,7 +82,7 @@
             <td class="space" />
             <td id="remove">
               <button class="button button1" on:click={() => removesubjects(name, index)}
-                >ถอนรายวิชา</button
+                >ถอนโควตา</button
               >
             </td>
           </tr>
@@ -97,7 +97,7 @@
       {#each x as name, index}
         <td id="result-sub">{name}</td>
         <td
-          ><button class="button button1" on:click={() => (x = x.filter((_, i) => i != index))}
+          ><button on:click={() => (x = x.filter((_, i) => i != index))}
             >&#10060;</button
           ></td
         >
@@ -106,7 +106,7 @@
     </table>
 
   <div>
-    <button class="button button1" on:click={() => confirm(x, y)}
+    <button class="button button2" on:click={() => confirm(x, y)}
       >ยืนยันวิชาที่ต้องการถอน</button
     >
   </div>
@@ -268,9 +268,10 @@
     font-size: 60px;
   }
 
-  .button {
+  .button1 {
+    width: 130px;
     margin-top: auto;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 15px;
     text-align: center;
     cursor: pointer;
@@ -283,13 +284,29 @@
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .button1 {
+  .button2 {
+    width: 200px;
+    margin-top: auto;
+    padding: 10px 10px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .button1, .button2 {
     background-color: white;
     color: black;
     border: 2px solid rgba(69, 117, 165, 1);
   }
 
-  .button1:hover {
+  .button1:hover, .button2:hover {
     background-color: rgb(103, 163, 217);
     color: white;
   }
