@@ -84,7 +84,7 @@
       </div>
 
       <div class="stu_sub5">
-      <b>description :</b> &nbsp; {$subjects.find((x) => x.name == name).description}
+      <b>description :</b> &nbsp; <p id="description">{$subjects.find((x) => x.name == name).description}</p>
       </div>
     </div>
   </div>
@@ -219,7 +219,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 60%;
+    width: 900px;
     height: auto;
     font-size: 20px;
     color: white;
@@ -241,6 +241,13 @@
     max-width: 300px;
     max-height: 250px;
     margin-left: 20px;
+  }
+
+  #description {
+    margin: 0px;
+    width: 700px;
+    word-wrap: break-word;
+    text-align: left;
   }
 
   div.container {

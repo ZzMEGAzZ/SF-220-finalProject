@@ -70,7 +70,7 @@
         register: 0,
         remaining: newtotal,
         credit: Math.ceil(newcredit),
-        teacher: newTeacher,
+        Teacher: newTeacher,
         short_description: newshort_description,
         description: newdescription,
       });
