@@ -26,7 +26,7 @@
     let new_teacher = document.getElementById("Teacher").value;
 
     if ((newcredit >= 0 && newcredit <= 3 && newcredit != "") && 
-    (newtotal >= 1 && newtotal <= 100 && newtotal != "" && newtotal >= mintotal)) {
+    (newtotal >= mintotal && newtotal <= 100 && newtotal != "" && newtotal >= mintotal)) {
       document.getElementById("total-sub").style.display = "none";
       document.getElementById("credit-sub").style.display = "none";
       $subjects.find((x) => x.name == name).credit = Math.ceil(newcredit);
@@ -49,7 +49,7 @@
       document.getElementById("credit-sub").style.display = "none";
     }
 
-    if (newtotal == "" || newtotal == null || newtotal < 1 || newtotal > 100) {
+    if (newtotal == "" || newtotal == null || newtotal < mintotal || newtotal > 100) {
       document.getElementById("total-sub").style.display = "block";
     } else {
       document.getElementById("total-sub").style.display = "none";
