@@ -69,7 +69,7 @@ const data = [
     name: "SF210",
     subject: "Programming Skill Development 1",
     total: 3,
-    register: 0,
+    register: 1,
     remaining: 3,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
