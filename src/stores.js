@@ -18,7 +18,7 @@ const default_data = {
     role: "student",
     group: "วิศวกรรมศาสตร์",
     year: "2564",
-    sub: ["SF210"],
+    sub: [],
     image:
       "https://s.isanook.com/ca/0/ui/279/1396205/s__152616986_1562561122.jpg",
   },
@@ -69,7 +69,7 @@ const data = [
     name: "SF210",
     subject: "Programming Skill Development 1",
     total: 3,
-    register: 1,
+    register: 0,
     remaining: 3,
     credit: 3,
     Teacher: "Weerachai anotaipaiboon",
